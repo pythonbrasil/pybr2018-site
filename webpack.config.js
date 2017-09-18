@@ -10,7 +10,11 @@ module.exports = {
     filename: 'bundle.js', 
     path: path.resolve(__dirname, 'dist'),
   },
-  resolve: {},
+  resolve: {
+    alias: {
+      'scss': path.resolve(__dirname, 'src/scss'),
+    }
+  },
   devtool: 'source-map',
   module: {
     rules: [
@@ -33,21 +37,31 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract(['css-loader?sourceMap', 'postcss-loader?sourceMap=inline', 'sass-loader?sourceMap'])
+        loader: ExtractTextPlugin.extract([
+          'css-loader?sourceMap',
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: () => [require('autoprefixer')],
+              sourceMap: 'inline',
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: [path.resolve(__dirname, 'node_modules')],
+              sourceMap: true
+            }
+          }
+        ]),
       }
     ]
   },
   plugins: [
+    new ExtractTextPlugin('styles.css'),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/index.html'
-    }),
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        postcss: [
-          autoprefixer(),
-        ]
-      }
     })
   ]
 }

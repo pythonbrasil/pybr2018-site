@@ -9,7 +9,21 @@ const resolve = config.resolve;
 const rules = config.module.rules;
 rules.find(
   rule => String(rule.test) === String(/\.scss$/)
-).loader = ExtractTextPlugin.extract(['css-loader?minimize', 'postcss-loader', 'sass-loader'])
+).loader = ExtractTextPlugin.extract([
+  'css-loader?minimize',
+  {
+    loader: 'postcss-loader',
+    options: {
+      plugins: () => [require('autoprefixer')],
+    }
+  },
+  {
+    loader: 'sass-loader',
+    options: {
+      includePaths: [path.resolve(__dirname, 'node_modules')],
+    }
+  }
+])
 
 module.exports = {
   entry: config.entry,
@@ -20,6 +34,7 @@ module.exports = {
     rules: rules
   },
   plugins: [
+    new ExtractTextPlugin("styles.css"),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/index.html'
@@ -31,12 +46,5 @@ module.exports = {
      new webpack.optimize.UglifyJsPlugin({
       sourceMap: devtool && (devtool.indexOf('sourcemap') >= 0 || devtool.indexOf('source-map') >= 0)
     }),
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        postcss: [
-          autoprefixer(),
-        ]
-      }
-    })
   ]
 }
