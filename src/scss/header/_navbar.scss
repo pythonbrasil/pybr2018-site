@@ -1,0 +1,30 @@
+.header {
+  width: 100%;
+}
+
+.header__nav {
+  height: 100px;
+  background: $dark-blue;
+  @extend .d-flex;
+  @extend .align-items-center;
+  .nav__items {
+    @extend .container;
+    @extend .d-flex;
+    @extend .justify-content-around;
+    padding: 0px;
+    margin: 0 auto;
+    .nav__item {
+      list-style: none;
+      padding: 0px 9px;
+      .nav__anchor {
+        font-size: 24px;
+        font-weight: 500;
+        color: white;
+        text-decoration: none;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
