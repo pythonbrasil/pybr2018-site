@@ -1,0 +1,16 @@
+{
+  "name": "python-brasil-2018",
+  "version": "1.0.0",
+  "description": "Python Brasil 2018 website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/evolux/site-python-brasil-2018.git"
+  },
+  "author": "Evolux",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/evolux/site-python-brasil-2018#readme"
+}
