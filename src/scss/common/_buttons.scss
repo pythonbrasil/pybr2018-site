@@ -7,7 +7,7 @@
   color: white;
   background-color: $background-dark;
   text-decoration: none;
-  &:hover {
+  &:hover, &:active, &:focus {
     text-decoration: none;
     color: white;
   }
@@ -31,6 +31,16 @@
   @extend .d-flex;
   @extend .justify-content-center;
   @extend .align-items-center;
+
+  &--dark {
+    @extend .pybr-button-large;
+    background-color: $dark-blue;
+  }
+
+  &--light {
+    @extend .pybr-button-large;
+    background-color: $python-yellow;
+  }
 
   height: 140px;
 }
