@@ -1,3 +1,23 @@
+@mixin infinite-line($side: 'left', $color: $python-yellow) {
+  &:after {
+    content: '';
+    position: absolute;
+    height: 4px;
+    background-color: $color;
+    width: 100vw;
+    bottom: 0px;
+    transform-origin: center left;
+    @if $side == 'left' {
+      left: 0px;
+      transform: translate(-100%, 100%);
+
+    } @else {
+      right: 0px;
+      transform: translate(100%, 100%);
+    }
+  }
+}
+
 .section-title {
   font-family: 'Advent Pro', sans-serif;
   font-size: 70px;
@@ -7,8 +27,15 @@
   color: $dark-blue;
   border-bottom: solid 4px $python-yellow;
   margin-bottom: 20px;
-  &--negative {
+  &--left {
     @extend .section-title;
-    border-bottom-color: white;
+    position: relative;
+    @include infinite-line('left', $python-yellow);
+  }
+
+  &--right {
+    @extend .section-title;
+    position: relative;
+    @include infinite-line('right', $python-yellow);
   }
 }

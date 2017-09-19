@@ -26,6 +26,22 @@
         &__body {
           @extend .article__body;
         }
+        &__section-title {
+          @extend .section-title;
+          border-bottom-color: white;
+          &--left {
+            @extend .section-title;
+            border-bottom-color: white;
+            position: relative;
+            @include infinite-line('left', white)
+          }
+          &--right {
+            @extend .section-title;
+            border-bottom-color: white;
+            position: relative;
+            @include infinite-line('right', white)
+          }
+        }
       }
     }
   }
