@@ -2,7 +2,8 @@
 @import 'bootstrap/scss/bootstrap-reboot.scss';
 @import 'bootstrap/scss/utilities';
 @import 'variables.scss';
-@import 'header/navbar.scss';
+@import 'header/header.scss';
+@import 'common/common.scss';
 
 body {
   font-family: 'Advent Pro', sans-serif;
