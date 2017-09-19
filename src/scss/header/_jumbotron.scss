@@ -1,0 +1,10 @@
+.jumbotron-wrapper {
+  @extend .container;
+  .jumbotron {
+    @extend .row;
+    .jumbotron__main {
+      @extend .col-lg-2;
+      @extend .offset-lg-1;
+    }
+  }
+}
