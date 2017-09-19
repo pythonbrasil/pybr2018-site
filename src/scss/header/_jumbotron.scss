@@ -1,10 +1,25 @@
 .jumbotron-wrapper {
-  @extend .container;
+  @extend .container-fluid;
+  min-height: 600px;
+  height: 600px;
+  height: calc(100vh - 150px);
+  max-height: 700px;
+  .jumbotron-container {
+    @extend .container;
+    height: 100%;
+  }
   .jumbotron {
     @extend .row;
+    @extend .d-flex;
+    @extend .align-items-center;
+    height: 100%;
     .jumbotron__main {
-      @extend .col-lg-2;
+      @extend .col-lg-3;
       @extend .offset-lg-1;
+      @extend .d-flex;
+      @extend .flex-column;
+      @extend .justify-content-around;
+      height: 80%;
     }
   }
 }
