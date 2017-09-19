@@ -14,7 +14,7 @@
 .pybr-button {
   padding: 8px;
   border-radius: 8px;
-  font-size: 30px;
+  font-size: 19px;
   font-weight: 600;
   text-align: center;
   color: white;
@@ -27,7 +27,7 @@
     color: white;
   }
   strong {
-    font-size: 40px;
+    font-size: 26px;
   }
 
   @include color-modifiers($dark-blue, $python-yellow);
@@ -42,4 +42,13 @@
   @include color-modifiers($dark-blue, $python-yellow);
 
   height: 140px;
+}
+
+@media (min-width: 767px) {
+  .pybr-button {
+    font-size: 30px;
+  }
+  strong {
+    font-size: 40px;
+  }
 }

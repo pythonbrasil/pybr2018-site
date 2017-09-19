@@ -1,9 +1,8 @@
 .jumbotron-wrapper {
   @extend .container-fluid;
-  min-height: 600px;
-  height: 600px;
-  height: calc(100vh - 150px);
-  max-height: 700px;
+  height: 500px;
+  height: calc(100vh - 58px);
+  max-height: 640px;
   .jumbotron-container {
     @extend .container;
     height: 100%;
@@ -24,5 +23,44 @@
       @extend .justify-content-around;
       height: 80%;
     }
+    .jumbotron__side {
+      padding-top: 8%;
+      @extend .align-self-start;
+      @extend .col-lg-6;
+      @extend .col-md-6;
+      @extend .col-sm-6;
+      @extend .col-12;
+      @extend .offset-lg-2;
+      @extend .offset-md-2;
+    }
+  }
+}
+
+@media(min-width: 576px) {
+  .jumbotron-wrapper {
+    min-height: 350px;
+    max-height: 350px;
+  }
+}
+
+@media(min-width: 767px) {
+  .jumbotron-wrapper {
+    min-height: 400px;
+    max-height: 400px;
+  }
+}
+
+@media(min-width: 991px) {
+  .jumbotron-wrapper {
+    height: calc(100vh - 150px);
+    min-height: 400px;
+    max-height: 550px;
+  }
+}
+
+@media(min-width: 1200px) {
+  .jumbotron-wrapper {
+    min-height: 600px;
+    max-height: 700px;
   }
 }
