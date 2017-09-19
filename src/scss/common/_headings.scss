@@ -1,0 +1,14 @@
+.section-title {
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 70px;
+  line-height: 1.3;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $dark-blue;
+  border-bottom: solid 4px $python-yellow;
+  margin-bottom: 20px;
+  &--negative {
+    @extend .section-title;
+    border-bottom-color: white;
+  }
+}

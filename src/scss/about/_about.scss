@@ -1,0 +1,32 @@
+
+.about-wrapper {
+  width: 100%;
+  background-color: $python-yellow;
+  .about-container {
+    @extend .container;
+    padding: 100px 0px;
+    .about {
+      @extend .row;
+      @extend .d-flex;
+      @extend .justify-content-between;
+      &__article {
+        @extend .col-lg-5;
+        color: black;
+        &--left {
+          @extend .about__article;
+          @extend .align-self-end;
+          margin-top: 200px;
+          text-align: right;
+        }
+        &--right {
+          @extend .about__article;
+          @extend .align-self-start;
+          text-align: left;
+        }
+        &__body {
+          @extend .article__body;
+        }
+      }
+    }
+  }
+}
