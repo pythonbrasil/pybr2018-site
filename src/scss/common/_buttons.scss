@@ -1,3 +1,16 @@
+@mixin color-modifiers($dark, $light) {
+  &--dark {
+    @extend .pybr-button;
+    background-color: $dark;
+  }
+
+  &--light {
+    @extend .pybr-button;
+    background-color: $light;
+  }
+}
+
+
 .pybr-button {
   padding: 8px;
   border-radius: 8px;
@@ -17,15 +30,7 @@
     font-size: 40px;
   }
 
-  &--dark {
-    @extend .pybr-button;
-    background-color: $dark-blue;
-  }
-
-  &--light {
-    @extend .pybr-button;
-    background-color: $python-yellow;
-  }
+  @include color-modifiers($dark-blue, $python-yellow);
 }
 
 .pybr-button-large {
@@ -34,15 +39,7 @@
   @extend .justify-content-center;
   @extend .align-items-center;
 
-  &--dark {
-    @extend .pybr-button-large;
-    background-color: $dark-blue;
-  }
-
-  &--light {
-    @extend .pybr-button-large;
-    background-color: $python-yellow;
-  }
+  @include color-modifiers($dark-blue, $python-yellow);
 
   height: 140px;
 }

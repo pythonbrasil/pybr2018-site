@@ -15,6 +15,9 @@
     height: 100%;
     .jumbotron__main {
       @extend .col-lg-3;
+      @extend .col-md-4;
+      @extend .col-sm-6;
+      @extend .col-12;
       @extend .offset-lg-1;
       @extend .d-flex;
       @extend .flex-column;

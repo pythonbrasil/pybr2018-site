@@ -8,6 +8,7 @@
   @extend .d-flex;
   @extend .align-items-center;
   .nav__items {
+    @extend .hidden-sm-down;
     @extend .container;
     @extend .d-flex;
     @extend .justify-content-around;
