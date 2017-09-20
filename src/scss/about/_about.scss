@@ -2,6 +2,11 @@
 .about-wrapper {
   width: 100%;
   background-color: $python-yellow;
+  background-image: url('../img/Python14-Cobras-Transparente.svg');
+  background-size: 200px;
+  background-position: 100% 100%;
+  background-position: calc(100% + 30px) calc(100% - 50px);
+  background-repeat: no-repeat;
   .about-container {
     @extend .container;
     background-image: url('../img/Python14-MapaRN-branco.svg');
@@ -60,7 +65,7 @@
 @media (min-width: $breakpoint-md) {
   .about-wrapper {
     .about-container {
-       background-position: 270px 145px;
+       background-position: 270px 145px, right bottom;
     }
   }
   .about {
