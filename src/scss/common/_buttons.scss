@@ -44,11 +44,12 @@
   height: 140px;
 }
 
-@media (min-width: 767px) {
+@media (min-width: $breakpoint-md) {
   .pybr-button {
     font-size: 30px;
+    strong {
+      font-size: 40px;
+    }
   }
-  strong {
-    font-size: 40px;
-  }
+
 }

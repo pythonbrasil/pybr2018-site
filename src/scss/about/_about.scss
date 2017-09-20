@@ -4,44 +4,69 @@
   background-color: $python-yellow;
   .about-container {
     @extend .container;
+    background-image: url('../img/Python14-MapaRN-branco.svg');
+    background-repeat: no-repeat;
+    background-size: 340px;
+    background-position-y: 30px;
     padding: 100px 0px;
-    .about {
-      @extend .row;
-      @extend .d-flex;
-      @extend .justify-content-between;
-      &__article {
-        @extend .col-lg-5;
-        color: black;
-        &--left {
-          @extend .about__article;
-          @extend .align-self-end;
-          margin-top: 200px;
-          text-align: right;
-        }
-        &--right {
-          @extend .about__article;
-          @extend .align-self-start;
-          text-align: left;
-        }
-        &__body {
-          @extend .article__body;
-        }
-        &__section-title {
-          @extend .section-title;
-          border-bottom-color: white;
-          &--left {
-            @extend .section-title;
-            border-bottom-color: white;
-            position: relative;
-            @include infinite-line('left', white)
-          }
-          &--right {
-            @extend .section-title;
-            border-bottom-color: white;
-            position: relative;
-            @include infinite-line('right', white)
-          }
-        }
+  }
+}
+
+.about {
+  @extend .row;
+  @extend .d-flex;
+  @extend .justify-content-center;
+  @extend .justify-content-sm-between;
+  &__article {
+    @extend .col-lg-5;
+    @extend .col-11;
+    color: black;
+    &--left {
+      @extend .about__article;
+      @extend .align-self-end;
+      text-align: right;
+    }
+    &--right {
+      @extend .about__article;
+      @extend .align-self-start;
+      text-align: left;
+    }
+    &__body {
+      @extend .article__body;
+    }
+    &__section-title {
+      @extend .section-title;
+      border-bottom-color: white;
+      &--left {
+        @extend .section-title;
+        border-bottom-color: white;
+        position: relative;
+        @include infinite-line('left', white)
+      }
+      &--right {
+        @extend .section-title;
+        border-bottom-color: white;
+        position: relative;
+        @include infinite-line('right', white)
+      }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-sm) {
+
+}
+
+@media (min-width: $breakpoint-md) {
+  .about-wrapper {
+    .about-container {
+       background-position: 270px 145px;
+    }
+  }
+  .about {
+    &__article {
+      &--left {
+        margin-top: 250px;
       }
     }
   }
