@@ -4,7 +4,7 @@
   max-height: 800px;
   background-image: url('../img/Python14-MapaRN-cinza-30.svg');
   background-color: rgba(255, 255, 255, 0.1);
-  background-position: -330px;
+  background-position: -330px 10px;
   background-size: 550px;
   background-repeat: no-repeat;
   .jumbotron-container {
@@ -50,6 +50,7 @@
 
 @media(min-width: 576px) {
   .jumbotron-wrapper {
+    background-position: -330px center;
     min-height: 350px;
     max-height: 350px;
     .jumbotron-container {
