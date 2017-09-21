@@ -29,6 +29,7 @@
   margin-bottom: 20px;
   &--left {
     @extend .section-title;
+    text-align: right;
     position: relative;
     @include infinite-line('left', $python-yellow);
   }
@@ -37,5 +38,12 @@
     @extend .section-title;
     position: relative;
     @include infinite-line('right', $python-yellow);
+  }
+}
+
+.section-header-wrapper {
+  width: 100%;
+  .section-header {
+    @extend .col-lg-5;
   }
 }
