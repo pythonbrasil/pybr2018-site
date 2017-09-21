@@ -16,6 +16,11 @@ body {
   overflow-x: hidden;
 }
 
+.content-wrapper > section {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
 .img-fluid {
   max-width: 100%;
   display: block;
