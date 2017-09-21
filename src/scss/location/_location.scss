@@ -16,7 +16,7 @@
 
 .location__info {
   width: 100%;
-  margin-top: 50px;
+  margin-top: 20px;
   @extend .d-flex;
   flex-wrap: wrap;
   &__article {
@@ -81,6 +81,7 @@
 
 @media (min-width: $breakpoint-md) {
   .location__info {
+    margin-top: 50px;
     &__article {
       text-align: right;
       padding-bottom: 60px;

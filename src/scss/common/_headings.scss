@@ -52,3 +52,15 @@
     }
   }
 }
+
+@media (min-width: $breakpoint-sm) {
+  .section-title {
+    font-size: 70px;
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .section-title {
+    font-size: 70px;
+  }
+}
