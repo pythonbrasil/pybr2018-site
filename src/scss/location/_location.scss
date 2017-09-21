@@ -26,7 +26,8 @@
     @extend .col-12;
     @extend .d-flex;
     @extend .flex-column;
-    @extend .justify-content-around;
+    @extend .justify-content-between;
+    padding-bottom: 60px;
     color: white;
     text-align: right;
     line-height: normal;
@@ -60,5 +61,13 @@
   @extend .col-md-7;
   @extend .col-sm-12;
   @extend .col-12;
+  .holiday-inn-website {
+    text-align: right;
+    display: block;
+    font-family: 'Advent Pro', sans-serif;
+    color: $python-yellow;
+    font-weight: 600;
+    font-size: 34px;
+  }
 }
 
