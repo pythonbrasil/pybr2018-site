@@ -10,9 +10,11 @@
 
 body {
   font-family: 'Advent Pro', sans-serif;
-  overflow-x: hidden;
 }
 
+.content-wrapper {
+  overflow-x: hidden;
+}
 
 .img-fluid {
   max-width: 100%;

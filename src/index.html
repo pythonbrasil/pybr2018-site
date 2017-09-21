@@ -7,41 +7,43 @@
   <meta name="viewport" content="width=device-width">
 </head>
 <body>
-  <header class="header">
-    <nav class="header__nav">
-      <ul class="nav__items">
-        <li class="nav__item"><a class="nav__anchor" href="#">Evento</a></li>
-        <li class="nav__item"><a class="nav__anchor" href="#">Keynotes</a></li>
-        <li class="nav__item"><a class="nav__anchor" href="#">Programação</a></li>
-        <li class="nav__item">
-          <a class="nav__anchor" href="#">
-            <img width="40px" height="40px" src="<%= require('./img/Python14-Cobras-MenuHeader.svg') %>" alt="Logo Python">
-          </a>
-        </li>
-        <li class="nav__item"><a class="nav__anchor" href="#">Local</a></li>
-        <li class="nav__item"><a class="nav__anchor" href="#">Patrocinadores</a></li>
-        <li class="nav__item"><a class="nav__anchor" href="#">Blog</a></li>
-      </ul>
-    </nav>
-    <section class="jumbotron-wrapper">
-      <div class="jumbotron-container">
-        <div class="jumbotron">
-          <div class="jumbotron__main">
-            <img class="jumbotron__logo" height="auto" src="<%= require('./img/Python14-NomedoEvento.svg') %>" alt="Logo Python Brasil 14">
-            <a href="#" class="pybr-button--dark">
-              Inscreva-se
-              <strong class="d-block">AGORA</strong>
+  <div class="content-wrapper">
+    <header class="header">
+      <nav class="header__nav">
+        <ul class="nav__items">
+          <li class="nav__item"><a class="nav__anchor" href="#">Evento</a></li>
+          <li class="nav__item"><a class="nav__anchor" href="#">Keynotes</a></li>
+          <li class="nav__item"><a class="nav__anchor" href="#">Programação</a></li>
+          <li class="nav__item">
+            <a class="nav__anchor" href="#">
+              <img width="40px" height="40px" src="<%= require('./img/Python14-Cobras-MenuHeader.svg') %>" alt="Logo Python">
             </a>
-          </div>
-          <div class="jumbotron__side">
-            <img width="100%" src="<%= require('./img/Python14-Logo Forte Reis Magos-02.svg') %>" alt="de 17 a 22 de Outubro de 2018 em Natal, Rio Grande do Norte">
+          </li>
+          <li class="nav__item"><a class="nav__anchor" href="#">Local</a></li>
+          <li class="nav__item"><a class="nav__anchor" href="#">Patrocinadores</a></li>
+          <li class="nav__item"><a class="nav__anchor" href="#">Blog</a></li>
+        </ul>
+      </nav>
+      <section class="jumbotron-wrapper">
+        <div class="jumbotron-container">
+          <div class="jumbotron">
+            <div class="jumbotron__main">
+              <img class="jumbotron__logo" height="auto" src="<%= require('./img/Python14-NomedoEvento.svg') %>" alt="Logo Python Brasil 14">
+              <a href="#" class="pybr-button--dark">
+                Inscreva-se
+                <strong class="d-block">AGORA</strong>
+              </a>
+            </div>
+            <div class="jumbotron__side">
+              <img width="100%" src="<%= require('./img/Python14-Logo Forte Reis Magos-02.svg') %>" alt="de 17 a 22 de Outubro de 2018 em Natal, Rio Grande do Norte">
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </header>
     <section class="about-wrapper">
-       <div class="about-container">
-         <div class="about">
+        <div class="about-container">
+          <div class="about">
             <article class="about__article--left">
               <header>
                 <h1 class="about__article__section-title--left">
@@ -165,6 +167,6 @@
         </div>
       </div>
     </section>
-  </header>
+  </div>
 </body>
 </html>
