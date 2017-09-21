@@ -36,6 +36,7 @@
 
   &--right {
     @extend .section-title;
+    margin-left: auto;
     position: relative;
     @include infinite-line('right', $python-yellow);
   }
@@ -45,5 +46,9 @@
   width: 100%;
   .section-header {
     @extend .col-lg-5;
+    &--right {
+      @extend .section-header;
+      margin-left: auto;
+    }
   }
 }

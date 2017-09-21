@@ -1,0 +1,64 @@
+.location-wrapper {
+  background-color: $dark-blue;
+}
+
+.location-container {
+  @extend .container;
+  .location {
+    @extend .row;
+    .section-header {
+      .section-title {
+        color: white;
+      }
+    }
+  }
+}
+
+.location__info {
+  width: 100%;
+  margin-top: 50px;
+  @extend .d-flex;
+  flex-wrap: wrap;
+  &__article {
+    @extend .col-lg-6;
+    @extend .col-md-5;
+    @extend .col-sm-12;
+    @extend .col-12;
+    @extend .d-flex;
+    @extend .flex-column;
+    @extend .justify-content-around;
+    color: white;
+    text-align: right;
+    line-height: normal;
+    .article__header {
+      &__title {
+        font-family:  'Advent Pro', sans-serif;
+        font-size: 40px;
+        font-weight: 600;
+        color: $python-yellow;
+      }
+      &__subtitle {
+        font-family: sans-serif;
+        font-size: 20px;
+      }
+    }
+    .article__section {
+      @extend .article__body;
+      h2 {
+        font-weight: bold;
+        font-size: 16px;
+      }
+      p {
+        margin-bottom: 3px;
+      }
+    }
+  }
+}
+
+.holiday-inn-banner {
+  @extend .col-lg-6;
+  @extend .col-md-7;
+  @extend .col-sm-12;
+  @extend .col-12;
+}
+
