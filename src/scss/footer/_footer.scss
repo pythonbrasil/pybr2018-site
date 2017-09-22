@@ -31,5 +31,22 @@
     margin-top: 80px;
     color: white;
   }
+  .pybr-button--light {
+    width: 100%;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    font-weight: 600;
+  }
+  &__actions {
+    @extend .d-flex;
+    @extend .justify-content-center;
+    @extend .align-items-center;
+    flex-direction: column;
+    .social__nav {
+      &__menu {
+        @extend .d-flex;
+      }
+    }
+  }
 }
 
