@@ -10,9 +10,15 @@
 @import 'event-map/event-map.scss';
 @import 'sponsors/sponsors.scss';
 @import 'realization/realization.scss';
+@import 'footer/footer.scss';
 
 body {
   font-family: 'Advent Pro', sans-serif;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
 }
 
 .content-wrapper {

@@ -1,0 +1,35 @@
+.footer {
+  padding-top: 50px;
+  background-color: $dark-blue;
+  &__nav {
+    @extend .d-flex;
+    @extend .justify-content-between;
+    flex-wrap: wrap;
+    &__menu {
+      &__title {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 0px;
+        color: $python-yellow;
+        text-transform: uppercase;
+      }
+      &__item {
+        padding-top: 3px;
+        padding-bottom: 3px;
+        a {
+          font-family: 'Nunito', sans-serif;
+          color: white;
+          text-transform: uppercase;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  &-note {
+    font-family: 'Nunito', sans-serif;
+    width: 100%;
+    margin-top: 80px;
+    color: white;
+  }
+}
+
