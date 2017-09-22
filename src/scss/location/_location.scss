@@ -42,7 +42,7 @@
         color: $python-yellow;
       }
       &__subtitle {
-        font-family: sans-serif;
+        font-family: 'Nunito', fsans-serif;
         font-size: 16px;
       }
     }
@@ -53,7 +53,8 @@
       }
       @extend .article__body;
       h2 {
-        font-weight: bold;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 600;
         font-size: 16px;
       }
       p {
