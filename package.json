@@ -32,7 +32,10 @@
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.6",
     "sass-loader": "^6.0.6",
+    "storm-scroll-to": "^1.0.6",
+    "storm-scrollto": "^1.0.3",
     "style-loader": "^0.18.2",
+    "uninstall": "0.0.0",
     "webpack": "^3.4.1",
     "webpack-dev-server": "^2.4.2"
   }

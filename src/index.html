@@ -8,21 +8,21 @@
   <meta name="viewport" content="width=device-width">
 </head>
 <body>
-  <div class="content-wrapper">
+  <div class="content-wrapper" id="top">
     <header class="header">
       <nav class="header__nav">
         <ul class="nav__items">
-          <li class="nav__item"><a class="nav__anchor" href="#">Evento</a></li>
-          <li class="nav__item"><a class="nav__anchor" href="#">Keynotes</a></li>
-          <li class="nav__item"><a class="nav__anchor" href="#">Programação</a></li>
+          <li class="nav__item"><a class="nav__anchor scroll" href="#about">Evento</a></li>
+          <li class="nav__item"><a class="nav__anchor scroll" href="#keynotes">Keynotes</a></li>
+          <li class="nav__item"><a class="nav__anchor" href="#top">Programação</a></li>
           <li class="nav__item">
-            <a class="nav__anchor" href="#">
+            <a class="nav__anchor" href="#top">
               <img width="40px" height="40px" src="<%= require('./img/Python14-Cobras-MenuHeader.svg') %>" alt="Logo Python">
             </a>
           </li>
-          <li class="nav__item"><a class="nav__anchor" href="#">Local</a></li>
-          <li class="nav__item"><a class="nav__anchor" href="#">Patrocinadores</a></li>
-          <li class="nav__item"><a class="nav__anchor" href="#">Blog</a></li>
+          <li class="nav__item"><a class="nav__anchor scroll" href="#location">Local</a></li>
+          <li class="nav__item"><a class="nav__anchor scroll" href="#sponsors">Patrocinadores</a></li>
+          <li class="nav__item"><a class="nav__anchor" href="http://blog.pythonbrasil.org.br" target="_blank" >Blog</a></li>
         </ul>
       </nav>
       <section class="jumbotron-wrapper">
@@ -49,7 +49,7 @@
         </div>
       </section>
     </header>
-    <section class="about-wrapper">
+    <section class="about-wrapper" id="about">
         <div class="about-container">
           <div class="about">
             <article class="about__article--left">
@@ -76,7 +76,7 @@
         </article>
       </section>
     </section>
-    <section class="keynotes-wrapper">
+    <section class="keynotes-wrapper" id="keynotes">
       <div class="keynotes-container">
         <div class="keynotes">
           <header class="section-header-wrapper">
@@ -133,7 +133,7 @@
         </div>
       </div>
     </section>
-    <section class="location-wrapper">
+    <section class="location-wrapper" id="location">
       <div class="location-container">
         <div class="location">
           <header class="section-header-wrapper">
@@ -178,7 +178,7 @@
         </div>
       </div>
     </section>
-    <section class="map-wrapper">
+    <section class="map-wrapper" id="map">
       <div class="map-container">
         <div class="map">
           <header class="section-header-wrapper">
@@ -194,7 +194,7 @@
         </div>
       </div>
     </section>
-    <section class="sponsors-wrapper">
+    <section class="sponsors-wrapper" id="sponsors">
       <div class="sponsors-container">
         <div class="sponsors">
           <header class="section-header-wrapper">
@@ -234,7 +234,7 @@
         </div>
       </div>
     </section>
-    <section class="realization-wrapper">
+    <section class="realization-wrapper" id="realization">
       <div class="realization-container">
         <div class="realization">
           <header class="section-header-wrapper">
