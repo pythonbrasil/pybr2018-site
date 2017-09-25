@@ -17,6 +17,7 @@
     @extend .d-flex;
     @extend .align-items-center;
     @extend .justify-content-between;
+    flex-direction: column;
     height: 100%;
     .jumbotron__logo {
       display: block;
@@ -32,10 +33,9 @@
       @extend .d-flex;
       @extend .flex-column;
       @extend .justify-content-around;
-      height: 50%;
+      flex: 0.45;
     }
     .jumbotron__side {
-      padding-top: 8%;
       @extend .align-self-start;
       @extend .col-lg-6;
       @extend .col-md-6;
@@ -44,6 +44,21 @@
       @extend .offset-lg-2;
       @extend .offset-md-2;
       margin: 0 auto;
+      flex: 0.35;
+      .pybr-date {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+    .jumbotron__action {
+      @extend .hidden-sm-up;
+      @extend .d-flex;
+      @extend .align-items-center;
+      width: 70%;
+      flex: 0.2;
+      .pybr-button--dark {
+        width: 100%;
+      }
     }
   }
 }
@@ -55,14 +70,18 @@
     max-height: 350px;
     .jumbotron-container {
       .jumbotron {
+        flex-direction: row;
         .jumbotron__logo {
           width: 75%;
         }
         .jumbotron__main {
           height: 80%;
+          flex: initial;
         }
         .jumbotron__side {
+          padding-top: 8%;
           margin: initial;
+          flex: initial;
         }
       }
     }
