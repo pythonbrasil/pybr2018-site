@@ -1,6 +1,7 @@
 .jumbotron-wrapper {
   @extend .container-fluid;
-  height: calc(100vh - 58px);
+  height: 800px;
+  height: calc(100vh - 64px);
   max-height: 800px;
   background-image: url('../img/Python14-MapaRN-cinza-30.svg');
   background-color: rgba(255, 255, 255, 0.1);

@@ -10,6 +10,7 @@
 
 .sponsors-wrapper {
   @extend .about-wrapper;
+  @include make-angle ($background-dark, -3);
   background-color: $background-dark;
   .sponsors-container {
     @extend .container;

@@ -3,7 +3,7 @@
 }
 
 .header__nav {
-  height: 100px;
+  height: 64px;
   background: $dark-blue;
   @extend .d-flex;
   @extend .align-items-center;
@@ -28,5 +28,11 @@
         }
       }
     }
+  }
+}
+
+@media (min-width: $breakpoint-sm) {
+  .header__nav {
+    height: 100px;
   }
 }

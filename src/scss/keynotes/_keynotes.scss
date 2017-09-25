@@ -1,3 +1,7 @@
+.keynotes-wrapper {
+  @include make-angle (white, 5);
+}
+
 .keynotes-container {
   @extend .container;
   .keynotes {
