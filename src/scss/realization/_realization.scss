@@ -18,13 +18,16 @@
 
 .realization {
   .evolux-logo {
-    height: 400px;
-    height: 70vh;
+    height: 300px;
+    height: 60vh;
     width: 100%;
     max-height: 500px;
     padding-top: 60px;
     @extend .d-flex;
     @extend .justify-content-center;
+    a {
+      height: 100px;
+    }
   }
 }
 
