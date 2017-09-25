@@ -25,11 +25,12 @@
   @extend .justify-content-sm-between;
   &__article {
     @extend .col-lg-5;
+    @extend .col-md-5;
+    @extend .col-sm-10;
     @extend .col-10;
     color: black;
     &--left {
       @extend .about__article;
-      @extend .align-self-end;
       @extend .offset-1;
       text-align: right;
       margin-top: 30px;
@@ -37,7 +38,6 @@
     }
     &--right {
       @extend .about__article;
-      @extend .align-self-start;
       text-align: left;
       order: 1;
     }
@@ -64,15 +64,6 @@
 }
 
 @media (min-width: $breakpoint-sm) {
-
-}
-
-@media (min-width: $breakpoint-md) {
-  .about-wrapper {
-    .about-container {
-       background-position: 295px 65px, right bottom;
-    }
-  }
   .about {
     &__article {
       &--left {
@@ -82,6 +73,14 @@
       &--right {
         order: 2;
       }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .about-wrapper {
+    .about-container {
+       background-position: 295px 65px, right bottom;
     }
   }
 }
