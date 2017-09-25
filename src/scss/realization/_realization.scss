@@ -24,6 +24,7 @@
     max-height: 500px;
     padding-top: 60px;
     @extend .d-flex;
+    @extend .col-12;
     @extend .justify-content-center;
     a {
       height: 100px;

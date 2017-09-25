@@ -25,12 +25,14 @@
   @extend .justify-content-sm-between;
   &__article {
     @extend .col-lg-5;
-    @extend .col-12;
+    @extend .col-10;
     color: black;
     &--left {
       @extend .about__article;
       @extend .align-self-end;
+      @extend .offset-1;
       text-align: right;
+      margin-top: 30px;
       order: 2;
     }
     &--right {

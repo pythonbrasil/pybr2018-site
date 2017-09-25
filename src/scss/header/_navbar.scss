@@ -1,9 +1,15 @@
 .header {
   width: 100%;
+  margin-top: 64px;
 }
 
 .header__nav {
+  z-index: 999;
   height: 64px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  margin-bottom: 64px;
   background: $dark-blue;
   @extend .d-flex;
   @extend .align-items-center;
@@ -23,8 +29,10 @@
         font-weight: 500;
         color: white;
         text-decoration: none;
+        transition: color .3s ease-out;
         &:hover {
           text-decoration: none;
+          color: $python-yellow;
         }
       }
     }
@@ -32,7 +40,11 @@
 }
 
 @media (min-width: $breakpoint-sm) {
+  .header {
+    margin-top: 100px;
+  }
   .header__nav {
     height: 100px;
+    margin-bottom: 100px;
   }
 }

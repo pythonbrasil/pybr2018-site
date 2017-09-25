@@ -43,7 +43,7 @@
         color: $python-yellow;
       }
       &__subtitle {
-        font-family: 'Nunito', fsans-serif;
+        font-family: 'Nunito', sans-serif;
         font-size: 16px;
       }
     }
@@ -55,7 +55,7 @@
       @extend .article__body;
       h2 {
         font-family: 'Nunito', sans-serif;
-        font-weight: 600;
+        font-weight: 700;
         font-size: 16px;
       }
       p {
@@ -72,7 +72,7 @@
   @extend .col-sm-12;
   @extend .col-12;
   .holiday-inn-website {
-    text-align: center;
+    text-align: right;
     display: block;
     font-family: 'Advent Pro', sans-serif;
     color: $python-yellow;
@@ -104,7 +104,6 @@
 
   .holiday-inn-banner {
     .holiday-inn-website {
-      text-align: right;
       font-size: 34px;
     }
   }
