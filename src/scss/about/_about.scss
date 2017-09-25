@@ -31,11 +31,13 @@
       @extend .about__article;
       @extend .align-self-end;
       text-align: right;
+      order: 2;
     }
     &--right {
       @extend .about__article;
       @extend .align-self-start;
       text-align: left;
+      order: 1;
     }
     &__body {
       @extend .article__body;
@@ -73,6 +75,10 @@
     &__article {
       &--left {
         margin-top: 250px;
+        order: 1;
+      }
+      &--right {
+        order: 2;
       }
     }
   }
