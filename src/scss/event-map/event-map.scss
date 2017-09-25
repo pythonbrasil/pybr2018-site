@@ -1,3 +1,7 @@
+.map-wrapper {
+  @include make-angle(white, 1)
+}
+
 .map-container {
   @extend .container;
   .map {

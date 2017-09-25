@@ -1,5 +1,6 @@
 .location-wrapper {
   background-color: $dark-blue;
+  @include make-angle($dark-blue, -1);
 }
 
 .location-container {

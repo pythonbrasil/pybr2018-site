@@ -1,7 +1,7 @@
 @import 'variables.scss';
 
 @mixin make-angle($color, $angle) {
-  $angle: if($angle > 5, 5, $angle);
+  $angle: if($angle > 0, 5, -5);
   margin-top: 0px;
   position: relative;
   &:before, &:after {
