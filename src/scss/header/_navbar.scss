@@ -48,3 +48,29 @@
     margin-bottom: 100px;
   }
 }
+
+.header__nav-mobile {
+  @extend .hidden-sm-up;
+  width: 80%;
+  height: 100vh;
+  background-color: $dark-blue;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  z-index: 1000;
+  transition: transform 0.3s ease-in;
+  transform: translateX(100%);
+  .nav__items {
+    .nav__item {
+      list-style: none;
+    }
+  }
+}
+
+.header__nav-mobile[data-opened="true"] {
+  transform: none;
+}
+
+.mobile-nav-trigger {
+  @extend .hidden-sm-up;
+}
