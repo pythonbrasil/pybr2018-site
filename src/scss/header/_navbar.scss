@@ -76,6 +76,10 @@
   transition: transform 0.3s ease-in;
   transform: translateX(100%);
   will-change: transform;
+  a[disabled] {
+    pointer-events: none;
+    color: rgba(255, 255, 255, .66) !important;
+  }
   .nav__items {
     height: calc(100vh - 64px);
     max-height: 700px;
@@ -112,16 +116,26 @@
   &:before {
     content: '';
     position: fixed;
+    z-index: 998;
+    transform: translateX(-100%);
     top: 0;
-    bottom: 0;
-    right: 0;
     left: 0;
-    background-color: black;
+    bottom: 0;
+    width: 120%;
+    width: 100vw;
+    pointer-events: none;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, .75);
+    transition: opacity .3s ease-out;
   }
 }
 
 .header__nav-mobile.opened {
   transform: none;
+  &:before {
+    pointer-events: initial;
+    opacity: 1;
+  }
 }
 
 .mobile-nav-trigger {

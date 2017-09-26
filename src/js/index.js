@@ -20,7 +20,7 @@ class MobileNavManager {
   setupMobileNavigation() {
     this.mobileNavTrigger.addEventListener('click', this.onMobileNavTrigger);
     this.mobileNavCloseTrigger.addEventListener('click', this.onMobileNavTrigger);
-
+    this.mobileNav.addEventListener('click', this.onMobileNavTrigger);
     const menuItems = this.mobileNav.querySelectorAll('.nav__anchor');
     Array.prototype.forEach.call(menuItems, (menuItem) => {
       menuItem.style.cursor = 'pointer';
@@ -30,11 +30,12 @@ class MobileNavManager {
   }
 
   onMobileNavTrigger(e) {
-    this.mobileNav.classList.toggle('opened');
-    if (e.type == 'touchend') {
-      e.stopPropagation();
-      e.preventDefault();
+    if (e.currentTarget === this.mobileNav && e.target !== this.mobileNav) {
+      return;
     }
+    this.mobileNav.classList.toggle('opened');
+    e.stopPropagation();
+    e.preventDefault();
   }
 
 }
