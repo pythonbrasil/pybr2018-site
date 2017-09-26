@@ -3,6 +3,24 @@
   margin-top: 64px;
 }
 
+%nav-item {
+  list-style: none;
+  padding: 0px 9px;
+}
+
+%nav-anchor {
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  transition: color .3s ease-out;
+  &:hover {
+    text-decoration: none;
+    color: $python-yellow;
+  }
+}
+
 .header__nav {
   z-index: 999;
   height: 64px;
@@ -21,19 +39,9 @@
     padding: 0px;
     margin: 0 auto;
     .nav__item {
-      list-style: none;
-      padding: 0px 9px;
+      @extend %nav-item;
       .nav__anchor {
-        font-size: 24px;
-        text-transform: uppercase;
-        font-weight: 500;
-        color: white;
-        text-decoration: none;
-        transition: color .3s ease-out;
-        &:hover {
-          text-decoration: none;
-          color: $python-yellow;
-        }
+        @extend %nav-anchor;
       }
     }
   }
@@ -50,10 +58,10 @@
 }
 
 .header__nav-mobile {
-  @extend .hidden-sm-up;
+  @extend .hidden-md-up;
   width: 80%;
   height: 100vh;
-  background-color: $dark-blue;
+  background-color: #0F2436;;
   position: fixed;
   right: 0px;
   top: 0px;
@@ -61,16 +69,71 @@
   transition: transform 0.3s ease-in;
   transform: translateX(100%);
   .nav__items {
-    .nav__item {
+    height: calc(100vh - 64px);
+    max-height: 700px;
+    .subscribe-button {
       list-style: none;
+      padding: 14px 30px;
+    }
+    .nav__anchor {
+      @extend %nav-anchor;
+      padding: 14px 30px;
+      font-size: 18px;
+      display: block;
+      .nav__item {
+        @extend %nav-item;
+      }
+    }
+  }
+  &__header {
+    @extend .d-flex;
+    @extend .justify-content-center;
+    @extend .align-items-center;
+    height: 64px;
+    position: relative;
+    border-bottom: 1px solid #102E46;
+    h1 {
+      @extend %nav-anchor;
+      font-size: 20px;
+      margin-bottom: 0px;
+      &:hover {
+        color: white;
+      }
     }
   }
 }
 
-.header__nav-mobile[data-opened="true"] {
+.header__nav-mobile.opened {
   transform: none;
 }
 
 .mobile-nav-trigger {
-  @extend .hidden-sm-up;
+  @extend .hidden-md-up;
+}
+
+.header__mobile {
+  @extend .hidden-md-up;
+  position: relative;
+  width: 100%;
+  @extend .d-flex;
+  @extend .justify-content-center;
+}
+
+.mobile-nav-trigger {
+  background: none;
+  border: none;
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  background-image: url('../img/hamburguer menu-01.svg');
+  background-size: 24px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  &--close {
+    @extend .mobile-nav-trigger;
+    background-image: url('../img/closebutton-01.svg');
+  }
 }
