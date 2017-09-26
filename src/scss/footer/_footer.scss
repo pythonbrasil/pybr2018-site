@@ -10,6 +10,15 @@
     @extend .justify-content-between;
     flex-wrap: wrap;
     &__menu {
+      margin-bottom: 15px;
+      padding-left: 5px;
+      padding-right: 5px;
+      &:first-child {
+        padding-left: 0px;
+      }
+      &:last-child {
+        padding-right: 0px;
+      }
       &__title {
         font-size: 24px;
         font-weight: 700;
@@ -33,7 +42,7 @@
   &-note {
     font-family: 'Nunito', sans-serif;
     width: 100%;
-    margin-top: 80px;
+    margin-top: 65px;
     color: white;
   }
   .pybr-button--light {

@@ -35,16 +35,29 @@ class MobileNavManager {
     e.preventDefault();
   }
 
+
+  handleFocus() {
+    if (this.isOpened) {
+      this.mobileNavCloseTrigger.focus();
+    } else {
+      this.mobileNavTrigger.focus();
+    }
+  }
+
   onMobileNavTrigger(e) {
     if (e.currentTarget === this.mobileNav && e.target !== this.mobileNav) {
       return;
     }
     this.mobileNav.classList.toggle('opened');
+    this.handleFocus();
     if (e.currentTarget.classList.contains('scroll')) {
       e.preventDefault();
     }
   }
 
+  get isOpened() {
+    return this.mobileNav.classList.contains('opened');
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {

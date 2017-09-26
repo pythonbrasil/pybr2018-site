@@ -76,13 +76,14 @@
   }
 
   &__call-to-action {
+    @extend .col-lg-12;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     flex-direction: column;
     h2 {
-      font-size: 50px;
+      font-size: 36px;
     }
   }
 
@@ -93,5 +94,15 @@
     @extend .col-10;
     display: block;
     margin: 0 auto;
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .sponsors {
+    &__call-to-action {
+       h2 {
+        font-size: 50px;
+      }
+    }
   }
 }

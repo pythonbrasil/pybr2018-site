@@ -4,13 +4,15 @@
   position: relative;
   &:after {
     content: 'Em breve';
-    width: 70px;
-    height: 25px;
     right: 0px;
     bottom: 0px;
     position: absolute;
-    border-radius: 8px;
-    transform: translate(25%, 50%);
+    transform: translate(0%, 50%);
+
+    width: 70px * .75;
+    height: 25px * .75;
+    font-size: 14px * .66;
+    border-radius: 8px * 0.75;
 
     display: flex;
     justify-content: center;
@@ -21,7 +23,6 @@
 
     text-align: center;
     text-transform: uppercase;
-    font-size: 14px;
     line-height: normal;
     font-weight: 700;
   }
@@ -37,6 +38,26 @@
     &:after {
       left: 0px;
       right: initial;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .soon {
+    &:after {
+      transform: translate(25%, 50%);
+      width: 70px;
+      height: 25px;
+      font-size: 14px;
+      border-radius: 8px;
+    }
+    &.small {
+      &:after {
+        width: 70px * .75;
+        height: 25px * .75;
+        font-size: 14px * .66;
+        border-radius: 8px * 0.75;
+      }
     }
   }
 }
