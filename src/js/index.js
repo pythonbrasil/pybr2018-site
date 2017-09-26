@@ -1,5 +1,12 @@
 import 'scss/index.scss';
 import ScrollTo from 'storm-scroll-to';
+//import Tether from 'tether';
+//import $ from 'jquery';
+//window.jQuery = window.$ = global.jQuery = $;
+//window.Tether = global.Tether = Tether;
+
+//require('bootstrap/js/src/tooltip');
+//require('bootstrap/js/src/modal');
 
 class MobileNavManager {
   constructor() {
@@ -34,7 +41,7 @@ class MobileNavManager {
 
 document.addEventListener('DOMContentLoaded', () => {
   new MobileNavManager();
-  ScrollTo.init('.nav__anchor.scroll', {
+  ScrollTo.init('.scroll', {
     offset: 120,
     focus: false,
   });

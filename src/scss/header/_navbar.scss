@@ -22,6 +22,9 @@
 }
 
 .header__nav {
+
+
+
   z-index: 999;
   height: 64px;
   width: 100%;
@@ -31,6 +34,10 @@
   background: $dark-blue;
   @extend .d-flex;
   @extend .align-items-center;
+  a[disabled] {
+    pointer-events: none;
+    color: rgba(255, 255, 255, .66) !important;
+  }
   .nav__items {
     @extend .hidden-sm-down;
     @extend .container;
@@ -68,6 +75,7 @@
   z-index: 1000;
   transition: transform 0.3s ease-in;
   transform: translateX(100%);
+  will-change: transform;
   .nav__items {
     height: calc(100vh - 64px);
     max-height: 700px;
@@ -100,6 +108,15 @@
         color: white;
       }
     }
+  }
+  &:before {
+    content: '';
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: black;
   }
 }
 

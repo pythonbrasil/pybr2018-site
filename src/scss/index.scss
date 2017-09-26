@@ -1,5 +1,46 @@
 @import 'variables.scss';
 
+.soon {
+  position: relative;
+  &:after {
+    content: 'Em breve';
+    width: 70px;
+    height: 25px;
+    right: 0px;
+    bottom: 0px;
+    position: absolute;
+    border-radius: 8px;
+    transform: translate(25%, 50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: $python-blue;
+    color: $dark-blue;
+
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: normal;
+    font-weight: 700;
+  }
+  &.small {
+    &:after {
+      width: 70px * .75;
+      height: 25px * .75;
+      font-size: 14px * .66;
+      border-radius: 8px * 0.75;
+    }
+  }
+  &.left {
+    &:after {
+      left: 0px;
+      right: initial;
+    }
+  }
+}
+
 @mixin make-angle($color, $angle) {
   $angle: if($angle > 0, 5, -5);
   margin-top: 0px;
@@ -51,6 +92,9 @@
 @import 'bootstrap/scss/bootstrap-grid.scss';
 @import 'bootstrap/scss/bootstrap-reboot.scss';
 @import 'bootstrap/scss/utilities';
+//@import 'bootstrap/scss/transitions';
+//@import 'bootstrap/scss/tooltip';
+//@import 'bootstrap/scss/modal';
 @import 'common/common.scss';
 @import 'header/header.scss';
 @import 'about/about.scss';

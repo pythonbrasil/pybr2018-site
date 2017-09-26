@@ -17,14 +17,14 @@
       <ul class="nav__items">
         <a class="nav__anchor scroll" href="#about"><li class="nav__item">Evento</li></a>
         <a class="nav__anchor scroll" href="#keynotes"><li class="nav__item">Keynotes</li></a>
-        <a class="nav__anchor" href="#top"><li class="nav__item">Programação</li></a>
+        <a class="nav__anchor soon left" disabled href="#top"><li class="nav__item">Programação</li></a>
         <a class="nav__anchor scroll" href="#location"><li class="nav__item">Local</li></a>
         <a class="nav__anchor scroll" href="#sponsors"><li class="nav__item">Patrocinadores</li></a>
         <a class="nav__anchor" href="http://blog.pythonbrasil.org.br" target="_blank" ><li class="nav__item">Blog</li></a>
         <a class="nav__anchor" href="mailto:marketing@evolux.net.br" target="_blank" ><li class="nav__item">Contato</li></a>
         <li class="nav__item subscribe-button">
-          <a href="#" class="pybr-button--light">
-            Inscreva-se Agora
+          <a href="#" disabled class="pybr-button--light">
+            Inscrições em breve
           </a>
         </li>
       </ul>
@@ -40,7 +40,7 @@
         <ul class="nav__items">
           <li class="nav__item"><a class="nav__anchor scroll" href="#about">Evento</a></li>
           <li class="nav__item"><a class="nav__anchor scroll" href="#keynotes">Keynotes</a></li>
-          <li class="nav__item"><a class="nav__anchor" href="#top">Programação</a></li>
+          <li class="nav__item soon"><a disabled class="nav__anchor" href="#">Programação</a></li>
           <li class="nav__item">
             <a class="nav__anchor" href="#top">
               <img width="40px" height="40px" src="<%= require('./img/Python14-Cobras-MenuHeader.svg') %>" alt="Logo Python">
@@ -56,9 +56,9 @@
           <div class="jumbotron">
             <div class="jumbotron__main">
               <img class="jumbotron__logo" height="auto" src="<%= require('./img/Python14-NomedoEvento.svg') %>" alt="Logo Python Brasil 14">
-              <a href="#" class="pybr-button--dark hidden-xs-down">
-                Inscreva-se
-                <strong class="d-block">AGORA</strong>
+              <a href="#" disabled class="pybr-button--dark hidden-xs-down">
+                Inscrições
+                <strong class="d-block">EM BREVE</strong>
               </a>
             </div>
             <div class="jumbotron__side">
@@ -66,9 +66,9 @@
               <img class="hidden-sm-up pybr-date" src="<%= require('./img/Python14-Logo Forte Reis Magos-02.svg') %>" alt="de 17 a 22 de Outubro de 2018 em Natal, Rio Grande do Norte">
             </div>
             <div class="jumbotron__action">
-              <a href="#" class="pybr-button--dark">
-                Inscreva-se
-                <strong class="d-block">AGORA</strong>
+              <a href="#" disabled class="pybr-button--dark">
+                Inscrições
+                <strong class="d-block">EM BREVE</strong>
               </a>
             </div>
           </div>
@@ -288,33 +288,33 @@
                   Sobre
                 </h4>
                 <li class="footer__nav__menu__item">
-                  <a href="">O Evento</a>
+                  <a class="scroll" href="#about">O Evento</a>
                 </li>
                 <li class="footer__nav__menu__item">
-                  <a href="">Local</a>
+                  <a class="scroll" href="#location">Local</a>
                 </li>
                 <li class="footer__nav__menu__item">
-                  <a href="">Keynotes</a>
+                  <a class="scroll" href="#keynotes">Keynotes</a>
                 </li>
                 <li class="footer__nav__menu__item">
-                  <a href="">Programação</a>
+                  <a class="soon small" disabled href="#">Programação</a>
                 </li>
               </ul>
               <ul class="footer__nav__menu">
-                <h4 class="footer__nav__menu__title">
+                <h4 class="footer__nav__menu__title soon">
                   Blog
                 </h4>
                 <li class="footer__nav__menu__item">
-                  <a href="">A Cidade</a>
+                  <a disabled href="#">A Cidade</a>
                 </li>
                 <li class="footer__nav__menu__item">
-                  <a href="">O que fazer</a>
+                  <a disabled href="#">O que fazer</a>
                 </li>
                 <li class="footer__nav__menu__item">
-                  <a href="">Onde comer</a>
+                  <a disabled href="#">Onde comer</a>
                 </li>
                 <li class="footer__nav__menu__item">
-                  <a href="">Transporte</a>
+                  <a disabled href="#">Transporte</a>
                 </li>
               </ul>
               <ul class="footer__nav__menu">
@@ -322,24 +322,24 @@
                   Patrocinadores
                 </h4>
                 <li class="footer__nav__menu__item">
-                  <a href="">Diamante</a>
+                  <a class="scroll-no-offset" href="#diamond">Diamante</a>
                 </li>
                 <li class="footer__nav__menu__item">
-                  <a href="">Ouro</a>
+                  <a class="scroll-no-offset" href="#gold">Ouro</a>
                 </li>
                 <li class="footer__nav__menu__item">
-                  <a href="">Prata</a>
+                  <a class="scroll-no-offset" href="#silver">Prata</a>
                 </li>
                 <li class="footer__nav__menu__item">
-                  <a href="">Seja um patrocinador</a>
+                  <a class="scroll-no-offset" href="#beASponsor">Seja um patrocinador</a>
                 </li>
               </ul>
             </nav>
           </div>
           <div class="col-lg-4 col-md-12 offset-lg-1">
             <div class="footer__actions">
-              <a href="#" class="pybr-button--light">
-                Inscreva-se agora
+              <a disabled href="#" class="pybr-button--light">
+                Inscrições em breve
               </a>
               <nav class="social__nav">
                 <ul class="social__nav__menu">

@@ -1,4 +1,8 @@
 .footer {
+  a[disabled] {
+    pointer-events: none;
+    color: rgba(255, 255, 255, .66) !important;
+  }
   padding-top: 50px;
   background-color: $dark-blue;
   &__nav {
