@@ -72,6 +72,18 @@
       font-family: 'Advent Pro', sans-serif;
       height: 50px;
     }
+
+  }
+
+  &__call-to-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    h2 {
+      font-size: 50px;
+    }
   }
 
   .call-to-sponsor {

@@ -13,6 +13,7 @@ class MobileNavManager {
     this.mobileNav = document.querySelector('#mobile-nav');
     this.mobileNavTrigger = document.querySelector('#mobile-nav-trigger');
     this.mobileNavCloseTrigger = document.querySelector('#mobile-nav-close-trigger');
+    this.preventScrolling = this.preventScrolling.bind(this);
     this.onMobileNavTrigger = this.onMobileNavTrigger.bind(this);
     this.setupMobileNavigation();
   }
@@ -21,6 +22,7 @@ class MobileNavManager {
     this.mobileNavTrigger.addEventListener('click', this.onMobileNavTrigger);
     this.mobileNavCloseTrigger.addEventListener('click', this.onMobileNavTrigger);
     this.mobileNav.addEventListener('click', this.onMobileNavTrigger);
+    this.mobileNav.addEventListener('touchmove', this.preventScrolling);
     const menuItems = this.mobileNav.querySelectorAll('.nav__anchor');
     Array.prototype.forEach.call(menuItems, (menuItem) => {
       menuItem.style.cursor = 'pointer';
@@ -29,13 +31,18 @@ class MobileNavManager {
     });
   }
 
+  preventScrolling(e) {
+    e.preventDefault();
+  }
+
   onMobileNavTrigger(e) {
     if (e.currentTarget === this.mobileNav && e.target !== this.mobileNav) {
       return;
     }
     this.mobileNav.classList.toggle('opened');
-    e.stopPropagation();
-    e.preventDefault();
+    if (e.currentTarget.classList.contains('scroll')) {
+      e.preventDefault();
+    }
   }
 
 }

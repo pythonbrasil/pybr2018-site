@@ -21,7 +21,6 @@
         <a class="nav__anchor scroll" href="#location"><li class="nav__item">Local</li></a>
         <a class="nav__anchor scroll" href="#sponsors"><li class="nav__item">Patrocinadores</li></a>
         <a class="nav__anchor" href="http://blog.pythonbrasil.org.br" target="_blank" ><li class="nav__item">Blog</li></a>
-        <a class="nav__anchor" href="mailto:marketing@evolux.net.br" target="_blank" ><li class="nav__item">Contato</li></a>
         <li class="nav__item subscribe-button">
           <a href="#" disabled class="pybr-button--light">
             Inscrições em breve
@@ -230,7 +229,7 @@
               </h1>
             </div>
           </header>
-          <div class="sponsors__diamond">
+          <div class="sponsors__diamond" id="diamond">
             <h2 class="sponsor-category-title">
               DIAMANTE
             </h2>
@@ -238,7 +237,7 @@
               <li class="sponsor">Em Breve</li>
             </ul>
           </div>
-          <div class="sponsors__gold">
+          <div class="sponsors__gold" id="gold">
             <h2 class="sponsor-category-title">
               OURO
             </h2>
@@ -246,7 +245,7 @@
               <li class="sponsor">Em Breve</li>
             </ul>
           </div>
-          <div class="sponsors__silver">
+          <div class="sponsors__silver" id="silver">
             <h2 class="sponsor-category-title">
               PRATA
             </h2>
@@ -254,9 +253,13 @@
               <li class="sponsor">Em Breve</li>
             </ul>
           </div>
-          <a href="#" class="call-to-sponsor pybr-button-large--light">
+          <div class="sponsors__call-to-action">
+            <h2>QUERO PATROCINAR</h2>
+            <p>Envie e-mail para <a href="mailto:marketing@evolux.net.br">marketing@evolux.net.br</a></p>
+          </div>
+          <!-- a href="#" id="beASponsor" class="call-to-sponsor pybr-button-large--light">
             QUERO PATROCINAR
-          </a>
+          </a -->
         </div>
       </div>
     </section>
@@ -322,16 +325,16 @@
                   Patrocinadores
                 </h4>
                 <li class="footer__nav__menu__item">
-                  <a class="scroll-no-offset" href="#diamond">Diamante</a>
+                  <a class="scroll" href="#sponsors">Diamante</a>
                 </li>
                 <li class="footer__nav__menu__item">
-                  <a class="scroll-no-offset" href="#gold">Ouro</a>
+                  <a class="scroll" href="#sponsors">Ouro</a>
                 </li>
                 <li class="footer__nav__menu__item">
-                  <a class="scroll-no-offset" href="#silver">Prata</a>
+                  <a class="scroll" href="#sponsors">Prata</a>
                 </li>
                 <li class="footer__nav__menu__item">
-                  <a class="scroll-no-offset" href="#beASponsor">Seja um patrocinador</a>
+                  <a class="scroll" href="#sponsors">Seja um patrocinador</a>
                 </li>
               </ul>
             </nav>
