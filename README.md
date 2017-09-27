@@ -1,4 +1,4 @@
-# Python Brasil 2018
+# pythonbrasil14-site
 
 ## Requirements
 1. NodeJS
@@ -13,5 +13,4 @@
 2. check the dev server at localhost:8080
 
 ## Building the website to production
-1. run ``` npm run production ```
-2. check the dist/ folder containing the static content that can be deployed to production
+1. run ``` npm run production ```, the gh-pages branch will be updated. 
