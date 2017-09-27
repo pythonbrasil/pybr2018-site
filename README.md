@@ -1,5 +1,7 @@
 # pythonbrasil14-site
 
+Python Brasil 2018 website (http://2018.pythonbrasil.org.br)
+
 ## Requirements
 1. NodeJS
 2. NPM
