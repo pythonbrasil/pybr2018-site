@@ -11,7 +11,7 @@
 
     width: 40px;
     height: 25px * .75;
-    font-size: 14px * .66;
+    font-size: 11px;
     border-radius: 8px * 0.75;
 
     display: flex;
@@ -21,41 +21,15 @@
     background-color: $python-blue;
     color: $dark-blue;
 
+    font-family: 'Advent Pro', sans-serif;
     text-align: center;
     text-transform: uppercase;
     line-height: normal;
     font-weight: 700;
   }
-  &.small {
-    &:after {
-      width: 40px;
-      height: 25px * .75;
-      font-size: 14px * .66;
-      border-radius: 8px * 0.75;
-    }
-  }
   &.no-offset {
     &:after {
-      transform: none;
-    }
-  }
-}
-
-@media (min-width: $breakpoint-md) {
-  .soon {
-    &:after {
-      width: 40px;
-      height: 25px * .75;
-      font-size: 14px * .66;
-      border-radius: 8px * 0.75;
-    }
-    &.small {
-      &:after {
-        width: 40px;
-        height: 25px * .75;
-        font-size: 14px * .66;
-        border-radius: 8px * 0.75;
-      }
+      transform: translate(0%, -50%);
     }
   }
 }

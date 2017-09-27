@@ -17,7 +17,7 @@
       <ul class="nav__items">
         <a class="nav__anchor scroll" href="#about"><li class="nav__item">Evento</li></a>
         <a class="nav__anchor scroll" href="#keynotes"><li class="nav__item">Keynotes</li></a>
-        <a class="nav__anchor" disabled href="#top"><li class="nav__item  soon left small">Programação</li></a>
+        <a class="nav__anchor" disabled href="#top"><li class="nav__item  soon no-offset">Programação</li></a>
         <a class="nav__anchor scroll" href="#location"><li class="nav__item">Local</li></a>
         <a class="nav__anchor scroll" href="#sponsors"><li class="nav__item">Patrocinadores</li></a>
         <a class="nav__anchor" href="http://blog.pythonbrasil.org.br" target="_blank" ><li class="nav__item">Blog</li></a>
@@ -39,7 +39,8 @@
         <ul class="nav__items">
           <li class="nav__item"><a class="nav__anchor scroll" href="#about">Evento</a></li>
           <li class="nav__item"><a class="nav__anchor scroll" href="#keynotes">Keynotes</a></li>
-          <li class="nav__item soon"><a disabled class="nav__anchor" href="#">Programação</a></li>
+          <li class="nav__item hidden-md-down"><a disabled class="nav__anchor soon" href="#">Programação</a></li>
+          <li class="nav__item hidden-lg-up"><a disabled class="nav__anchor" href="#">Programação</a></li>
           <li class="nav__item">
             <a class="nav__anchor" href="#top">
               <img width="40px" height="40px" src="<%= require('./img/Python14-Cobras-MenuHeader.svg') %>" alt="Logo Python">
@@ -301,7 +302,7 @@ Durante 6 dias os participantes poderão adquirir experiência com desenvolvedor
                   <a class="scroll" href="#keynotes">Keynotes</a>
                 </li>
                 <li class="footer__nav__menu__item">
-                  <a class="soon small" disabled href="#">Programação</a>
+                  <a class="soon" disabled href="#">Programação</a>
                 </li>
               </ul>
               <ul class="footer__nav__menu">
