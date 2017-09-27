@@ -20,6 +20,7 @@
         padding-right: 0px;
       }
       &__title {
+        display: inline-block;
         font-size: 24px;
         font-weight: 700;
         margin-bottom: 0px;
@@ -86,7 +87,7 @@
   }
 }
 
-@media (min-width: $breakpoint-md) {
+@media (min-width: $breakpoint-lg) {
   .footer {
     .pybr-button--light {
       width: 100%;

@@ -3,13 +3,13 @@
 .soon {
   position: relative;
   &:after {
-    content: 'Em breve';
+    content: 'breve';
     right: 0px;
-    bottom: 0px;
+    top: 50%;
     position: absolute;
-    transform: translate(0%, 50%);
+    transform: translate(110%, -50%);
 
-    width: 70px * .75;
+    width: 40px;
     height: 25px * .75;
     font-size: 14px * .66;
     border-radius: 8px * 0.75;
@@ -28,16 +28,15 @@
   }
   &.small {
     &:after {
-      width: 70px * .75;
+      width: 40px;
       height: 25px * .75;
       font-size: 14px * .66;
       border-radius: 8px * 0.75;
     }
   }
-  &.left {
+  &.no-offset {
     &:after {
-      left: 0px;
-      right: initial;
+      transform: none;
     }
   }
 }
@@ -45,15 +44,14 @@
 @media (min-width: $breakpoint-md) {
   .soon {
     &:after {
-      transform: translate(25%, 50%);
-      width: 70px;
-      height: 25px;
-      font-size: 14px;
-      border-radius: 8px;
+      width: 40px;
+      height: 25px * .75;
+      font-size: 14px * .66;
+      border-radius: 8px * 0.75;
     }
     &.small {
       &:after {
-        width: 70px * .75;
+        width: 40px;
         height: 25px * .75;
         font-size: 14px * .66;
         border-radius: 8px * 0.75;
