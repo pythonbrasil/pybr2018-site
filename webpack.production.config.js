@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const CnameWebpackPlugin = require('cname-webpack-plugin');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const devtool = 'source-map';
@@ -45,6 +46,9 @@ module.exports = {
     }),
      new webpack.optimize.UglifyJsPlugin({
       sourceMap: devtool && (devtool.indexOf('sourcemap') >= 0 || devtool.indexOf('source-map') >= 0)
+    }),
+    new CnameWebpackPlugin({
+      domain: '2018.pythonbrasil.org.br',
     }),
   ]
 }
