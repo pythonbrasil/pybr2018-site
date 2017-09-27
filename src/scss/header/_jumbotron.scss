@@ -1,0 +1,115 @@
+.jumbotron-wrapper {
+  @extend .container-fluid;
+  height: 800px;
+  height: calc(100vh - 64px);
+  max-height: 800px;
+  background-image: url('../img/Python14-MapaRN-cinza-30.svg');
+  background-color: rgba(255, 255, 255, 0.1);
+  background-position: -440px 10px;
+  background-size: 550px;
+  background-repeat: no-repeat;
+  .jumbotron-container {
+    @extend .container;
+    padding: 20px 0px;
+    height: 100%;
+  }
+  .jumbotron {
+    @extend .row;
+    @extend .d-flex;
+    @extend .align-items-center;
+    @extend .justify-content-between;
+    flex-direction: column;
+    height: 100%;
+    .jumbotron__logo {
+      display: block;
+      width: 100%;
+      padding-bottom: 10px;
+    }
+    .jumbotron__main {
+      @extend .col-lg-3;
+      @extend .col-md-4;
+      @extend .col-sm-6;
+      @extend .col-12;
+      @extend .offset-lg-1;
+      @extend .d-flex;
+      @extend .flex-column;
+      @extend .justify-content-around;
+      flex: 0.45;
+    }
+    .jumbotron__side {
+      @extend .align-self-start;
+      @extend .col-lg-6;
+      @extend .col-md-6;
+      @extend .col-sm-6;
+      @extend .col-10;
+      @extend .offset-lg-2;
+      @extend .offset-md-2;
+      margin: 0 auto;
+      flex: 0.35;
+      .pybr-date {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+    .jumbotron__action {
+      @extend .hidden-sm-up;
+      @extend .d-flex;
+      @extend .align-items-center;
+      width: 70%;
+      flex: 0.2;
+      .pybr-button--dark {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media(min-width: 576px) {
+  .jumbotron-wrapper {
+    background-position: -330px center;
+    min-height: 350px;
+    max-height: 350px;
+    .jumbotron-container {
+      .jumbotron {
+        flex-direction: row;
+        .jumbotron__logo {
+          width: 75%;
+        }
+        .jumbotron__main {
+          height: 80%;
+          flex: initial;
+        }
+        .jumbotron__side {
+          padding-top: 8%;
+          margin: initial;
+          flex: initial;
+        }
+      }
+    }
+  }
+}
+
+@media(min-width: 767px) {
+  .jumbotron-wrapper {
+    min-height: 400px;
+    max-height: 400px;
+    .jumbotron-container {
+      padding: 0px;
+    }
+  }
+}
+
+@media(min-width: 991px) {
+  .jumbotron-wrapper {
+    height: calc(100vh - 150px);
+    min-height: 400px;
+    max-height: 550px;
+  }
+}
+
+@media(min-width: 1200px) {
+  .jumbotron-wrapper {
+    min-height: 650px;
+    max-height: 700px;
+  }
+}

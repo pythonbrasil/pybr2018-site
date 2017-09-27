@@ -1,0 +1,128 @@
+@import 'variables.scss';
+
+.soon {
+  position: relative;
+  &:after {
+    content: 'breve';
+    right: 0px;
+    top: 50%;
+    position: absolute;
+    transform: translate(110%, -50%);
+
+    width: 40px;
+    height: 25px * .75;
+    font-size: 11px;
+    border-radius: 8px * 0.75;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: $python-blue;
+    color: $dark-blue;
+
+    font-family: 'Advent Pro', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: normal;
+    font-weight: 700;
+  }
+  &.no-offset {
+    &:after {
+      transform: translate(0%, -50%);
+    }
+  }
+}
+
+@mixin make-angle($color, $angle) {
+  $angle: if($angle > 0, 5, -5);
+  margin-top: 0px;
+  position: relative;
+  &:before, &:after {
+    content: '';
+    background-color: $color;
+    display: block;
+    position: absolute;
+    height: 100px;
+    top: 0px;
+  }
+  &:before {
+    transform-origin: if($angle < 0, left top, right top);
+    width: 100%;
+    left: 0px;
+    transform: skewY(#{$angle}deg);
+
+    @media (min-width: 1441px) {
+      transform: skewY(#{$angle * 0.75}deg);
+    }
+
+    @media (min-width: 1921px) {
+      transform: skewY(#{$angle * 0.6}deg);
+    }
+
+    @media (min-width: 2560px) {
+      transform: skewY(#{$angle * 0.36}deg);
+    }
+  }
+
+  &:after {
+    transform: translateY(-50px);
+    height: 50px;
+    width: 35%;
+    left: if($angle < 0, 65%, 0px);
+    @media (max-width: $breakpoint-md) {
+      width: 20%;
+      left: if($angle < 0, 80%, 0px);
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      width: 0%;
+      left: if($angle < 0, 80%, 0px);
+    }
+  }
+}
+
+@import 'bootstrap/scss/bootstrap-grid.scss';
+@import 'bootstrap/scss/bootstrap-reboot.scss';
+@import 'bootstrap/scss/utilities';
+//@import 'bootstrap/scss/transitions';
+//@import 'bootstrap/scss/tooltip';
+//@import 'bootstrap/scss/modal';
+@import 'common/common.scss';
+@import 'header/header.scss';
+@import 'about/about.scss';
+@import 'keynotes/keynotes.scss';
+@import 'location/location.scss';
+@import 'event-map/event-map.scss';
+@import 'sponsors/sponsors.scss';
+@import 'realization/realization.scss';
+@import 'footer/footer.scss';
+
+
+body {
+  font-family: 'Advent Pro', sans-serif;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+p {
+  font-family: 'Nunito', sans-serif !important;
+}
+
+.content-wrapper {
+  overflow-x: hidden;
+}
+
+.content-wrapper > section {
+  padding-top: 30px;
+  padding-bottom: 120px;
+}
+
+.img-fluid {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}

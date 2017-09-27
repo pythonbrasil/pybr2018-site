@@ -1,0 +1,60 @@
+@mixin color-modifiers($base-class, $dark, $light) {
+  &--dark {
+    @extend #{$base-class};
+    background-color: $dark;
+  }
+
+  &--light {
+    @extend #{$base-class};
+    background-color: $light;
+  }
+}
+
+
+.pybr-button {
+  display: block;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 19px;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+  background-color: $background-dark;
+  text-decoration: none;
+  text-transform: uppercase;
+  line-height: normal;
+  &:hover, &:active, &:focus {
+    text-decoration: none;
+    color: white;
+  }
+  strong {
+    font-size: 26px;
+  }
+
+  @include color-modifiers('.pybr-button', $dark-blue, $python-yellow);
+}
+
+.pybr-button-large {
+  @extend .pybr-button;
+  @extend .d-flex;
+  @extend .justify-content-center;
+  @extend .align-items-center;
+  font-size: 30px;
+  font-weight: 700;
+  height: 140px;
+  @include color-modifiers('.pybr-button-large', $dark-blue, $python-yellow);
+
+}
+
+@media (min-width: $breakpoint-md) {
+  .pybr-button {
+    font-size: 30px;
+    strong {
+      font-size: 40px;
+    }
+  }
+  .pybr-button-large {
+    font-size: 40px;
+  }
+
+}

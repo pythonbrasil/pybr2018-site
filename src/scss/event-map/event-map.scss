@@ -1,0 +1,17 @@
+.map-wrapper {
+  @include make-angle(white, 1)
+}
+
+.map-container {
+  @extend .container;
+  .map {
+    @extend .row;
+    .section-header-wrapper {
+      .section-header {
+        @extend .col-lg-7;
+        @extend .col-md-10;
+        @extend .col-sm-12;
+      }
+    }
+  }
+}

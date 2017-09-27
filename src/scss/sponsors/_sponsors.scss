@@ -1,0 +1,108 @@
+@mixin sponsor-category($color: $dark-blue) {
+  width: 100%;
+  @extend .d-flex;
+  @extend .justify-content-center;
+  flex-wrap: wrap;
+  .sponsor-category-title {
+    color: $color;
+  }
+}
+
+.sponsors-wrapper {
+  @extend .about-wrapper;
+  @include make-angle ($background-dark, -3);
+  background-color: $background-dark;
+  .sponsors-container {
+    @extend .container;
+    .sponsors {
+      @extend .row;
+      .section-header-wrapper {
+        margin-bottom: 100px;
+        .section-header--right {
+          @extend .col-lg-6;
+          @extend .col-md-8;
+        }
+      }
+    }
+  }
+}
+
+.sponsor-category-title {
+  @extend .col-lg-4;
+  @extend .col-10;
+  display: block;
+  background-color: white;
+  line-height: normal;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-size: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+
+.sponsors {
+  &__diamond {
+    @include sponsor-category($python-blue);
+  }
+  &__gold {
+    @include sponsor-category($python-yellow);
+  }
+  &__silver {
+    @include sponsor-category($dark-blue);
+  }
+
+  &__list {
+    padding: 100px 0px;
+    width: 100%;
+    @extend .d-flex;
+    @extend .justify-content-center;
+    flex-wrap: wrap;
+    .sponsor {
+      @extend .col-lg-4;
+      @extend .col-md-4;
+      @extend .col-sm-4;
+      @extend .col-12;
+      @extend .d-flex;
+      @extend .justify-content-center;
+      @extend .align-items-center;
+      list-style: none;
+      font-size: 50px;
+      font-family: 'Advent Pro', sans-serif;
+      height: 50px;
+    }
+
+  }
+
+  &__call-to-action {
+    @extend .col-lg-12;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    h2 {
+      font-size: 36px;
+    }
+  }
+
+  .call-to-sponsor {
+    @extend .col-lg-4;
+    @extend .col-md-6;
+    @extend .col-sm-6;
+    @extend .col-10;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .sponsors {
+    &__call-to-action {
+       h2 {
+        font-size: 50px;
+      }
+    }
+  }
+}
