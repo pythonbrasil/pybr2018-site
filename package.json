@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --inline --hot",
-    "production": "webpack --progress --config webpack.production.config.js"
+    "production": "webpack --progress --config webpack.production.config.js && git add dist && git commit -m \"updating website to production\" && git subtree push --prefix dist origin gh-pages"
   },
   "repository": {
     "type": "git",
