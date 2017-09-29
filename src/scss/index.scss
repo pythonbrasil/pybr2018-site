@@ -109,11 +109,13 @@ ul {
 }
 
 p {
-  font-family: 'Nunito', sans-serif !important;
+  font-family: 'Nunito', 'Helvetica Neue', sans-serif !important;
 }
 
 .content-wrapper {
   overflow-x: hidden;
+  position: relative;
+  width: 100%;
 }
 
 .content-wrapper > section {

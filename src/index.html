@@ -8,26 +8,26 @@
   <meta name="viewport" content="width=device-width">
 </head>
 <body>
+  <nav id="mobile-nav" class="header__nav-mobile">
+    <header class="header__nav-mobile__header">
+      <h1>Menu</h1>
+      <button class="mobile-nav-trigger--close" id="mobile-nav-close-trigger"></button>
+    </header>
+    <ul class="nav__items">
+      <a class="nav__anchor scroll" href="#about"><li class="nav__item">Evento</li></a>
+      <a class="nav__anchor scroll" href="#keynotes"><li class="nav__item">Keynotes</li></a>
+      <a class="nav__anchor" disabled href="#top"><li class="nav__item  soon no-offset">Programação</li></a>
+      <a class="nav__anchor scroll" href="#location"><li class="nav__item">Local</li></a>
+      <a class="nav__anchor scroll" href="#sponsors"><li class="nav__item">Patrocinadores</li></a>
+      <a class="nav__anchor" href="http://blog.pythonbrasil.org.br" target="_blank" ><li class="nav__item">Blog</li></a>
+      <li class="nav__item subscribe-button">
+        <a href="#" disabled class="pybr-button--light">
+          Inscrições em breve
+        </a>
+      </li>
+    </ul>
+  </nav>
   <div class="content-wrapper" id="top">
-    <nav id="mobile-nav" class="header__nav-mobile">
-      <header class="header__nav-mobile__header">
-        <h1>Menu</h1>
-        <button class="mobile-nav-trigger--close" id="mobile-nav-close-trigger"></button>
-      </header>
-      <ul class="nav__items">
-        <a class="nav__anchor scroll" href="#about"><li class="nav__item">Evento</li></a>
-        <a class="nav__anchor scroll" href="#keynotes"><li class="nav__item">Keynotes</li></a>
-        <a class="nav__anchor" disabled href="#top"><li class="nav__item  soon no-offset">Programação</li></a>
-        <a class="nav__anchor scroll" href="#location"><li class="nav__item">Local</li></a>
-        <a class="nav__anchor scroll" href="#sponsors"><li class="nav__item">Patrocinadores</li></a>
-        <a class="nav__anchor" href="http://blog.pythonbrasil.org.br" target="_blank" ><li class="nav__item">Blog</li></a>
-        <li class="nav__item subscribe-button">
-          <a href="#" disabled class="pybr-button--light">
-            Inscrições em breve
-          </a>
-        </li>
-      </ul>
-    </nav>
     <header class="header">
       <nav class="header__nav">
         <div class="header__mobile">
@@ -55,7 +55,8 @@
         <div class="jumbotron-container">
           <div class="jumbotron">
             <div class="jumbotron__main">
-              <img class="jumbotron__logo" height="auto" src="<%= require('./img/Python14-NomedoEvento.svg') %>" alt="Logo Python Brasil 14">
+              <img class="jumbotron__logo hidden-sm-down" height="auto" src="<%= require('./img/Python14-NomedoEvento.svg') %>" alt="Logo Python Brasil 14">
+              <img class="jumbotron__logo hidden-md-up" height="100%" src="<%= require('./img/Python14-NomedoEvento.svg') %>" alt="Logo Python Brasil 14">
               <a href="#" disabled class="pybr-button--dark hidden-xs-down">
                 Inscrições
                 <strong class="d-block">EM BREVE</strong>

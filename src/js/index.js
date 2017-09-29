@@ -8,6 +8,7 @@ class MobileNavManager {
     this.mobileNavCloseTrigger = document.querySelector('#mobile-nav-close-trigger');
     this.preventScrolling = this.preventScrolling.bind(this);
     this.onMobileNavTrigger = this.onMobileNavTrigger.bind(this);
+    this.onTouchMoveEnd = this.onTouchMoveEnd.bind(this);
     this.setupMobileNavigation();
   }
 
@@ -16,6 +17,7 @@ class MobileNavManager {
     this.mobileNavCloseTrigger.addEventListener('click', this.onMobileNavTrigger);
     this.mobileNav.addEventListener('click', this.onMobileNavTrigger);
     this.mobileNav.addEventListener('touchmove', this.preventScrolling);
+    this.mobileNav.addEventListener('scroll', this.preventScrolling);
     const menuItems = this.mobileNav.querySelectorAll('.nav__anchor');
     Array.prototype.forEach.call(menuItems, (menuItem) => {
       menuItem.style.cursor = 'pointer';
@@ -25,7 +27,13 @@ class MobileNavManager {
   }
 
   preventScrolling(e) {
-    e.preventDefault();
+    e.stopPropagation();
+    this.mobileNav.addEventListener('touchend', this.onTouchMoveEnd, true);
+  }
+
+  onTouchMoveEnd(e) {
+    e.stopPropagation();
+    this.mobileNav.removeEventListener('touchend', this.onTouchMoveEnd, true);
   }
 
 

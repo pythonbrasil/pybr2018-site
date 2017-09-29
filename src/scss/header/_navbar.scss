@@ -83,6 +83,7 @@
   .nav__items {
     height: calc(100vh - 64px);
     max-height: 700px;
+    overflow-y: scroll;
     .subscribe-button {
       list-style: none;
       padding: 14px 30px;
