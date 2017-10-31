@@ -39,9 +39,9 @@
     color: rgba(255, 255, 255, .66) !important;
   }
   .nav__items {
-    @extend .hidden-sm-down;
+    @extend .d-none;
+    @extend .d-md-flex;
     @extend .container;
-    @extend .d-flex;
     @extend .justify-content-around;
     padding: 0px;
     margin: 0 auto;
@@ -65,7 +65,8 @@
 }
 
 .header__nav-mobile {
-  @extend .hidden-md-up;
+  @extend .d-block;
+  @extend .d-md-none;
   width: 80%;
   height: 100vh;
   background-color: #0F2436;;
@@ -140,14 +141,14 @@
 }
 
 .mobile-nav-trigger {
-  @extend .hidden-md-up;
+  @extend .d-md-none;
 }
 
 .header__mobile {
-  @extend .hidden-md-up;
+  @extend .d-flex;
+  @extend .d-md-none;
   position: relative;
   width: 100%;
-  @extend .d-flex;
   @extend .justify-content-center;
 }
 
