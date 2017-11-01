@@ -52,7 +52,7 @@
       }
     }
     .jumbotron__action {
-      @extend .hidden-sm-up;
+      @extend .d-sm-none;
       @extend .d-flex;
       @extend .align-items-center;
       width: 70%;
