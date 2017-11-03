@@ -46,6 +46,9 @@
   &__diamond {
     @include sponsor-category($python-blue);
   }
+  &__platinum {
+    @include sponsor-category($python-platinum);
+  }
   &__gold {
     @include sponsor-category($python-yellow);
   }
