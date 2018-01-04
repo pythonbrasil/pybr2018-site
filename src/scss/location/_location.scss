@@ -81,6 +81,21 @@
   }
 }
 
+.cesusc-banner {
+  @extend .col-lg-6;
+  @extend .col-md-12;
+  @extend .col-sm-12;
+  @extend .col-12;
+  .cesusc-website {
+    text-align: left;
+    display: block;
+    font-family: 'Advent Pro', sans-serif;
+    color: $python-yellow;
+    font-weight: 600;
+    font-size: 24px;
+  }
+}
+
 @media (min-width: $breakpoint-md) {
   .location__info {
     margin-top: 50px;
@@ -107,4 +122,36 @@
       font-size: 34px;
     }
   }
+}
+
+@media (min-width: $breakpoint-md) {
+  .location__info {
+    margin-top: 50px;
+    &__article {
+      text-align: left;
+      padding-bottom: 60px;
+      .article__header {
+        &__title {
+          font-size: 40px;
+        }
+        &__subtitle {
+          font-size: 20px;
+        }
+      }
+      .article__section {
+        padding: 0px;
+        margin: 0px 0px;
+      }
+    }
+  }
+
+  .cesusc-banner {
+    .cesusc-website {
+      font-size: 34px;
+    }
+  }
+}
+
+.location-margin-spacer {
+  margin-top: 50px;
 }
