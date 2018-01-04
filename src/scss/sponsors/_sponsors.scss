@@ -43,14 +43,14 @@
 
 
 .sponsors {
-  &__diamond {
-    @include sponsor-category($python-blue);
-  }
   &__gold {
     @include sponsor-category($python-yellow);
   }
   &__silver {
-    @include sponsor-category($dark-blue);
+    @include sponsor-category($python-blue);
+  }
+  &__bronze {
+    @include sponsor-category($bronze);
   }
   &__support {
     @include sponsor-category($grey);
