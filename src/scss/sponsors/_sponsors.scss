@@ -103,6 +103,19 @@
   }
 }
 
+@media (max-width: 767px) {
+  .sponsors__list {
+    padding: 0px 0px;
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    .sponsor {
+      list-style: none;
+      flex-basis: 33.333%;
+    }
+  }
+}
+
 @media (min-width: $breakpoint-md) {
   .sponsors {
     &__call-to-action {
