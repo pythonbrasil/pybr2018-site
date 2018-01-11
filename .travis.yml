@@ -6,6 +6,7 @@ node_js:
 
 script:
   - npm run production
+  - ls $TRAVIS_BUILD_DIR
 
 deploy:
   provider: pages
