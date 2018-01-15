@@ -35,9 +35,19 @@
   }
 }
 
+.keynote-img-fluid {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
 @media (max-width: 767px) {
   .keynote__summary {
     flex-direction: column;
+  }
+
+  .keynote-img-fluid {
+    max-width: 80%;
   }
 }
 
