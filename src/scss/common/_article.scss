@@ -1,5 +1,5 @@
 .article {
-  margin-top: 60px;
+  margin-top: 30px;
   @extend .row;
   @extend .d-flex;
   @extend .justify-content-center;
@@ -12,7 +12,7 @@
   @extend .col-12;
   .header__title {
     @extend .section-title;
-    font-size: 50px;
+    font-size: 36px;
     text-transform: none;
     font-weight: 400;
   }
@@ -31,5 +31,18 @@
     color: $dark-blue;
     padding: 23px;
     width: 100%;
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .article {
+    margin-top: 60px;
+  }
+
+  .article__header {
+    .header__title {
+      font-size: 50px;
+      padding-bottom: 26px;
+    }
   }
 }
