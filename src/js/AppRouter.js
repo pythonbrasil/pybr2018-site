@@ -1,25 +1,36 @@
 import Navigo from 'navigo';
 
 export default class AppRouter {
-  constructor(routes) {
+  constructor(routes, ignoreRecurrentPaths=false) {
     this.isFirstFetch = true;
-    this.onNavigation = this.onNavigation.bind(this);
-    this.onAnchorClick = this.onAnchorClick.bind(this);
-
-    const root = null;
+    this.ignoreRecurrentPaths = ignoreRecurrentPaths;
+    this._onNavigation = this._onNavigation.bind(this);
+    this._onAnchorClick = this._onAnchorClick.bind(this);
+    this._callbackRegistry = [];
+    const root = window.location.origin;
     this._router = new Navigo(root, false);
     this._routes = routes;
 
-    this.setupInternalRoutes();
-    this.setupAnchors();
+    this._setupInternalRoutes();
+    this._setupAnchors();
   }
 
-  onNavigation() {
+  onNewRouteContentReady(fn) {
+    if (typeof fn === 'function') {
+      this._callbackRegistry.push(fn);
+    }
+  }
+
+  _onNavigation() {
+    const path = window.location.pathname;
     if (this.isFirstFetch) {
       this.isFirstFetch = false;
       return;
     }
-    const path = window.location.pathname;
+    if (this.ignoreRecurrentPaths && path === this.lastPath) {
+      return;
+    }
+    this.lastPath = path;
     fetch(path)
     .then(response => response.text())
     .then(content => {
@@ -27,48 +38,51 @@ export default class AppRouter {
         (new DOMParser).parseFromString(content, 'text/html')
         .querySelector('#content');
       const currentPageContent = document.querySelector('#page-content');
-      this.cleanupEventListeners();
+      this._cleanupEventListeners();
       currentPageContent.innerHTML = '';
       currentPageContent.appendChild(newPageContent);
-      this.setupAnchors();
+      this._setupAnchors();
+      this._callbackRegistry.forEach((fn) => {
+        fn(path);
+      });
     });
   }
 
-  setupInternalRoutes() {
+  _setupInternalRoutes() {
     const routesHandlers = {};
     this._routes.forEach((route) => {
-      routesHandlers[route] = this.onNavigation;
+      routesHandlers[route] = this._onNavigation;
     });
 
-    this._router.on(this.onNavigation).resolve();
+    this._router.on(this._onNavigation).resolve();
     this._router.on(routesHandlers).resolve();
   }
 
-  onAnchorClick(e) {
+  _onAnchorClick(e) {
     e.preventDefault();
     const destinyRoute = e.currentTarget.getAttribute('href');
     this._router.navigate(destinyRoute, true);
   }
 
-  getInternalAnchors() {
+  _getInternalAnchors() {
     return document.querySelectorAll('a[href^="/"]');
   }
 
-  cleanupEventListeners() {
-    const anchors = this.getInternalAnchors();
+  _cleanupEventListeners() {
+    const anchors = this._getInternalAnchors();
     anchors.forEach((anchor) => {
-      anchor.removeEventListener('click', this.onAnchorClick);
+      anchor.removeEventListener('click', this._onAnchorClick);
     });
   }
 
-  setupAnchors() {
-    const anchors = this.getInternalAnchors();
+  _setupAnchors() {
+    const anchors = this._getInternalAnchors();
     anchors.forEach((anchor) => {
-      anchor.addEventListener('click', this.onAnchorClick);
+      anchor.addEventListener('click', this._onAnchorClick);
     }) 
   }
 
-  getInternalAnchors() {
+  _getInternalAnchors() {
     return document.querySelectorAll('a[href^="\/"]');
   }
 }

@@ -3,18 +3,23 @@ import MobileNavManager from 'app/MobileNavManager';
 import AppRouter from 'app/AppRouter';
 import ScrollTo from 'storm-scroll-to';
 
-document.addEventListener('DOMContentLoaded', () => {
-  new MobileNavManager();
-  const routes = [
-    '/codigo-de-conduta'
-  ];
-  new AppRouter(routes);
-  try {
+const scrollToOffset = 128;
+const routes = [
+  '/codigo-de-conduta'
+];
+
+function updateScrollTo(path) {
+  if (path === '/') {
     ScrollTo.init('.scroll', {
       offset: 120,
       focus: false,
     });
-  } catch (e) {
-
   }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  new MobileNavManager();
+  const appRouter = new AppRouter(routes, true);
+  appRouter.onNewRouteContentReady(updateScrollTo);
+  updateScrollTo(window.location.pathname);
 });
