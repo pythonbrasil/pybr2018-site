@@ -15,6 +15,7 @@ module.exports = {
       'scss': path.resolve(__dirname, 'src/scss'),
       'templates': path.resolve(__dirname, 'src/templates'),
       'img': path.resolve(__dirname, 'src/img'),
+      'app': path.resolve(__dirname, 'src/js'),
     }
   },
   devtool: 'source-map',
