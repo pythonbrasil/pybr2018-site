@@ -1,3 +1,17 @@
+
+@media (min-width: $breakpoint-xs) {
+  .content-body {
+    position: relative;
+    min-height: calc(100% - #{$nav-height});
+    padding-bottom: 400px;
+  }
+  .footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
+}
+
 .footer {
   a[disabled] {
     pointer-events: none;

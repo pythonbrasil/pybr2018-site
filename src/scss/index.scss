@@ -1,5 +1,9 @@
 @import 'variables.scss';
 
+
+#page-content {
+  background-color: #F9F8F4;
+}
 .soon {
   position: relative;
   &:after {
@@ -97,6 +101,8 @@
 @import 'sponsors/sponsors.scss';
 @import 'realization/realization.scss';
 @import 'footer/footer.scss';
+
+@import 'intern-pages/intern-pages.scss';
 
 
 body {
