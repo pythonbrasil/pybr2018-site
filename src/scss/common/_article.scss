@@ -18,15 +18,18 @@
   }
 }
 
-.article__body {
+.article__body--wrapper {
   @extend .col-lg-10;
   @extend .col-md-10;
   @extend .col-sm-12;
   @extend .col-12;
-  background-color: white;
-  padding: 23px;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  color: $dark-blue;
+  .article__body {
+    background-color: white;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: $dark-blue;
+    padding: 23px;
+    width: 100%;
+  }
 }
