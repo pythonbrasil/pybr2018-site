@@ -1,5 +1,32 @@
+.article {
+  margin-top: 60px;
+  @extend .row;
+  @extend .d-flex;
+  @extend .justify-content-center;
+}
+
+.article__header {
+  @extend .col-lg-10;
+  @extend .col-md-10;
+  @extend .col-sm-12;
+  @extend .col-12;
+  .header__title {
+    @extend .section-title;
+    font-size: 50px;
+    text-transform: none;
+    font-weight: 400;
+  }
+}
+
 .article__body {
+  @extend .col-lg-10;
+  @extend .col-md-10;
+  @extend .col-sm-12;
+  @extend .col-12;
+  background-color: white;
+  padding: 23px;
   font-family: 'Nunito', sans-serif;
   font-weight: 300;
   font-size: 16px;
+  color: $dark-blue;
 }
