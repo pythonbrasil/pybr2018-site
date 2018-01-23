@@ -42,6 +42,7 @@ export default class AppRouter {
       currentPageContent.innerHTML = '';
       currentPageContent.appendChild(newPageContent);
       this._setupAnchors();
+      window.scrollTo(0, 0);
       this._callbackRegistry.forEach((fn) => {
         fn(path);
       });
