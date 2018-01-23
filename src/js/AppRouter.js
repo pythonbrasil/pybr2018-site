@@ -2,6 +2,7 @@ import Navigo from 'navigo';
 
 export default class AppRouter {
   constructor(routes) {
+    this.isFirstFetch = true;
     this.onNavigation = this.onNavigation.bind(this);
     this.onAnchorClick = this.onAnchorClick.bind(this);
 
@@ -13,13 +14,11 @@ export default class AppRouter {
     this.setupAnchors();
   }
 
-  setupRootRoute() {
-    this._router.on(() => {
-      console.log('going to default route');
-    }).resolve();
-  }
-
   onNavigation() {
+    if (this.isFirstFetch) {
+      this.isFirstFetch = false;
+      return;
+    }
     const path = window.location.pathname;
     fetch(path)
     .then(response => response.text())
@@ -28,20 +27,20 @@ export default class AppRouter {
         (new DOMParser).parseFromString(content, 'text/html')
         .querySelector('#content');
       const currentPageContent = document.querySelector('#page-content');
+      this.cleanupEventListeners();
       currentPageContent.innerHTML = '';
-      newPageContent.childNodes.forEach((node) => {
-        currentPageContent.appendChild(node);
-      });
+      currentPageContent.appendChild(newPageContent);
+      this.setupAnchors();
     });
   }
 
   setupInternalRoutes() {
-
     const routesHandlers = {};
     this._routes.forEach((route) => {
       routesHandlers[route] = this.onNavigation;
     });
 
+    this._router.on(this.onNavigation).resolve();
     this._router.on(routesHandlers).resolve();
   }
 
