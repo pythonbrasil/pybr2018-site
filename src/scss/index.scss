@@ -124,10 +124,19 @@ p {
 .content-wrapper > section {
   padding-top: 30px;
   padding-bottom: 120px;
+  position: relative;
 }
 
 .img-fluid {
   max-width: 100%;
   display: block;
   margin: 0 auto;
+}
+
+.anchor {
+  display: block;
+  margin-top: -120px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }

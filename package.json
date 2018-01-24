@@ -16,6 +16,7 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/evolux/site-python-brasil-2018#readme",
   "devDependencies": {
+    "animated-scrollto": "^1.1.0",
     "autoprefixer": "^7.1.4",
     "babel-core": "^6.24.1",
     "babel-loader": "^6.4.1",
