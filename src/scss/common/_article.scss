@@ -19,6 +19,15 @@
       font-weight: 400;
     }
   }
+
+  @keyframes placeholder {
+    0%, 100% {
+      opacity: .3;
+    }
+    50% {
+      opacity: .7;
+    }
+  }
   
   .article__body--wrapper {
     @extend .col-lg-10;
@@ -37,9 +46,35 @@
       p {
         margin-bottom: 2rem;
       }
+      .article__content {
+        transition: opacity 300ms ease-out, transform 230ms ease-out;
+      }
+      .loading-placeholder {
+        height: 16px;
+        background-color: lightgray;
+        width: 100%;
+        margin-bottom: 10px;
+        animation: placeholder 2s infinite;
+        &--small {
+          @extend .loading-placeholder;
+          width: 70%;
+        }
+        &--medium {
+          @extend .loading-placeholder;
+          width: 75%;
+        }
+        &--big {
+          @extend .loading-placeholder;
+          width: 90%;
+        }
+      }
     }
   }
-  
+
+}
+.fade-out {
+  opacity: 0;
+  transform: translateY(2%);
 }
 @media (min-width: $breakpoint-md) {
   .article {

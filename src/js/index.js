@@ -1,5 +1,6 @@
 import 'scss/index.scss';
 import animatedScrollTo from 'animated-scrollto';
+import CodeOfConduct from './codeOfConduct';
 
 class MobileNavManager {
   constructor() {
@@ -83,9 +84,11 @@ function setupScrollAnimation() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  
   new MobileNavManager();
   if (window.location.pathname === '/') {
     setupScrollAnimation();
+  }
+  if ( window.location.pathname === '/codigo-de-conduta') {
+    new CodeOfConduct();
   }
 });
