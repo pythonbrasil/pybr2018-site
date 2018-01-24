@@ -3,6 +3,9 @@ $footer-margin: 0px;
 $footer-padding-top: 50px;
 
 /* STICKY FOOTER */
+.content-body {
+  overflow-x: hidden;
+}
 @media (min-width: $breakpoint-xs) {
   .content-body {
     position: relative;

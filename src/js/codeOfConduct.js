@@ -3,11 +3,18 @@ import showdown from 'showdown';
 export default class CodeOfConduct {
   constructor() {
     setTimeout(() => {
-
-      fetch('https://raw.githubusercontent.com/pythonbrasil/codigo-de-conduta/master/README.md')
-      .then((response) => response.text())
-      .then((markdown) => this.parseMarkdown(markdown));
+      this.fetchCodeOfConduct();
     }, 1000)
+
+  }
+
+  fetchCodeOfConduct() {
+    fetch('https://raw.githubusercontent.com/pythonbrasil/codigo-de-conduta/master/README.md')
+    .then((response) => response.text())
+    .then((markdown) => this.parseMarkdown(markdown))
+    .catch(() => {
+      setTimeout(this.fetchCodeOfConduct.bind(this), 3000)
+    })
   }
 
   parseMarkdown(markdown) {

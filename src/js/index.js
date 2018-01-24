@@ -22,7 +22,6 @@ class MobileNavManager {
     const menuItems = this.mobileNav.querySelectorAll('.nav__anchor');
     Array.prototype.forEach.call(menuItems, (menuItem) => {
       menuItem.style.cursor = 'pointer';
-      menuItem.addEventListener('touchend', this.onMobileNavTrigger);
       menuItem.addEventListener('click', this.onMobileNavTrigger);
     });
   }
@@ -50,7 +49,9 @@ class MobileNavManager {
     if (e.currentTarget === this.mobileNav && e.target !== this.mobileNav) {
       return;
     }
+    console.log(this.mobileNav.classList);
     this.mobileNav.classList.toggle('opened');
+    console.log(this.mobileNav.classList);
     this.handleFocus();
   }
 
@@ -88,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.location.pathname === '/') {
     setupScrollAnimation();
   }
-  if ( window.location.pathname === '/codigo-de-conduta') {
+  if ( window.location.pathname.startsWith('/codigo-de-conduta')) {
     new CodeOfConduct();
   }
 });
