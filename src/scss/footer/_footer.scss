@@ -1,14 +1,33 @@
 
+$footer-margin: 20px;
+$footer-padding-top: 50px;
+
+/* STICKY FOOTER */
 @media (min-width: $breakpoint-xs) {
   .content-body {
     position: relative;
     min-height: calc(100% - #{$nav-height});
-    padding-bottom: 400px;
+    padding-bottom: 583px + $footer-padding-top + $footer-margin;
   }
   .footer {
     position: absolute;
     width: 100%;
     bottom: 0;
+  }
+}
+@media (min-width: $breakpoint-sm) {
+  .content-body {
+    padding-bottom: 442px + $footer-padding-top + $footer-margin;
+  }
+}
+@media (min-width: $breakpoint-md) {
+  .content-body {
+    padding-bottom: 432px + $footer-padding-top + $footer-margin;
+  }
+}
+@media (min-width: $breakpoint-lg) {
+  .content-body {
+    padding-bottom: 330px + $footer-padding-top + $footer-margin;
   }
 }
 
@@ -17,7 +36,7 @@
     pointer-events: none;
     color: rgba(255, 255, 255, .66) !important;
   }
-  padding-top: 50px;
+  padding-top: $footer-padding-top;
   background-color: $dark-blue;
   &__nav {
     @extend .d-flex;

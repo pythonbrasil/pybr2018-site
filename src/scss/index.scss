@@ -1,9 +1,5 @@
 @import 'variables.scss';
 
-
-#page-content {
-  background-color: #F9F8F4;
-}
 .soon {
   position: relative;
   &:after {
@@ -106,6 +102,7 @@
 
 
 body {
+  background-color: #F9F8F4;
   font-family: 'Advent Pro', sans-serif;
 }
 
