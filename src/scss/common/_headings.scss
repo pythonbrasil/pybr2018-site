@@ -100,6 +100,8 @@
     border-radius: 50%;
     transform-origin: center bottom;
     transform: scale(3, 5);
+    bottom: 0;
+    top: 0;
   }
   .header__title {
     margin-bottom: 60px;
