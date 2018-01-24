@@ -51,9 +51,6 @@ class MobileNavManager {
     }
     this.mobileNav.classList.toggle('opened');
     this.handleFocus();
-    if (e.currentTarget.classList.contains('scroll')) {
-      e.preventDefault();
-    }
   }
 
   get isOpened() {
@@ -86,8 +83,8 @@ function setupScrollAnimation() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  
   new MobileNavManager();
-
   if (window.location.pathname === '/') {
     setupScrollAnimation();
   }
