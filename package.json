@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --inline --hot",
-    "production": "rm -rf dist && webpack --progress --config webpack.production.config.js && git add dist && git commit -m 'updating production bundle' && git checkout production-bundle && git merge --squash -s subtree master && git commit -am 'updating production bundle' && git push --all origin && git checkout master"
+    "bundle": "rm -rf dist && webpack --progress --config webpack.production.config.js",
+    "production": "npm run bundle && git checkout production-bundle && cp -rf dist/* . && rm -rf dist && git add . && git commit -am 'updating production bundle' && git push --all origin && git checkout master"
   },
   "repository": {
     "type": "git",
@@ -16,6 +17,7 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/evolux/site-python-brasil-2018#readme",
   "devDependencies": {
+    "animated-scrollto": "^1.1.0",
     "autoprefixer": "^7.1.4",
     "babel-core": "^6.24.1",
     "babel-loader": "^6.4.1",
@@ -29,13 +31,13 @@
     "eslint": "^3.19.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.1",
+    "html-loader": "^0.5.5",
     "html-webpack-plugin": "^2.28.0",
     "jquery": "^3.2.1",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.6",
     "sass-loader": "^6.0.6",
     "storm-scroll-to": "^1.0.6",
-    "storm-scrollto": "^1.0.3",
     "style-loader": "^0.18.2",
     "tether": "^1.4.0",
     "uninstall": "0.0.0",

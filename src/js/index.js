@@ -1,5 +1,5 @@
 import 'scss/index.scss';
-import ScrollTo from 'storm-scroll-to';
+import animatedScrollTo from 'animated-scrollto';
 
 class MobileNavManager {
   constructor() {
@@ -51,9 +51,6 @@ class MobileNavManager {
     }
     this.mobileNav.classList.toggle('opened');
     this.handleFocus();
-    if (e.currentTarget.classList.contains('scroll')) {
-      e.preventDefault();
-    }
   }
 
   get isOpened() {
@@ -61,10 +58,34 @@ class MobileNavManager {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  new MobileNavManager();
-  ScrollTo.init('.scroll', {
-    offset: 120,
-    focus: false,
+function onAnchorClick(e) {
+  e.preventDefault();
+  let targetAnchor = e.currentTarget.getAttribute('href');
+  //this is needed since the href attr starts with an /
+  targetAnchor = targetAnchor.slice(1, targetAnchor.length);
+  const elementToScroll = document.querySelector(targetAnchor);
+  if (!elementToScroll) {
+    return;
+  }
+  const anchorPosition = elementToScroll.getBoundingClientRect().top;
+  const positionToScroll = anchorPosition + window.scrollY;
+  const animationDuration = 233;
+  animatedScrollTo(document.body, positionToScroll, animationDuration, () => {
+    elementToScroll.focus();
   });
+}
+
+function setupScrollAnimation() {
+  const anchors = document.querySelectorAll('.scroll');
+  for (const anchor of anchors) {
+    anchor.addEventListener('click', onAnchorClick);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  
+  new MobileNavManager();
+  if (window.location.pathname === '/') {
+    setupScrollAnimation();
+  }
 });
