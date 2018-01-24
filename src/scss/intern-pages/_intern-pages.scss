@@ -1,3 +1,24 @@
 .intern-page-content {
   @extend .container;
+  .header-call-to-action {
+    margin-top: 30px;
+    @extend .row;
+    @extend .d-flex;
+    @extend .justify-content-center;
+    @extend .justify-content-sm-end;
+    a {
+      @extend .col-lg-4;
+      @extend .col-md-4;
+      @extend .col-sm-6;
+      @extend .col-11;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .intern-page-content {
+    .header-call-to-action {
+      margin-top: 0px;
+    }
+  }
 }
