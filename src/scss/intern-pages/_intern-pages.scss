@@ -1,5 +1,6 @@
 .intern-page-content {
   @extend .container;
+  padding-bottom: 30px;
   .header-call-to-action {
     margin-top: 30px;
     @extend .row;
@@ -20,5 +21,17 @@
     .header-call-to-action {
       margin-top: 0px;
     }
+  }
+}
+
+.footer-logo-wrapper {
+  padding-top: 30px;
+  @extend .d-flex;
+  @extend .justify-content-center;
+  .footer-logo {
+    @extend .col-lg-3;
+    @extend .col-md-3;
+    @extend .col-sm-4;
+    @extend .col-6;
   }
 }
