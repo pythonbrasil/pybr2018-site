@@ -2,10 +2,7 @@ import showdown from 'showdown';
 
 export default class CodeOfConduct {
   constructor() {
-    setTimeout(() => {
-      this.fetchCodeOfConduct();
-    }, 1000)
-
+    this.fetchCodeOfConduct();
   }
 
   fetchCodeOfConduct() {
