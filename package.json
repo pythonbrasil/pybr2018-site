@@ -37,7 +37,6 @@
     "postcss-loader": "^2.0.6",
     "sass-loader": "^6.0.6",
     "storm-scroll-to": "^1.0.6",
-    "storm-scrollto": "^1.0.3",
     "style-loader": "^0.18.2",
     "tether": "^1.4.0",
     "uninstall": "0.0.0",
