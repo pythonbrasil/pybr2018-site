@@ -1,8 +1,13 @@
 .article {
   margin-top: 30px;
+  margin-bottom: 30px;
   @extend .row;
   @extend .d-flex;
   @extend .justify-content-center;
+  ul {
+    padding-left: 40px;
+    margin-bottom: 1rem;
+  }
   .article__header {
     @extend .col-lg-10;
     @extend .col-md-10;
@@ -25,10 +30,14 @@
       background-color: white;
       font-family: 'Nunito', sans-serif;
       font-weight: 300;
+      line-height: 28px;
       font-size: 16px;
       color: $dark-blue;
       padding: 23px;
       width: 100%;
+      p {
+        margin-bottom: 2rem;
+      }
     }
   }
   
