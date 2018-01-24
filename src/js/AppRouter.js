@@ -38,11 +38,17 @@ export default class AppRouter {
         (new DOMParser).parseFromString(content, 'text/html')
         .querySelector('#content');
       const currentPageContent = document.querySelector('#page-content');
+      if (!currentPageContent) {
+        throw new Error('current page must have a #page-content element');
+      }
+      if (!newPageContent) {
+        throw new Error('new page must have a #content element');
+      }
       this._cleanupEventListeners();
       currentPageContent.innerHTML = '';
       currentPageContent.appendChild(newPageContent);
       this._setupAnchors();
-      window.scrollTo(0, 0);
+      window.scrollTo(0, rambox0);
       this._callbackRegistry.forEach((fn) => {
         fn(path);
       });
