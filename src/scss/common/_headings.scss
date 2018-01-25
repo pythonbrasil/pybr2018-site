@@ -86,10 +86,11 @@
 
 .intern-page__header {
   padding-top: 30px;
+  min-height: 160px;
   @extend .container;
   @extend .d-flex;
   @extend .justify-content-center;
-  @extend .align-items-end;
+  @extend .align-items-center;
   position: relative;
   &:before {
     position: absolute;

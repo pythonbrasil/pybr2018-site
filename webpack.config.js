@@ -76,6 +76,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'codigo-de-conduta/index.html',
       template: './src/templates/codigo-de-conduta.html'
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'quero-patrocinar/index.html',
+      template: './src/templates/quero-patrocinar.html'
     })
   ]
 }
