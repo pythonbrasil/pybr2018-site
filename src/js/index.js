@@ -7,6 +7,7 @@ import CodeOfConduct from './codeOfConduct';
 const scrollToOffset = 128;
 const routes = [
   '/codigo-de-conduta',
+  '/quero-patrocinar'
 ];
 
 function onAnchorClick(e) {
@@ -40,17 +41,20 @@ function removeScrollAnimation() {
   }
 }
 
+function init(path) {
+  if (path === '/') {
+    setupScrollAnimation();
+  } else {
+    removeScrollAnimation();
+  }
+  if (path.startsWith('/codigo-de-conduta')) {
+    new CodeOfConduct();
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   new MobileNavManager();
   const appRouter = new AppRouter(routes, true);
-  appRouter.onNewRouteContentReady((path) => {
-    if (path === '/') {
-      setupScrollAnimation();
-    } else {
-      removeScrollAnimation();
-    }
-    if (path.startsWith('/codigo-de-conduta')) {
-      new CodeOfConduct();
-    }
-  });
+  appRouter.onNewRouteContentReady(init);
+  init(window.location.pathname);
 });
