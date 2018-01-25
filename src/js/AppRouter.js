@@ -53,10 +53,12 @@ export default class AppRouter {
       currentPageContent.innerHTML = '';
       currentPageContent.appendChild(newPageContent);
       this._setupAnchors();
-      window.scrollTo(0, 0);
-      this._transitionManager.fadeContent(currentPageContent, 'fade-out');
       this._callbackRegistry.forEach((fn) => {
         fn(path);
+      });
+      requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+        this._transitionManager.fadeContent(currentPageContent, 'fade-out');
       });
     })
     .catch((e) => {
@@ -64,7 +66,9 @@ export default class AppRouter {
       this._router.navigate(this.lastPath);
       requestAnimationFrame(() => {
         window.scrollTo(0, 0);
-        currentPageContent.classList.remove('fade-out');
+        requestAnimationFrame(() => {
+          currentPageContent.classList.remove('fade-out');
+        });
       })
     })
   }
