@@ -57,6 +57,9 @@
       width: 100%;
       p {
         margin-bottom: 2rem;
+        &:last-child {
+          margin-bottom: 0px;
+        }
       }
       .article__content {
         transition: opacity 300ms ease-out, transform 230ms ease-out;
@@ -94,7 +97,7 @@
     .article__header {
       .header__title {
         font-size: 46px;
-        padding-bottom: 5px;
+        padding-bottom: 8px;
       }
     }
   }
