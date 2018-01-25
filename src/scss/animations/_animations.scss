@@ -1,0 +1,41 @@
+@keyframes placeholder {
+    0%, 100% {
+      opacity: .3;
+    }
+    50% {
+      opacity: .7;
+    }
+  }
+
+.loading-placeholder {
+  height: 16px;
+  background-color: lightgray;
+  width: 100%;
+  animation: placeholder 2s infinite;
+  &--small {
+    @extend .loading-placeholder;
+    width: 70%;
+  }
+  &--medium {
+    @extend .loading-placeholder;
+    width: 75%;
+  }
+  &--big {
+    @extend .loading-placeholder;
+    width: 90%;
+  }
+}
+
+.fade-out {
+  opacity: 0;
+  transform: translateY(.5%);
+}
+
+.transition--opacity{
+  transition: opacity 239ms;
+}
+
+.transition--opacity-translate {
+  transition: opacity 300ms ease-out, transform 230ms ease-out;
+}
+

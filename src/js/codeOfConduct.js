@@ -1,7 +1,9 @@
 import showdown from 'showdown';
+import TransitionManager from 'app/TransitionManager';
 
 export default class CodeOfConduct {
   constructor() {
+    this.transitionManager = new TransitionManager();
     this.fetchCodeOfConduct();
   }
 
@@ -23,26 +25,17 @@ export default class CodeOfConduct {
     this.renderCodeOfConduct('#codeOfConductPortuguese', portugueseCodeOfConductHtml);
   }
 
-  fadeContent(container) {
-    return new Promise((resolve, reject) => {
-      container.classList.toggle('fade-out');
-      container.addEventListener('transitionend', () => {
-        resolve();
-      })
-    });
-  }
-
   renderCodeOfConduct(selector, content) {
     const container = document.querySelector(selector);
     if (container) {
       const parsedHtml = (new DOMParser).parseFromString(content, 'text/html')
-      this.fadeContent(container)
+      this.transitionManager.fadeContent(container, 'fade-out')
       .then(() => {
         container.innerHTML = '';
         for (const node of parsedHtml.body.childNodes) {
           container.appendChild(node);
         }
-        this.fadeContent(container);
+        this.transitionManager.fadeContent(container, 'fade-out');
       })
     }
   }

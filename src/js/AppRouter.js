@@ -1,8 +1,11 @@
 import Navigo from 'navigo';
+import TransitionManager from 'app/TransitionManager';
+import animatedScrollTo from 'animated-scrollto';
 
 export default class AppRouter {
   constructor(routes, ignoreRecurrentPaths=false) {
     this.isFirstFetch = true;
+    this.lastPath = window.location.pathname;
     this.ignoreRecurrentPaths = ignoreRecurrentPaths;
     this._onNavigation = this._onNavigation.bind(this);
     this._onAnchorClick = this._onAnchorClick.bind(this);
@@ -10,7 +13,7 @@ export default class AppRouter {
     const root = window.location.origin;
     this._router = new Navigo(root, false);
     this._routes = routes;
-
+    this._transitionManager = new TransitionManager();
     this._setupInternalRoutes();
     this._setupAnchors();
   }
@@ -30,14 +33,16 @@ export default class AppRouter {
     if (this.ignoreRecurrentPaths && path === this.lastPath) {
       return;
     }
-    this.lastPath = path;
-    fetch(path)
+    const currentPageContent = document.querySelector('#page-content');
+    this._transitionManager.scrollUp(1000, 466);
+    this._transitionManager.fadeContent(currentPageContent, 'fade-out')
+    .then(() => fetch(path))
     .then(response => response.text())
     .then(content => {
+      this.lastPath = path;
       const newPageContent =
         (new DOMParser).parseFromString(content, 'text/html')
         .querySelector('#content');
-      const currentPageContent = document.querySelector('#page-content');
       if (!currentPageContent) {
         throw new Error('current page must have a #page-content element');
       }
@@ -49,10 +54,19 @@ export default class AppRouter {
       currentPageContent.appendChild(newPageContent);
       this._setupAnchors();
       window.scrollTo(0, 0);
+      this._transitionManager.fadeContent(currentPageContent, 'fade-out');
       this._callbackRegistry.forEach((fn) => {
         fn(path);
       });
-    });
+    })
+    .catch((e) => {
+      alert('A problem has happened while loading the new page.');
+      this._router.navigate(this.lastPath);
+      requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+        currentPageContent.classList.remove('fade-out');
+      })
+    })
   }
 
   _setupInternalRoutes() {
