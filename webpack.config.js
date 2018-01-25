@@ -7,8 +7,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   entry: './src/js/index.js',
   output: {
-    filename: 'bundle.js', 
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
   resolve: {
     alias: {
@@ -76,6 +77,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'codigo-de-conduta/index.html',
       template: './src/templates/codigo-de-conduta.html'
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'quero-patrocinar/index.html',
+      template: './src/templates/quero-patrocinar.html'
     })
   ]
 }

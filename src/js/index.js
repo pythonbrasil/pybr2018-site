@@ -1,25 +1,56 @@
 import 'scss/index.scss';
 import MobileNavManager from 'app/MobileNavManager';
 import AppRouter from 'app/AppRouter';
-import ScrollTo from 'storm-scroll-to';
+import animatedScrollTo from 'animated-scrollto';
+import CodeOfConduct from './codeOfConduct';
 
 const scrollToOffset = 128;
 const routes = [
-  '/codigo-de-conduta'
+  '/codigo-de-conduta',
 ];
 
-function updateScrollTo(path) {
-  if (path === '/') {
-    ScrollTo.init('.scroll', {
-      offset: 120,
-      focus: false,
-    });
+function onAnchorClick(e) {
+  e.preventDefault();
+  let targetAnchor = e.currentTarget.getAttribute('href');
+  //this is needed since the href attr starts with an /
+  targetAnchor = targetAnchor.slice(1, targetAnchor.length);
+  const elementToScroll = document.querySelector(targetAnchor);
+  if (!elementToScroll) {
+    return;
+  }
+  const anchorPosition = elementToScroll.getBoundingClientRect().top;
+  const positionToScroll = anchorPosition + window.scrollY;
+  const animationDuration = 233;
+  animatedScrollTo(document.body, positionToScroll, animationDuration, () => {
+    elementToScroll.focus();
+  });
+}
+
+function setupScrollAnimation() {
+  const anchors = document.querySelectorAll('.scroll');
+  for (const anchor of anchors) {
+    anchor.addEventListener('click', onAnchorClick);
+  }
+
+}
+function removeScrollAnimation() {
+  const anchors = document.querySelectorAll('.scroll');
+  for (const anchor of anchors) {
+    anchor.removeEventListener('click', onAnchorClick);
   }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   new MobileNavManager();
   const appRouter = new AppRouter(routes, true);
-  appRouter.onNewRouteContentReady(updateScrollTo);
-  updateScrollTo(window.location.pathname);
+  appRouter.onNewRouteContentReady((path) => {
+    if (path === '/') {
+      setupScrollAnimation();
+    } else {
+      removeScrollAnimation();
+    }
+    if (path.startsWith('/codigo-de-conduta')) {
+      new CodeOfConduct();
+    }
+  });
 });

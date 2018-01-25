@@ -1,9 +1,5 @@
 @import 'variables.scss';
 
-
-#page-content {
-  background-color: #F9F8F4;
-}
 .soon {
   position: relative;
   &:after {
@@ -106,6 +102,7 @@
 
 
 body {
+  background-color: #F9F8F4;
   font-family: 'Advent Pro', sans-serif;
 }
 
@@ -124,13 +121,32 @@ p {
   width: 100%;
 }
 
+.page-content {
+  background-repeat: no-repeat;
+  background-image: url('../img/Python14-MapaRN-cinza-30.svg');
+  background-size: 850px;
+  background-position-x: 120%;
+  background-position-x: calc(100% + 500px);
+  background-position-y: 120%;
+  background-position-y: calc(100% + 100px);
+}
+
 .content-wrapper > section {
   padding-top: 30px;
   padding-bottom: 120px;
+  position: relative;
 }
 
 .img-fluid {
   max-width: 100%;
   display: block;
   margin: 0 auto;
+}
+
+.anchor {
+  display: block;
+  margin-top: -120px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
