@@ -16,7 +16,19 @@
       @extend .section-title;
       font-size: 36px;
       text-transform: none;
-      font-weight: 400;
+      font-weight: 600;
+      position: relative;
+      border: 0;
+      &:before {
+        max-width: 585px;
+        width: 100%;
+        height: 4px;
+        background-color: $python-yellow;
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
     }
   }
 
@@ -81,8 +93,8 @@
     margin-top: 60px;
     .article__header {
       .header__title {
-        font-size: 50px;
-        padding-bottom: 26px;
+        font-size: 46px;
+        padding-bottom: 5px;
       }
     }
   }
