@@ -7,7 +7,7 @@
     display: flex;
     th, td {
       flex: 1;
-      padding: 12px;
+      padding: 11px;
       color: $dark-blue;
       display: flex;
       justify-content: center;
@@ -20,7 +20,7 @@
         position: relative;
         background-color: $dark-blue;
         color: $python-yellow;
-        font-size: 12px;
+        font-size: 11px;
         font-weight: 600;
         text-transform: uppercase;
         &:hover:before {
@@ -39,6 +39,7 @@
     }
   }
   tbody {
+    font-family: Nunito, 'Helvetica Neue', sans-serif;
     tr {
       th {
         &[scope='row'] {
@@ -70,7 +71,7 @@
   }
   .text-small {
     td {
-      font-size: 12px;
+      font-size: 10px;
       @media (min-width: $breakpoint-sm) {
         font-size: 16px;
       }
@@ -89,7 +90,7 @@
       }
       th {
         flex: .333;
-        font-size: 12px;
+        font-size: 11px;
         @media (min-width: $breakpoint-sm) {
           font-size: 16px;
         }
