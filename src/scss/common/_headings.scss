@@ -86,10 +86,11 @@
 
 .intern-page__header {
   padding-top: 30px;
+  min-height: 160px;
   @extend .container;
   @extend .d-flex;
   @extend .justify-content-center;
-  @extend .align-items-end;
+  @extend .align-items-center;
   position: relative;
   &:before {
     position: absolute;
@@ -101,20 +102,21 @@
     transform-origin: center bottom;
     transform: scale(3, 5);
     bottom: 0;
-    top: 0;
+    left: 0;
   }
   .header__title {
     margin-bottom: 60px;
     position: relative;
     z-index: 2;
     text-align: center;
-    font-weight: 300;
+    font-weight: 600;
     @extend .section-title;
     border-bottom: 0px;
     font-size: 36px;
     strong {
       font-size: 48px;
       display: block;
+      font-weight: 400;
     }
     margin-bottom: 10px;
   }
