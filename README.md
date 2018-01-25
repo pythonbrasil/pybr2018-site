@@ -15,4 +15,4 @@ Python Brasil 2018 website (http://2018.pythonbrasil.org.br)
 2. check the dev server at localhost:8080
 
 ## Building the website to production
-1. run ``` npm run production ```, the gh-pages branch will be updated. 
+1. run ``` npm run production ```, the production-bundle branch will be updated
