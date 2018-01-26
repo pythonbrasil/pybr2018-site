@@ -10,10 +10,13 @@ export default class AppRouter {
     this._onNavigation = this._onNavigation.bind(this);
     this._onAnchorClick = this._onAnchorClick.bind(this);
     this._callbackRegistry = [];
-    const root = window.location.origin;
-    this._router = new Navigo(root, false);
+    this._router = new Navigo(window.location.origin, false);
     this._routes = routes;
-    this._transitionManager = new TransitionManager();
+    this._transitionManager = new TransitionManager({
+      scrollSpeed: 466,
+      fadeSpeed: 233,
+
+    });
     this._setupInternalRoutes();
     this._setupAnchors();
   }
@@ -34,15 +37,19 @@ export default class AppRouter {
       return;
     }
     const currentPageContent = document.querySelector('#page-content');
-    this._transitionManager.scrollUp(1000, 466);
-    this._transitionManager.fadeContent(currentPageContent, 'fade-out')
-    .then(() => fetch(path))
-    .then(response => response.text())
+    this._transitionManager.scrollUp();
+    this._transitionManager.showLoadingAnimation();
+    Promise.all([
+      fetch(path),
+      this._transitionManager.fadeContent(currentPageContent, 'fade-out')
+    ])
+    .then(responses => responses.shift().text())
     .then(content => {
+      this._transitionManager.hideLoadingAnimation();
       this.lastPath = path;
       const newPageContent =
-        (new DOMParser).parseFromString(content, 'text/html')
-        .querySelector('#content');
+      (new DOMParser).parseFromString(content, 'text/html')
+      .querySelector('#content');
       if (!currentPageContent) {
         throw new Error('current page must have a #page-content element');
       }
@@ -64,6 +71,7 @@ export default class AppRouter {
     .catch((e) => {
       alert('A problem has happened while loading the new page.');
       this._router.navigate(this.lastPath);
+      this._transitionManager.hideLoadingAnimation();
       requestAnimationFrame(() => {
         window.scrollTo(0, 0);
         requestAnimationFrame(() => {

@@ -31,7 +31,7 @@
 }
 
 .transition--opacity{
-  transition: opacity 239ms;
+  transition: opacity 230ms;
   &.fade-out {
     transform: translateY(.5%);
   }
@@ -44,3 +44,11 @@
   }
 }
 
+.loading-circle {
+  pointer-events: none;
+  transition: opacity 115ms;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+}
