@@ -44,6 +44,16 @@ function removeScrollAnimation() {
 function init(path) {
   if (path === '/') {
     setupScrollAnimation();
+    if (window.location.hash) {
+      onAnchorClick({
+        preventDefault() {},
+        currentTarget: {
+          getAttribute() {
+            return path + window.location.hash
+          }
+        }
+      });
+    }
   } else {
     removeScrollAnimation();
   }
