@@ -12,7 +12,8 @@ const routes = [
 
 function onAnchorClick(e) {
   e.preventDefault();
-  let targetAnchor = e.currentTarget.getAttribute('href');
+  const anchor = e.currentTarget;
+  let targetAnchor = anchor.getAttribute('href');
   //this is needed since the href attr starts with an /
   targetAnchor = targetAnchor.slice(1, targetAnchor.length);
   const elementToScroll = document.querySelector(targetAnchor);
@@ -23,7 +24,7 @@ function onAnchorClick(e) {
   const positionToScroll = anchorPosition + window.scrollY;
   const animationDuration = 233;
   animatedScrollTo(document.body, positionToScroll, animationDuration, () => {
-    elementToScroll.focus();
+    anchor.blur();
   });
 }
 
@@ -50,7 +51,8 @@ function init(path) {
         currentTarget: {
           getAttribute() {
             return path + window.location.hash
-          }
+          },
+          blur() {}
         }
       });
     }
