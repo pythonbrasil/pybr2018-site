@@ -4,7 +4,6 @@ import AppRouter from 'app/AppRouter';
 import animatedScrollTo from 'animated-scrollto';
 import CodeOfConduct from './codeOfConduct';
 
-const scrollToOffset = 128;
 const routes = [
   '/codigo-de-conduta',
   '/quero-patrocinar'
@@ -33,8 +32,8 @@ function setupScrollAnimation() {
   for (const anchor of anchors) {
     anchor.addEventListener('click', onAnchorClick);
   }
-
 }
+
 function removeScrollAnimation() {
   const anchors = document.querySelectorAll('.scroll');
   for (const anchor of anchors) {

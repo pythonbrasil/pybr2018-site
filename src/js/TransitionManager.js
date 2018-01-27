@@ -53,7 +53,4 @@ export default class TransitionManager {
       });
     })
   }
-
-
-
 }
