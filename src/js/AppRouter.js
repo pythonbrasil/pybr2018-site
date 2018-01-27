@@ -9,6 +9,7 @@ export default class AppRouter {
     this.ignoreRecurrentPaths = ignoreRecurrentPaths;
     this._onNavigation = this._onNavigation.bind(this);
     this._onAnchorClick = this._onAnchorClick.bind(this);
+    this._onNewPageContentFetch = this._onNewPageContentFetch.bind(this);
     this._callbackRegistry = [];
     this._router = new Navigo(window.location.origin, false);
     this._routes = routes;
@@ -44,42 +45,47 @@ export default class AppRouter {
       this._transitionManager.fadeContent(currentPageContent, 'fade-out')
     ])
     .then(responses => responses.shift().text())
-    .then(content => {
-      this._transitionManager.hideLoadingAnimation();
-      this.lastPath = path;
-      const newPageContent =
-      (new DOMParser).parseFromString(content, 'text/html')
-      .querySelector('#content');
-      if (!currentPageContent) {
-        throw new Error('current page must have a #page-content element');
-      }
-      if (!newPageContent) {
-        throw new Error('new page must have a #content element');
-      }
-      this._cleanupEventListeners();
-      currentPageContent.innerHTML = '';
-      currentPageContent.appendChild(newPageContent);
-      this._setupAnchors();
-      this._callbackRegistry.forEach((fn) => {
-        fn(path);
-      });
-      requestAnimationFrame(() => {
-        window.scrollTo(0, 0);
-        this._transitionManager.fadeContent(currentPageContent, 'fade-out');
-      });
-    })
+    .then(this._onNewPageContentFetch)
     .catch((e) => {
+      //todo: show decent feedback here
       alert('A problem has happened while loading the new page.');
       this._router.navigate(this.lastPath);
       this._transitionManager.hideLoadingAnimation();
-      requestAnimationFrame(() => {
-        window.scrollTo(0, 0);
-        requestAnimationFrame(() => {
-          currentPageContent.classList.remove('fade-out');
-        });
-      })
+      this._fadePageContentIn(currentPageContent);
     })
   }
+
+  _onNewPageContentFetch(content) {
+    const path = window.location.pathname;
+    const currentPageContent = document.querySelector('#page-content');
+    const newPageContent = (new DOMParser).parseFromString(content, 'text/html')
+      .querySelector('#content');
+    this.lastPath = path;
+    this._transitionManager.hideLoadingAnimation();
+    if (!currentPageContent) {
+      throw new Error('current page must have a #page-content element');
+    }
+    if (!newPageContent) {
+      throw new Error('new page must have a #content element');
+    }
+    this._cleanupEventListeners();
+    currentPageContent.innerHTML = '';
+    currentPageContent.appendChild(newPageContent);
+    this._setupAnchors();
+    this._callbackRegistry.forEach((fn) => {
+      fn(path);
+    });
+    this._fadePageContentIn(currentPageContent);
+  }
+
+  _fadePageContentIn(pageContent) {
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+      requestAnimationFrame(() => {
+        this._transitionManager.fadeContent(pageContent, 'fade-out')
+      });
+    })
+  } 
 
   _setupInternalRoutes() {
     const routesHandlers = {};

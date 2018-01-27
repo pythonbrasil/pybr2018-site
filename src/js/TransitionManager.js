@@ -12,7 +12,6 @@ const defaultConfig = {
 }
 
 export default class TransitionManager {
-
   constructor(config = defaultConfig) {
     this.config = { ...config, ...defaultConfig };
     this._loadingAnimation = new LoadingAnimationManager(
