@@ -12,22 +12,18 @@ export default class MobileNavManager {
   setupMobileNavigation() {
     this.mobileNavTrigger.addEventListener('click', this.onMobileNavTrigger);
     this.mobileNavCloseTrigger.addEventListener('click', this.onMobileNavTrigger);
-    this.mobileNav.addEventListener('click', this.onMobileNavTrigger);
+    this.mobileNav.addEventListener('touchend', this.onMobileNavTrigger);
     this.mobileNav.addEventListener('touchmove', this.preventScrolling);
+    this.mobileNav.addEventListener('click', this.onMobileNavTrigger);
     this.mobileNav.addEventListener('scroll', this.preventScrolling);
     const menuItems = this.mobileNav.querySelectorAll('.nav__anchor');
-    Array.prototype.forEach.call(menuItems, (menuItem) => {
-      menuItem.style.cursor = 'pointer';
-      menuItem.addEventListener('touchend', this.onMobileNavTrigger);
-      menuItem.addEventListener('click', this.onMobileNavTrigger);
-    });
   }
 
   preventScrolling(e) {
     e.stopPropagation();
     this.mobileNav.addEventListener('touchend', this.onTouchMoveEnd, true);
   }
-
+  
   onTouchMoveEnd(e) {
     e.stopPropagation();
     this.mobileNav.removeEventListener('touchend', this.onTouchMoveEnd, true);
@@ -43,14 +39,18 @@ export default class MobileNavManager {
   }
 
   onMobileNavTrigger(e) {
-    if (e.currentTarget === this.mobileNav && e.target !== this.mobileNav) {
+    const isMenuItem = (e.target.classList.contains('nav__anchor') || e.target.classList.contains('nav__item'));
+    const isOpenOrCloseButton = (e.currentTarget === this.mobileNavTrigger || e.currentTarget === this.mobileNavCloseTrigger);
+    const isClickOutside = e.currentTarget === this.mobileNav && e.target === this.mobileNav;
+    const shouldntClose = (!isMenuItem && !isOpenOrCloseButton && !isClickOutside);
+    if (shouldntClose) {
+      return;
+    }
+    if (isMenuItem && e.type === 'click') {
       return;
     }
     this.mobileNav.classList.toggle('opened');
     this.handleFocus();
-    if (e.currentTarget.classList.contains('scroll')) {
-      e.preventDefault();
-    }
   }
 
   get isOpened() {
