@@ -12,7 +12,7 @@ export default class CodeOfConduct {
     .then((response) => response.text())
     .then((markdown) => this.parseMarkdown(markdown))
     .catch(() => {
-      setTimeout(this.fetchCodeOfConduct.bind(this), 3000)
+      setTimeout(this.fetchCodeOfConduct.bind(this), 3000);
     })
   }
 

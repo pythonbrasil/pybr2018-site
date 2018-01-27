@@ -13,7 +13,7 @@ function onAnchorClick(e) {
   e.preventDefault();
   const anchor = e.currentTarget;
   let targetAnchor = anchor.getAttribute('href');
-  //this is needed since the href attr starts with an /
+  // this is needed since the href attr starts with an /
   targetAnchor = targetAnchor.slice(1, targetAnchor.length);
   const elementToScroll = document.querySelector(targetAnchor);
   if (!elementToScroll) {
