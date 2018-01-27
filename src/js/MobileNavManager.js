@@ -17,6 +17,10 @@ export default class MobileNavManager {
     this.mobileNav.addEventListener('click', this.onMobileNavTrigger);
     this.mobileNav.addEventListener('scroll', this.preventScrolling);
     const menuItems = this.mobileNav.querySelectorAll('.nav__anchor');
+    Array.prototype.forEach.call(menuItems, (menuItem) => {
+      menuItem.style.cursor = 'pointer';
+      menuItem.addEventListener('click', this.onMobileNavTrigger);
+    });
   }
 
   preventScrolling(e) {
@@ -39,14 +43,7 @@ export default class MobileNavManager {
   }
 
   onMobileNavTrigger(e) {
-    const isMenuItem = (e.target.classList.contains('nav__anchor') || e.target.classList.contains('nav__item'));
-    const isOpenOrCloseButton = (e.currentTarget === this.mobileNavTrigger || e.currentTarget === this.mobileNavCloseTrigger);
-    const isClickOutside = e.currentTarget === this.mobileNav && e.target === this.mobileNav;
-    const shouldntClose = (!isMenuItem && !isOpenOrCloseButton && !isClickOutside);
-    if (shouldntClose) {
-      return;
-    }
-    if (isMenuItem && e.type === 'click') {
+    if (e.currentTarget === this.mobileNav && e.target !== this.mobileNav) {
       return;
     }
     this.mobileNav.classList.toggle('opened');
