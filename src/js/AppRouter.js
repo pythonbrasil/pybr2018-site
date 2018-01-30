@@ -1,6 +1,7 @@
 import Navigo from 'navigo';
 import TransitionManager from 'app/TransitionManager';
 import animatedScrollTo from 'animated-scrollto';
+import { MDCSnackbar } from '@material/snackbar';
 
 export default class AppRouter {
   constructor(routes, ignoreRecurrentPaths=false) {
@@ -20,6 +21,7 @@ export default class AppRouter {
     });
     this._setupInternalRoutes();
     this._setupAnchors();
+    this._snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
   }
 
   onNewRouteContentReady(fn) {
@@ -38,7 +40,6 @@ export default class AppRouter {
       return;
     }
     const currentPageContent = document.querySelector('#page-content');
-    this._transitionManager.scrollUp();
     this._transitionManager.showLoadingAnimation();
     Promise.all([
       fetch(path),
@@ -47,11 +48,18 @@ export default class AppRouter {
     .then(responses => responses.shift().text())
     .then(this._onNewPageContentFetch)
     .catch((e) => {
-      //todo: show decent feedback here
-      alert('A problem has happened while loading the new page.');
       this._router.navigate(this.lastPath);
       this._transitionManager.hideLoadingAnimation();
-      this._fadePageContentIn(currentPageContent);
+      this._fadePageContentIn(currentPageContent, false);
+      const dataObj = {
+        message: 'Não foi possível carregar a página. Verifique sua conexão com a Internet.',
+        timeout: 5000,
+        actionText: 'Ok',
+        actionHandler() {
+          this._snackbar.hide();
+        }
+      };
+      this._snackbar.show(dataObj);
     })
   }
 
@@ -78,9 +86,11 @@ export default class AppRouter {
     this._fadePageContentIn(currentPageContent);
   }
 
-  _fadePageContentIn(pageContent) {
+  _fadePageContentIn(pageContent, scroll=true) {
     requestAnimationFrame(() => {
-      window.scrollTo(0, 0);
+      if (scroll) {
+        window.scrollTo(0, 0);
+      }
       requestAnimationFrame(() => {
         this._transitionManager.fadeContent(pageContent, 'fade-out')
       });
