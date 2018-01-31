@@ -16,6 +16,7 @@ module.exports = {
       'scss': path.resolve(__dirname, 'src/scss'),
       'templates': path.resolve(__dirname, 'src/templates'),
       'img': path.resolve(__dirname, 'src/img'),
+      'pdf': path.resolve(__dirname, 'src/pdf'),
     }
   },
   devtool: 'source-map',
@@ -43,6 +44,15 @@ module.exports = {
         test:  /\.(jpe?g|png|gif|svg|obj|mtl)$/i,
         use: [{
           loader: 'file-loader'
+        }]
+      },
+      {
+        test:  /\.pdf$/i,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]'
+          }
         }]
       },
       {
