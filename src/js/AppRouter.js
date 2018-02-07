@@ -12,7 +12,8 @@ export default class AppRouter {
     this._onNavigation = this._onNavigation.bind(this);
     this._onAnchorClick = this._onAnchorClick.bind(this);
     this._onNewPageContentFetch = this._onNewPageContentFetch.bind(this);
-    this._callbackRegistry = [];
+    this._contentReadyCallbackRegistry = [];
+    this._contentVisibleCallbackRegistry = [];
     this._router = new Navigo(window.location.origin, false);
     this._routes = routes;
     this._transitionManager = new TransitionManager({
@@ -27,7 +28,12 @@ export default class AppRouter {
 
   onNewRouteContentReady(fn) {
     if (typeof fn === 'function') {
-      this._callbackRegistry.push(fn);
+      this._contentReadyCallbackRegistry.push(fn);
+    }
+  }
+  onNewRouteContentVisible(fn) {
+    if (typeof fn === 'function') {
+      this._contentVisibleCallbackRegistry.push(fn);
     }
   }
 
@@ -89,21 +95,29 @@ export default class AppRouter {
       currentPageContent.innerHTML = '';
       currentPageContent.appendChild(newPageContent);
       this._setupAnchors();
-      this._callbackRegistry.forEach((fn) => {
+      this._contentReadyCallbackRegistry.forEach((fn) => {
         fn(path);
       });
       this._fadePageContentIn(currentPageContent);
-    });
+    })
+    .then(() => {
+      this._contentVisibleCallbackRegistry.forEach((fn) => {
+        fn(path);
+      });
+    })
   }
 
   _fadePageContentIn(pageContent, scroll=true) {
-    requestAnimationFrame(() => {
-      if (scroll) {
-        window.scrollTo(0, 0);
-      }
+    return new Promise((resolve) => {
       requestAnimationFrame(() => {
-        this._transitionManager.fadeContent(pageContent, 'fade-out')
-      });
+        if (scroll) {
+          window.scrollTo(0, 0);
+        }
+        requestAnimationFrame(() => {
+          this._transitionManager.fadeContent(pageContent, 'fade-out')
+          .then(resolve());
+        });
+      })
     })
   } 
 

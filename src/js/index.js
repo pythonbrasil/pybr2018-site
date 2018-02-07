@@ -41,20 +41,23 @@ function removeScrollAnimation() {
   }
 }
 
+function onNewContentVisible(path) {
+  if (window.location.hash) {
+    onAnchorClick({
+      preventDefault() {},
+      currentTarget: {
+        getAttribute() {
+          return path + window.location.hash
+        },
+        blur() {}
+      }
+    });
+  }
+}
+
 function init(path) {
   if (path === '/') {
     setupScrollAnimation();
-    if (window.location.hash) {
-      onAnchorClick({
-        preventDefault() {},
-        currentTarget: {
-          getAttribute() {
-            return path + window.location.hash
-          },
-          blur() {}
-        }
-      });
-    }
   } else {
     removeScrollAnimation();
   }
@@ -67,5 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
   new MobileNavManager();
   const appRouter = new AppRouter(routes, true);
   appRouter.onNewRouteContentReady(init);
+  appRouter.onNewRouteContentVisible(onNewContentVisible);
   init(window.location.pathname);
 });
