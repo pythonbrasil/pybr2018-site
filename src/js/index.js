@@ -1,6 +1,11 @@
 import 'scss/index.scss';
 import MobileNavManager from 'app/MobileNavManager';
 import AppRouter from 'app/AppRouter';
+import 'core-js/fn/object/assign';
+import 'core-js/es6/promise';
+import 'core-js/es6/symbol';
+import 'core-js/es6/string';
+import 'isomorphic-fetch';
 import animatedScrollTo from 'animated-scrollto';
 import CodeOfConduct from './codeOfConduct';
 

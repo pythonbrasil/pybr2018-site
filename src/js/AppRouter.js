@@ -51,7 +51,7 @@ export default class AppRouter {
     this._transitionManager.showLoadingAnimation();
     fetch(path)
     .then(response => {
-      const shouldAbort = !response.url.includes(this._nextValidPath);
+      const shouldAbort = !response.url.includes(this._nextValidPath) && response.url;
       if (shouldAbort) {
         throw new FetchAborttedError('Fetch Abortted');
       }
@@ -77,6 +77,7 @@ export default class AppRouter {
   }
 
   _onNewPageContentFetch(content) {
+    debugger
     const path = window.location.pathname;
     const currentPageContent = document.querySelector('#page-content');
     const newPageContent = (new DOMParser).parseFromString(content, 'text/html')
@@ -143,16 +144,16 @@ export default class AppRouter {
 
   _cleanupEventListeners() {
     const anchors = this._getInternalAnchors();
-    anchors.forEach((anchor) => {
+    for (let anchor of anchors) {
       anchor.removeEventListener('click', this._onAnchorClick);
-    });
+    }
   }
 
   _setupAnchors() {
     const anchors = this._getInternalAnchors();
-    anchors.forEach((anchor) => {
+    for (let anchor of anchors) {
       anchor.addEventListener('click', this._onAnchorClick);
-    }) 
+    }
   }
 
   _getInternalAnchors() {
