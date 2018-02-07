@@ -58,7 +58,6 @@ export default class AppRouter {
       }
       this._router.navigate(this.lastPath);
       this._transitionManager.hideLoadingAnimation(false);
-      this._fadePageContentIn(currentPageContent, false);
       const dataObj = {
         message: 'Não foi possível carregar a página. Verifique sua conexão com a Internet.',
         timeout: 5000,
