@@ -77,7 +77,6 @@ export default class AppRouter {
   }
 
   _onNewPageContentFetch(content) {
-    debugger
     const path = window.location.pathname;
     const currentPageContent = document.querySelector('#page-content');
     const newPageContent = (new DOMParser).parseFromString(content, 'text/html')
