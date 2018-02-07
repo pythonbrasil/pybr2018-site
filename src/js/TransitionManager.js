@@ -16,6 +16,7 @@ export default class TransitionManager {
     this._progressBar = new MDCLinearProgress(this._progressBarEl);
     this._loadingProgress = this._loadingProgress.bind(this);
     this._progressBar.buffer = 1;
+    this._progressBar.close();
   }
 
   _loadingProgress() {
