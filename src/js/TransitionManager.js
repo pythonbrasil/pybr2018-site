@@ -1,31 +1,48 @@
 import animatedScrollTo from 'animated-scrollto';
-import LoadingAnimationManager from 'app/LoadingAnimationManager';
+import { MDCLinearProgress } from '@material/linear-progress';
 
 const defaultConfig = {
   scrollSpeed: 466,
   fadeSpeed: 233,
   loadingAnimation: {
-    showDelay: 300,
-    elementId: '#loading-circle',
-    classToToggle: 'fade-out'
+    elementId: '.mdc-linear-progress',
   }
 }
 
 export default class TransitionManager {
   constructor(config = defaultConfig) {
     this.config = { ...config, ...defaultConfig };
-    this._loadingAnimation = new LoadingAnimationManager(
-      document.querySelector(this.config.loadingAnimation.elementId),
-      this.config.loadingAnimation.classToToggle
-    );
+    this._progressBarEl = document.querySelector(this.config.loadingAnimation.elementId);
+    this._progressBar = new MDCLinearProgress(this._progressBarEl);
+    this._loadingProgress = this._loadingProgress.bind(this);
+    this._progressBar.buffer = 1;
+  }
+
+  _loadingProgress() {
+    if (this._currentProgress >= .7) {
+      clearInterval(this._loadingProgressIntervalId);
+    }
+    this._currentProgress += .1;
+    this._progressBar.progress = this._currentProgress;
   }
 
   showLoadingAnimation() {
-    this._loadingAnimation.toggleDisplay(this.config.loadingAnimation.showDelay);
+    this._progressBar.progress = 0;
+    this._progressBar.open();
+    this._currentProgress = .25;
+    this._progressBar.progress = .25;
+    this._loadingProgressIntervalId = setInterval(this._loadingProgress, 1000);
   }
 
-  hideLoadingAnimation() {
-    this._loadingAnimation.toggleDisplay();
+  hideLoadingAnimation(isSuccess = true) {
+    clearInterval(this._loadingProgressIntervalId);
+    const progressBarTarget = isSuccess ? 1 : 0;
+    this._progressBar.progress = progressBarTarget;
+    const onTransitionEnd = () => {
+      this._progressBarEl.removeEventListener('transitionend', onTransitionEnd);;
+      this._progressBar.close();
+    }
+    this._progressBarEl.addEventListener('transitionend', onTransitionEnd);;
   }
 
   fadeContent(container, className) {

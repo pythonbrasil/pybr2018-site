@@ -1,6 +1,7 @@
 import Navigo from 'navigo';
 import TransitionManager from 'app/TransitionManager';
 import animatedScrollTo from 'animated-scrollto';
+import { FetchAborttedError } from 'app/errors';
 import { MDCSnackbar } from '@material/snackbar';
 
 export default class AppRouter {
@@ -32,6 +33,7 @@ export default class AppRouter {
 
   _onNavigation() {
     const path = window.location.pathname;
+    this._nextValidPath = path;
     if (this.isFirstFetch) {
       this.isFirstFetch = false;
       return;
@@ -41,15 +43,21 @@ export default class AppRouter {
     }
     const currentPageContent = document.querySelector('#page-content');
     this._transitionManager.showLoadingAnimation();
-    Promise.all([
-      fetch(path),
-      this._transitionManager.fadeContent(currentPageContent, 'fade-out')
-    ])
-    .then(responses => responses.shift().text())
+    fetch(path)
+    .then(response => {
+      const shouldAbort = !response.url.includes(this._nextValidPath);
+      if (shouldAbort) {
+        throw new FetchAborttedError('Fetch Abortted');
+      }
+      return response.text();
+    })
     .then(this._onNewPageContentFetch)
     .catch((e) => {
+      if (e.message === 'Fetch Abortted') {
+        return;
+      }
       this._router.navigate(this.lastPath);
-      this._transitionManager.hideLoadingAnimation();
+      this._transitionManager.hideLoadingAnimation(false);
       this._fadePageContentIn(currentPageContent, false);
       const dataObj = {
         message: 'Não foi possível carregar a página. Verifique sua conexão com a Internet.',
@@ -70,20 +78,23 @@ export default class AppRouter {
       .querySelector('#content');
     this.lastPath = path;
     this._transitionManager.hideLoadingAnimation();
-    if (!currentPageContent) {
-      throw new Error('current page must have a #page-content element');
-    }
-    if (!newPageContent) {
-      throw new Error('new page must have a #content element');
-    }
-    this._cleanupEventListeners();
-    currentPageContent.innerHTML = '';
-    currentPageContent.appendChild(newPageContent);
-    this._setupAnchors();
-    this._callbackRegistry.forEach((fn) => {
-      fn(path);
+    this._transitionManager.fadeContent(currentPageContent, 'fade-out')
+    .then(() => {
+      if (!currentPageContent) {
+        throw new Error('current page must have a #page-content element');
+      }
+      if (!newPageContent) {
+        throw new Error('new page must have a #content element');
+      }
+      this._cleanupEventListeners();
+      currentPageContent.innerHTML = '';
+      currentPageContent.appendChild(newPageContent);
+      this._setupAnchors();
+      this._callbackRegistry.forEach((fn) => {
+        fn(path);
+      });
+      this._fadePageContentIn(currentPageContent);
     });
-    this._fadePageContentIn(currentPageContent);
   }
 
   _fadePageContentIn(pageContent, scroll=true) {
