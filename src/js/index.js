@@ -1,79 +1,35 @@
 import 'scss/index.scss';
+import MobileNavManager from 'app/MobileNavManager';
+import AppRouter from 'app/AppRouter';
+import 'core-js/fn/object/assign';
+import 'core-js/es6/promise';
+import 'core-js/es6/symbol';
+import 'core-js/es6/string';
+import 'isomorphic-fetch';
+import 'scrolling-element';
 import animatedScrollTo from 'animated-scrollto';
 import CodeOfConduct from './codeOfConduct';
-
-class MobileNavManager {
-  constructor() {
-    this.mobileNav = document.querySelector('#mobile-nav');
-    this.mobileNavTrigger = document.querySelector('#mobile-nav-trigger');
-    this.mobileNavCloseTrigger = document.querySelector('#mobile-nav-close-trigger');
-    this.preventScrolling = this.preventScrolling.bind(this);
-    this.onMobileNavTrigger = this.onMobileNavTrigger.bind(this);
-    this.onTouchMoveEnd = this.onTouchMoveEnd.bind(this);
-    this.setupMobileNavigation();
-  }
-
-  setupMobileNavigation() {
-    this.mobileNavTrigger.addEventListener('click', this.onMobileNavTrigger);
-    this.mobileNavCloseTrigger.addEventListener('click', this.onMobileNavTrigger);
-    this.mobileNav.addEventListener('click', this.onMobileNavTrigger);
-    this.mobileNav.addEventListener('touchmove', this.preventScrolling);
-    this.mobileNav.addEventListener('scroll', this.preventScrolling);
-    const menuItems = this.mobileNav.querySelectorAll('.nav__anchor');
-    Array.prototype.forEach.call(menuItems, (menuItem) => {
-      menuItem.style.cursor = 'pointer';
-      menuItem.addEventListener('click', this.onMobileNavTrigger);
-    });
-  }
-
-  preventScrolling(e) {
-    e.stopPropagation();
-    this.mobileNav.addEventListener('touchend', this.onTouchMoveEnd, true);
-  }
-
-  onTouchMoveEnd(e) {
-    e.stopPropagation();
-    this.mobileNav.removeEventListener('touchend', this.onTouchMoveEnd, true);
-  }
-
-
-  handleFocus() {
-    if (this.isOpened) {
-      this.mobileNavCloseTrigger.focus();
-    } else {
-      this.mobileNavTrigger.focus();
-    }
-  }
-
-  onMobileNavTrigger(e) {
-    if (e.currentTarget === this.mobileNav && e.target !== this.mobileNav) {
-      return;
-    }
-    console.log(this.mobileNav.classList);
-    this.mobileNav.classList.toggle('opened');
-    console.log(this.mobileNav.classList);
-    this.handleFocus();
-  }
-
-  get isOpened() {
-    return this.mobileNav.classList.contains('opened');
-  }
-}
+window.animatedScrollTo = animatedScrollTo;
+const routes = [
+  '/codigo-de-conduta',
+  '/quero-patrocinar'
+];
 
 function onAnchorClick(e) {
   e.preventDefault();
-  let targetAnchor = e.currentTarget.getAttribute('href');
-  //this is needed since the href attr starts with an /
+  const anchor = e.currentTarget;
+  let targetAnchor = anchor.getAttribute('href');
+  // this is needed since the href attr starts with an /
   targetAnchor = targetAnchor.slice(1, targetAnchor.length);
   const elementToScroll = document.querySelector(targetAnchor);
   if (!elementToScroll) {
     return;
   }
   const anchorPosition = elementToScroll.getBoundingClientRect().top;
-  const positionToScroll = anchorPosition + window.scrollY;
+  const positionToScroll = anchorPosition + (window.scrollY || window.pageYOffset);
   const animationDuration = 233;
-  animatedScrollTo(document.body, positionToScroll, animationDuration, () => {
-    elementToScroll.focus();
+  animatedScrollTo(document.scrollingElement, positionToScroll, animationDuration, () => {
+    anchor.blur();
   });
 }
 
@@ -84,12 +40,42 @@ function setupScrollAnimation() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  new MobileNavManager();
-  if (window.location.pathname === '/') {
-    setupScrollAnimation();
+function removeScrollAnimation() {
+  const anchors = document.querySelectorAll('.scroll');
+  for (const anchor of anchors) {
+    anchor.removeEventListener('click', onAnchorClick);
   }
-  if ( window.location.pathname.startsWith('/codigo-de-conduta')) {
+}
+
+function onNewContentVisible(path) {
+  if (window.location.hash) {
+    onAnchorClick({
+      preventDefault() {},
+      currentTarget: {
+        getAttribute() {
+          return path + window.location.hash
+        },
+        blur() {}
+      }
+    });
+  }
+}
+
+function init(path) {
+  if (path === '/') {
+    setupScrollAnimation();
+  } else {
+    removeScrollAnimation();
+  }
+  if (path.startsWith('/codigo-de-conduta')) {
     new CodeOfConduct();
   }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  new MobileNavManager();
+  const appRouter = new AppRouter(routes, AppRouter.samePathBehaviours.SCROLL_TOP);
+  appRouter.onNewRouteContentReady(init);
+  appRouter.onNewRouteContentVisible(onNewContentVisible);
+  init(window.location.pathname);
 });

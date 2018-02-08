@@ -17,6 +17,7 @@ module.exports = {
       'templates': path.resolve(__dirname, 'src/templates'),
       'img': path.resolve(__dirname, 'src/img'),
       'pdf': path.resolve(__dirname, 'src/pdf'),
+      'app': path.resolve(__dirname, 'src/js'),
     }
   },
   devtool: 'source-map',
