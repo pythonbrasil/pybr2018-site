@@ -137,8 +137,12 @@ export default class AppRouter {
   }
 
   _onAnchorClick(e) {
-    e.preventDefault();
     const destinyRoute = e.currentTarget.getAttribute('href');
+    debugger
+    if (destinyRoute !== '/' && !this._routes.includes(destinyRoute) && !destinyRoute.startsWith('/#')) {
+      return;
+    }
+    e.preventDefault();
     if (this.lastPath === destinyRoute) {
       switch (this.samePathBehaviour) {
         case AppRouter.samePathBehaviours.SCROLL_TOP:
