@@ -138,7 +138,6 @@ export default class AppRouter {
 
   _onAnchorClick(e) {
     const destinyRoute = e.currentTarget.getAttribute('href');
-    debugger
     if (destinyRoute !== '/' && !this._routes.includes(destinyRoute) && !destinyRoute.startsWith('/#')) {
       return;
     }
