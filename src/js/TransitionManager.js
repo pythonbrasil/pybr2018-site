@@ -57,7 +57,7 @@ export default class TransitionManager {
 
   scrollTop(speed) {
     return new Promise((resolve, reject) => {
-      animatedScrollTo(document.querySelector('html, body'), 0, this.config.scrollSpeed, () => {
+      animatedScrollTo(document.scrollingElement, 0, this.config.scrollSpeed, () => {
         resolve();
       });
     })
@@ -66,7 +66,7 @@ export default class TransitionManager {
   scrollUp(value=1000) {
     const speed = this.config.scrollSpeed;
     return new Promise((resolve, reject) => {
-      animatedScrollTo(document.querySelector('html, body'), window.scrollY - value, speed, () => {
+      animatedScrollTo(document.scrollingElement, window.scrollY - value, speed, () => {
         resolve();
       });
     })
