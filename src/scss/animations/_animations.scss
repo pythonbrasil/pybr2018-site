@@ -33,16 +33,16 @@
 }
 
 .transition--opacity{
-  transition: opacity 150ms;
+  transition: opacity 120ms;
   &.fade-out {
-    transform: translateY(.5%);
+    transform: translateY(20px);
   }
 }
 
 .transition--opacity-translate {
-  transition: opacity 180ms ease-out, transform 150ms ease-out;
+  transition: opacity 140ms ease-out, transform 150ms ease-out;
   &.fade-out {
-    transform: translateY(.5%);
+    transform: translateY(20px);
   }
 }
 

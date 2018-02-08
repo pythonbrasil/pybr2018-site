@@ -8,7 +8,6 @@ import 'core-js/es6/string';
 import 'isomorphic-fetch';
 import animatedScrollTo from 'animated-scrollto';
 import CodeOfConduct from './codeOfConduct';
-
 const routes = [
   '/codigo-de-conduta',
   '/quero-patrocinar'
@@ -25,9 +24,9 @@ function onAnchorClick(e) {
     return;
   }
   const anchorPosition = elementToScroll.getBoundingClientRect().top;
-  const positionToScroll = anchorPosition + window.scrollY;
+  const positionToScroll = anchorPosition + (window.scrollY || window.pageYOffset);
   const animationDuration = 233;
-  animatedScrollTo(document.body, positionToScroll, animationDuration, () => {
+  animatedScrollTo(document.querySelector('html, body'), positionToScroll, animationDuration, () => {
     anchor.blur();
   });
 }
@@ -73,7 +72,7 @@ function init(path) {
 
 document.addEventListener('DOMContentLoaded', () => {
   new MobileNavManager();
-  const appRouter = new AppRouter(routes, true);
+  const appRouter = new AppRouter(routes, AppRouter.samePathBehaviours.SCROLL_TOP);
   appRouter.onNewRouteContentReady(init);
   appRouter.onNewRouteContentVisible(onNewContentVisible);
   init(window.location.pathname);

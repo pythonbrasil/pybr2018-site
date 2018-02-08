@@ -5,10 +5,17 @@ import { FetchAborttedError } from 'app/errors';
 import { MDCSnackbar } from '@material/snackbar';
 
 export default class AppRouter {
-  constructor(routes, ignoreRecurrentPaths=false) {
+  static get samePathBehaviours() {
+    return {
+      SCROLL_TOP: 'scrollTop',
+      DEFAULT: 'default'
+    }
+  }
+
+  constructor(routes, samePathBehaviour=AppRouter.samePathBehaviours.DEFAULT) {
     this.isFirstFetch = true;
     this.lastPath = window.location.pathname;
-    this.ignoreRecurrentPaths = ignoreRecurrentPaths;
+    this.samePathBehaviour = samePathBehaviour;
     this._onNavigation = this._onNavigation.bind(this);
     this._onAnchorClick = this._onAnchorClick.bind(this);
     this._onNewPageContentFetch = this._onNewPageContentFetch.bind(this);
@@ -44,9 +51,7 @@ export default class AppRouter {
       this.isFirstFetch = false;
       return;
     }
-    if (this.ignoreRecurrentPaths && path === this.lastPath) {
-      return;
-    }
+
     const currentPageContent = document.querySelector('#page-content');
     this._transitionManager.showLoadingAnimation();
     fetch(path)
@@ -134,6 +139,15 @@ export default class AppRouter {
   _onAnchorClick(e) {
     e.preventDefault();
     const destinyRoute = e.currentTarget.getAttribute('href');
+    if (this.lastPath === destinyRoute) {
+      switch (this.samePathBehaviour) {
+        case AppRouter.samePathBehaviours.SCROLL_TOP:
+          this._transitionManager.scrollTop();
+          return;
+        default:
+          return;
+      }
+    }
     this._router.navigate(destinyRoute, true);
   }
 
