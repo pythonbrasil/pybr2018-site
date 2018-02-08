@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <link target="_blank" href="https://fonts.googleapis.com/css?family=Advent+Pro:500,600,700" rel="stylesheet">
@@ -7,6 +8,25 @@
   <meta name="viewport" content="width=device-width">
 <link href="/styles.css" rel="stylesheet"></head>
 <body>
+  <div role="progressbar" class="mdc-linear-progress">
+  <div class="mdc-linear-progress__buffering-dots"></div>
+  <div class="mdc-linear-progress__buffer"></div>
+  <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+    <span class="mdc-linear-progress__bar-inner"></span>
+  </div>
+  <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+    <span class="mdc-linear-progress__bar-inner"></span>
+  </div>
+</div>
+  <div class="mdc-snackbar"
+     aria-live="assertive"
+     aria-atomic="true"
+     aria-hidden="true">
+  <div class="mdc-snackbar__text"></div>
+  <div class="mdc-snackbar__action-wrapper">
+    <button type="button" class="mdc-snackbar__action-button"></button>
+  </div>
+</div>
   <nav id="mobile-nav" class="header__nav-mobile">
     <header class="header__nav-mobile__header">
       <h1>Menu</h1>

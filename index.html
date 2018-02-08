@@ -1,4 +1,5 @@
-  <html>
+  <!DOCTYPE html>
+<html>
 <head>
   <link target="_blank" href="https://fonts.googleapis.com/css?family=Advent+Pro:500,600,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
@@ -7,6 +8,25 @@
   <meta name="viewport" content="width=device-width">
 <link href="/styles.css" rel="stylesheet"></head>
 <body>
+  <div role="progressbar" class="mdc-linear-progress">
+  <div class="mdc-linear-progress__buffering-dots"></div>
+  <div class="mdc-linear-progress__buffer"></div>
+  <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+    <span class="mdc-linear-progress__bar-inner"></span>
+  </div>
+  <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+    <span class="mdc-linear-progress__bar-inner"></span>
+  </div>
+</div>
+  <div class="mdc-snackbar"
+     aria-live="assertive"
+     aria-atomic="true"
+     aria-hidden="true">
+  <div class="mdc-snackbar__text"></div>
+  <div class="mdc-snackbar__action-wrapper">
+    <button type="button" class="mdc-snackbar__action-button"></button>
+  </div>
+</div>
   <nav id="mobile-nav" class="header__nav-mobile">
     <header class="header__nav-mobile__header">
       <h1>Menu</h1>
@@ -59,7 +79,7 @@
         <div class="jumbotron-container">
           <div class="jumbotron">
             <div class="jumbotron__main">
-              <img class="jumbotron__logo d-none d-md-block" height="auto" src="/fed1387155e27a9d0ebebc239355b3c7.svg" alt="Logo Python Brasil 14">
+              <img class="jumbotron__logo d-none d-md-block" height="50%" src="/fed1387155e27a9d0ebebc239355b3c7.svg" alt="Logo Python Brasil 14">
               <img class="jumbotron__logo d-md-none" height="100%" src="/fed1387155e27a9d0ebebc239355b3c7.svg" alt="Logo Python Brasil 14">
               <a href="#" disabled class="pybr-button--dark d-none d-sm-block">
                 Inscrições
@@ -67,7 +87,7 @@
               </a>
             </div>
             <div class="jumbotron__side">
-              <img class="d-none d-sm-block" width="100%" src="/e09e5e33e7de545a99c84a8d0804dfe6.svg" alt="de 17 a 22 de Outubro de 2018 em Natal, Rio Grande do Norte">
+              <img class="d-none d-sm-block" width="auto" height="80%" src="/e09e5e33e7de545a99c84a8d0804dfe6.svg" alt="de 17 a 22 de Outubro de 2018 em Natal, Rio Grande do Norte">
               <img class="d-sm-none pybr-date" src="/e09e5e33e7de545a99c84a8d0804dfe6.svg" alt="de 17 a 22 de Outubro de 2018 em Natal, Rio Grande do Norte">
             </div>
             <div class="jumbotron__action">
@@ -191,7 +211,7 @@
             </article>
             <div class="holiday-inn-banner">
               <img class="img-fluid" src="/9d220e0ce1a757d9b0776ff9d3643135.jpg" alt="Fachada do hotel Holiday Inn">
-              <a class="holiday-inn-website" target=""_blank href="http://holidaynatal.com.br">
+              <a class="holiday-inn-website" target="_blank" href="http://holidaynatal.com.br">
                 www.holidaynatal.com.br
               </a>
             </div>
