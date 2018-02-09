@@ -7,9 +7,8 @@ import 'core-js/es6/symbol';
 import 'core-js/es6/string';
 import 'isomorphic-fetch';
 import 'scrolling-element';
-import animatedScrollTo from 'animated-scrollto';
+import animateScrollTo from 'animated-scroll-to';
 import CodeOfConduct from './codeOfConduct';
-window.animatedScrollTo = animatedScrollTo;
 const routes = [
   '/codigo-de-conduta',
   '/quero-patrocinar'
@@ -28,8 +27,11 @@ function onAnchorClick(e) {
   const anchorPosition = elementToScroll.getBoundingClientRect().top;
   const positionToScroll = anchorPosition + (window.scrollY || window.pageYOffset);
   const animationDuration = 233;
-  animatedScrollTo(document.scrollingElement, positionToScroll, animationDuration, () => {
-    anchor.blur();
+  animateScrollTo(positionToScroll, {
+    minDuration: animationDuration, maxDuration: animationDuration,
+    onComplete() {
+      anchor.blur();
+    }
   });
 }
 

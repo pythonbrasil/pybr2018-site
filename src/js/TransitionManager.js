@@ -1,4 +1,4 @@
-import animatedScrollTo from 'animated-scrollto';
+import animateScrollTo from 'animated-scroll-to';
 import { MDCLinearProgress } from '@material/linear-progress';
 
 const defaultConfig = {
@@ -57,8 +57,9 @@ export default class TransitionManager {
 
   scrollTop(speed) {
     return new Promise((resolve, reject) => {
-      animatedScrollTo(document.scrollingElement, 0, this.config.scrollSpeed, () => {
-        resolve();
+      animateScrollTo(0, {
+        minDuration: this.config.scrollSpeed, maxDuration: this.config.scrollSpeed,
+        onComplete: resolve
       });
     })
   }
@@ -66,8 +67,9 @@ export default class TransitionManager {
   scrollUp(value=1000) {
     const speed = this.config.scrollSpeed;
     return new Promise((resolve, reject) => {
-      animatedScrollTo(document.scrollingElement, window.scrollY - value, speed, () => {
-        resolve();
+      animateScrollTo((window.scrollY || window.offsetY) - value, {
+        minDuration: this.config.scrollSpeed, maxDuration: this.config.scrollSpeed,
+        onComplete: resolve
       });
     })
   }
