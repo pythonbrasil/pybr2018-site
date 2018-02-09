@@ -17,6 +17,7 @@ module.exports = {
       'templates': path.resolve(__dirname, 'src/templates'),
       'img': path.resolve(__dirname, 'src/img'),
       'pdf': path.resolve(__dirname, 'src/pdf'),
+      'app': path.resolve(__dirname, 'src/js'),
     }
   },
   devtool: 'source-map',
@@ -33,10 +34,7 @@ module.exports = {
         test: /\.js$/,
         use: [
           {
-            loader: 'babel-loader',
-            query: {
-              presets: [['es2015', {'modules': false}], 'es2016', 'stage-2']
-            }
+            loader: 'babel-loader'
           }
         ]
       },

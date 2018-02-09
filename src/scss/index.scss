@@ -88,6 +88,7 @@
 //@import 'bootstrap/scss/transitions';
 //@import 'bootstrap/scss/tooltip';
 //@import 'bootstrap/scss/modal';
+@import 'animations/animations.scss';
 @import 'common/common.scss';
 @import 'header/header.scss';
 @import 'about/about.scss';
@@ -98,6 +99,7 @@
 @import 'realization/realization.scss';
 @import 'footer/footer.scss';
 
+@import 'snackbar.scss';
 @import 'intern-pages/intern-pages.scss';
 
 
@@ -122,6 +124,7 @@ p {
 }
 
 .page-content {
+  @extend .transition--opacity-translate;
   background-repeat: no-repeat;
   background-image: url('../img/Python14-MapaRN-cinza-30.svg');
   background-size: 850px;

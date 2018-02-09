@@ -1,0 +1,11 @@
+@import '@material/linear-progress/mdc-linear-progress.scss';
+
+.mdc-linear-progress {
+  z-index: 999;
+  position: fixed;
+}
+
+@at-root {
+  @include mdc-linear-progress-bar-color($python-yellow);
+  @include mdc-linear-progress-buffer-color($mdc-linear-progress-baseline-buffer-color);
+}
