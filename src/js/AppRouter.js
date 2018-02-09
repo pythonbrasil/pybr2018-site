@@ -1,6 +1,5 @@
 import Navigo from 'navigo';
 import TransitionManager from 'app/TransitionManager';
-import animatedScrollTo from 'animated-scrollto';
 import { FetchAborttedError } from 'app/errors';
 import { MDCSnackbar } from '@material/snackbar';
 
@@ -26,7 +25,6 @@ export default class AppRouter {
     this._transitionManager = new TransitionManager({
       scrollSpeed: 466,
       fadeSpeed: 233,
-
     });
     this._setupInternalRoutes();
     this._setupAnchors();
