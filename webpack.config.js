@@ -18,6 +18,7 @@ module.exports = {
       'img': path.resolve(__dirname, 'src/img'),
       'pdf': path.resolve(__dirname, 'src/pdf'),
       'app': path.resolve(__dirname, 'src/js'),
+      'config': path.resolve(__dirname, 'site.config.js'),
     }
   },
   devtool: 'source-map',
