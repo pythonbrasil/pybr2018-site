@@ -9,6 +9,7 @@ import 'isomorphic-fetch';
 import 'scrolling-element';
 import animateScrollTo from 'animated-scroll-to';
 import CodeOfConduct from './codeOfConduct';
+import Dropdown from 'app/Dropdown';
 const routes = [
   '/codigo-de-conduta',
   '/quero-patrocinar'
@@ -80,4 +81,5 @@ document.addEventListener('DOMContentLoaded', () => {
   appRouter.onNewRouteContentReady(init);
   appRouter.onNewRouteContentVisible(onNewContentVisible);
   init(window.location.pathname);
+  new Dropdown(document.querySelector('#sponsors-dropdown'));
 });

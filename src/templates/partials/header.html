@@ -49,7 +49,19 @@
             </a>
           </li>
           <li class="nav__item"><a class="nav__anchor scroll" href="/#location">Local</a></li>
-          <li class="nav__item"><a class="nav__anchor scroll" href="/#sponsors">Patrocinadores</a></li>
+          <li id="sponsors-dropdown" class="nav__item toolbar mdc-menu-anchor">
+            <a class="nav__anchor" href="/#sponsors">Patrocinadores</a>
+            <div class="mdc-menu" tabindex="-1">
+              <ul class="mdc-menu__items mdc-list" role="menu" aria-hidden="true">
+                <li class="mdc-list-item" role="menuitem" tabindex="0">
+                  A Menu Item
+                </li>
+                <li class="mdc-list-item" role="menuitem" tabindex="0">
+                  Another Menu Item
+                </li>
+              </ul>
+            </div>
+          </li>
           <li class="nav__item"><a class="nav__anchor" href="http://blog.pythonbrasil.org.br" target="_blank" >Blog</a></li>
         </ul>
       </nav>
