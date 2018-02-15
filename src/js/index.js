@@ -81,5 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
   appRouter.onNewRouteContentReady(init);
   appRouter.onNewRouteContentVisible(onNewContentVisible);
   init(window.location.pathname);
-  new Dropdown(document.querySelector('#sponsors-dropdown'));
+  for (const dropdownContainer of document.querySelectorAll('.mdc-menu-anchor')) {
+    new Dropdown(dropdownContainer);
+  }
 });

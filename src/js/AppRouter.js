@@ -136,7 +136,11 @@ export default class AppRouter {
 
   _onAnchorClick(e) {
     const destinyRoute = e.currentTarget.getAttribute('href');
-    if (destinyRoute !== '/' && !this._routes.includes(destinyRoute) && !destinyRoute.startsWith('/#')) {
+    if (destinyRoute === "#" ||
+        ( destinyRoute !== '/' &&
+          !this._routes.includes(destinyRoute) &&
+          !destinyRoute.startsWith('/#')
+        )) {
       return;
     }
     e.preventDefault();

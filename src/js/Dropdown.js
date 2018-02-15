@@ -4,12 +4,16 @@ class Dropdown extends MDCMenu {
   constructor(el) {
     super(el.querySelector('.mdc-menu'));
     this._trigger = el.querySelector('.nav__anchor');
-    this.setAnchorCorner(Corner.BOTTOM_END);
-    this._setupTrigger();
+    this.setAnchorCorner(Corner.BOTTOM_START);
+    this._setupTriggers();
   }
 
-  _setupTrigger() {
-    this._trigger.addEventListener('mouseover', () => this.open = true);
+  _setupTriggers() {
+    const toggleOpen = () => this.open = !this.open;
+    this._trigger.addEventListener('click', toggleOpen);
+    for (const child of this.items) {
+      child.parentElement.addEventListener('click', toggleOpen);
+    }
   }
 }
 
