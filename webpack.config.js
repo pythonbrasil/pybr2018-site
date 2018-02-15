@@ -16,7 +16,7 @@ module.exports = {
       'scss': path.resolve(__dirname, 'src/scss'),
       'templates': path.resolve(__dirname, 'src/templates'),
       'img': path.resolve(__dirname, 'src/img'),
-      'pdf': path.resolve(__dirname, 'src/pdf'),
+      'misc': path.resolve(__dirname, 'src/misc'),
       'app': path.resolve(__dirname, 'src/js'),
       'config': path.resolve(__dirname, 'site.config.js'),
     }
@@ -40,17 +40,16 @@ module.exports = {
         ]
       },
       {
-        test:  /\.(jpe?g|png|gif|svg|obj|mtl)$/i,
-        use: [{
-          loader: 'file-loader'
-        }]
-      },
-      {
-        test:  /\.pdf$/i,
+        test:  /\.(jpe?g|png|gif|svg|obj|mtl|pdf|zip)$/i,
         use: [{
           loader: 'file-loader',
           options: {
-            name: '[name].[ext]'
+            name(file) {
+              if (file.match(/\.zip$|\.pdf$/)) {
+                return '[name].[ext]';
+              }
+              return '[hash].[ext]';
+            }
           }
         }]
       },
