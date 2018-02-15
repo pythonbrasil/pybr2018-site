@@ -1,6 +1,6 @@
 {
   "name": "python-brasil-2018",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Python Brasil 2018 website",
   "main": "index.js",
   "scripts": {
