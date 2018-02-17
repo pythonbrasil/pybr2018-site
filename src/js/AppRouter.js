@@ -44,11 +44,14 @@ export default class AppRouter {
 
   _onNavigation() {
     const path = window.location.pathname;
+    const hash = window.location.hash;
+    const isSamePageHashRoute = hash === '#' || (hash && path === this.lastPath);
+    const isSamePage = this.lastPath === path;
     this._nextValidPath = path;
-    if (this.isFirstFetch) {
+    if (this.isFirstFetch || isSamePageHashRoute || isSamePage) {
       this.isFirstFetch = false;
       return;
-    }
+    }    
 
     const currentPageContent = document.querySelector('#page-content');
     this._transitionManager.showLoadingAnimation();
@@ -136,11 +139,9 @@ export default class AppRouter {
 
   _onAnchorClick(e) {
     const destinyRoute = e.currentTarget.getAttribute('href');
-    if (destinyRoute === "#" ||
-        ( destinyRoute !== '/' &&
-          !this._routes.includes(destinyRoute) &&
-          !destinyRoute.startsWith('/#')
-        )) {
+    const isInvalidRoute = destinyRoute !== '/' && !this._routes.includes(destinyRoute) && !destinyRoute.includes('#');
+    
+    if (isInvalidRoute) {
       return;
     }
     e.preventDefault();
@@ -148,9 +149,9 @@ export default class AppRouter {
       switch (this.samePathBehaviour) {
         case AppRouter.samePathBehaviours.SCROLL_TOP:
           this._transitionManager.scrollTop();
-          return;
+          break;
         default:
-          return;
+          break;
       }
     }
     this._router.navigate(destinyRoute, true);
