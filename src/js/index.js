@@ -9,6 +9,7 @@ import 'isomorphic-fetch';
 import 'scrolling-element';
 import animateScrollTo from 'animated-scroll-to';
 import CodeOfConduct from './codeOfConduct';
+import Dropdown from 'app/Dropdown';
 const routes = [
   '/codigo-de-conduta',
   '/quero-patrocinar'
@@ -80,4 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
   appRouter.onNewRouteContentReady(init);
   appRouter.onNewRouteContentVisible(onNewContentVisible);
   init(window.location.pathname);
+  for (const dropdownContainer of document.querySelectorAll('.mdc-menu-anchor')) {
+    new Dropdown(dropdownContainer);
+  }
 });
