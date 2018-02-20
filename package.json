@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --inline --hot",
     "bundle": "rm -rf dist && webpack --progress --config webpack.production.config.js",
-    "production": "npm run bundle && git checkout production-bundle && cp -rf dist/* . && rm -rf dist && git add . && git commit -am 'updating production bundle' && git push --all origin && git checkout master"
+    "production": "npm run bundle && git checkout production-bundle && rm -f *.* && cp -rf dist/* . && rm -rf dist && git add . && git commit -am 'updating production bundle' && git push --all origin && git checkout master"
   },
   "repository": {
     "type": "git",
