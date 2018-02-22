@@ -12,7 +12,8 @@ import CodeOfConduct from './codeOfConduct';
 import Dropdown from 'app/Dropdown';
 const routes = [
   '/codigo-de-conduta',
-  '/quero-patrocinar'
+  '/quero-patrocinar',
+  '/programacao'
 ];
 
 function onAnchorClick(e) {
