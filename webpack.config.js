@@ -88,6 +88,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'quero-patrocinar/index.html',
       template: './src/templates/quero-patrocinar.html'
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'programacao/index.html',
+      template: './src/templates/programacao.html'
     })
   ]
 }
