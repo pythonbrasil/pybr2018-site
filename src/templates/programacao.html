@@ -6,8 +6,42 @@ ${require('templates/partials/header.html') }
     </h1>
   </header>
   ${require('templates/partials/header-call-to-action.html') }
-  <div>
-    Olá, como vai
+  <div class="container schedule-page">
+    <div class="row">
+      <div class="col-xl-10 schedule-page__content">
+        <table class="table schedule-page__table">
+          <thead>
+            <tr>
+              <th>TUTORIAIS</th>
+              <th>PALESTRAS</th>
+              <th>SPRINT</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>17 e 18</td>
+              <td>19, 20 e 21</td>
+              <td>22</td>
+            </tr>
+          </tbody>
+        </table>
+      
+        <div class="schedule-page__info">
+          <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 schedule-page__info__title">
+            <img src="${require('img/icon-calendar.png')}" class="icon-right">
+            <h3>Marque no calendário:</h3>
+            <p>17 a 22 <span class="no-bolder">DE OUTUBRO</span>, 2018</p>
+          </div>
+        </div>
+
+      </div>
+      
+    </div>
+    <div class="row schedule-page__footer">
+      <div class="col-xl-10">
+        <p class="text-center">*Em breve teremos mais informações sobre as atividades do evento.</p>
+      </div>
+    </div>
   </div>
 </div>
 ${require('templates/partials/footer.html') }
