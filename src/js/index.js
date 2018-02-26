@@ -2,6 +2,7 @@ import 'scss/index.scss';
 import MobileNavManager from 'app/MobileNavManager';
 import AppRouter from 'app/AppRouter';
 import 'core-js/fn/object/assign';
+import 'core-js/fn/object/values';
 import 'core-js/fn/array/from';
 import 'core-js/es6/promise';
 import 'core-js/es6/symbol';
