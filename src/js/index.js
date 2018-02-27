@@ -11,13 +11,15 @@ import MobileNavManager from 'app/MobileNavManager';
 import AppRouter from 'app/AppRouter';
 import CodeOfConduct from 'app/CodeOfConduct';
 import Dropdown from 'app/Dropdown';
-import Anchors from 'app/Anchors';
+import ScrollNavigation from 'scroll-navigation-menu';
 const routes = [
   '/codigo-de-conduta',
   '/quero-patrocinar',
   '/programacao'
 ];
-const anchors = new Anchors();
+const anchors = new ScrollNavigation({
+  offset: -100
+});
 
 function onNewContentVisible(path) {
   if (window.location.hash) {
@@ -30,7 +32,7 @@ function onNewContentVisible(path) {
 
 function init(path) {
   if (path === '/') {
-    anchors.setupScrollAnimation();
+    anchors.start();
   }
   if (path.startsWith('/codigo-de-conduta')) {
     new CodeOfConduct();
@@ -40,7 +42,7 @@ function init(path) {
 document.addEventListener('DOMContentLoaded', () => {
   new MobileNavManager();
   const appRouter = new AppRouter(routes, AppRouter.samePathBehaviours.SCROLL_TOP);
-  appRouter.beforeRouteChange(() => anchors.removeScrollAnimation());
+  appRouter.beforeRouteChange(() => anchors.stop());
   appRouter.onNewRouteContentReady(init);
   appRouter.onNewRouteContentVisible(onNewContentVisible);
   init(window.location.pathname);
