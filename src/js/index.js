@@ -1,6 +1,4 @@
 import 'scss/index.scss';
-import MobileNavManager from 'app/MobileNavManager';
-import AppRouter from 'app/AppRouter';
 import 'core-js/fn/object/assign';
 import 'core-js/fn/object/values';
 import 'core-js/fn/array/from';
@@ -9,9 +7,11 @@ import 'core-js/es6/symbol';
 import 'core-js/es6/string';
 import 'isomorphic-fetch';
 import 'scrolling-element';
-import CodeOfConduct from './codeOfConduct';
+import MobileNavManager from 'app/MobileNavManager';
+import AppRouter from 'app/AppRouter';
+import CodeOfConduct from 'app/CodeOfConduct';
 import Dropdown from 'app/Dropdown';
-import Anchors from './Anchors';
+import Anchors from 'app/Anchors';
 const routes = [
   '/codigo-de-conduta',
   '/quero-patrocinar',
