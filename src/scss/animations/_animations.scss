@@ -34,13 +34,10 @@
 
 .transition--opacity{
   transition: opacity 120ms;
-  &.fade-out {
-    transform: translateY(20px);
-  }
 }
 
 .transition--opacity-translate {
-  transition: opacity 140ms ease-out, transform 150ms ease-out;
+  transition: opacity 140ms ease-out, transform 140ms ease-out;
   &.fade-out {
     transform: translateY(20px);
   }

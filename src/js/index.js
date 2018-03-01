@@ -22,6 +22,10 @@ const anchors = new ScrollNavigation({
 });
 
 function onNewContentVisible(path) {
+
+  if (path === '/') {
+    anchors.start();
+  }
   if (window.location.hash) {
     const anchor = document.querySelector(`.header__nav a[href="${path + window.location.hash}"]`);
     if (anchor) {
@@ -31,9 +35,6 @@ function onNewContentVisible(path) {
 }
 
 function init(path) {
-  if (path === '/') {
-    anchors.start();
-  }
   if (path.startsWith('/codigo-de-conduta')) {
     new CodeOfConduct();
   }
@@ -41,11 +42,15 @@ function init(path) {
 
 document.addEventListener('DOMContentLoaded', () => {
   new MobileNavManager();
+  const path = window.location.pathname;
   const appRouter = new AppRouter(routes, AppRouter.samePathBehaviours.SCROLL_TOP);
   appRouter.beforeRouteChange(() => anchors.stop());
   appRouter.onNewRouteContentReady(init);
+  if (path === '/') {
+    anchors.start();
+  }
   appRouter.onNewRouteContentVisible(onNewContentVisible);
-  init(window.location.pathname);
+  init(path);
   for (const dropdownContainer of document.querySelectorAll('.mdc-menu-anchor')) {
     new Dropdown(dropdownContainer);
   }
