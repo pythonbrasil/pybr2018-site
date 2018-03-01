@@ -1,0 +1,145 @@
+.schedule-wrapper {
+  @include make-angle ($background-dark, 5);
+  background-color: $background-dark;
+  background-image: url('../img/Python14-Cobras-Transparente.svg');
+  background-size: 200px;
+  background-position: calc(100% + 30px) calc(100% - 50px);
+  background-repeat: no-repeat;
+}
+
+.schedule-container {
+  @extend .container;
+  padding-bottom: 30px;
+  .schedule {
+    @extend .row;
+    @extend .d-flex;
+    @extend .justify-content-center;
+
+    .schedule-body {
+      width: 90%;
+    }
+
+    .track {
+      position: relative;
+      margin-top: 50px;
+      display: none;
+
+      &.active {
+        display: block;
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        height: 100%;
+        width: 3px;
+        background-color: #ccc;
+      }
+
+      .track-leisure:before {
+        background-color: $python-brand-grey;
+      }
+
+      .track-keynote:before {
+        background-color: $python-brand-blue;
+      }
+
+      .track-talk:before {
+        background-color: $python-brand-yellow;
+      }
+
+      .track-tutorial:before {
+        background-color: red;
+      }
+
+      .tutorials-banner {
+        @extend .text-danger;
+        font-size: 30px;
+        padding-top: 30px;
+      }
+
+      div {
+        position: relative;
+        display: block;
+        padding: 0 25px;
+        margin: 25px 0;
+
+        &:before {
+          content: "";
+          position: absolute;
+          left: -9px;
+          top: 0;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background-color: $python-brand-grey;
+        }
+
+        time {
+          color: #333;
+          position: relative;
+          top: -4px;
+          left: -5px;
+        }
+
+        .hour {
+          @extend .lead;
+          margin-bottom: 0.5em;
+        }
+
+        .talk {
+          @extend .h3;
+          color: $python-brand-blue;
+          margin-bottom: 0.2em;
+        }
+
+        .speaker {
+          @extend .h6;
+          color: #333;
+          margin-bottom: 0.5em;
+          text-transform: uppercase;
+        }
+
+        .description {
+          color: #333;
+          margin-bottom: 0.5em;
+          display: block;
+          padding: 15px 10px 0px 25px;
+          position: relative;
+          font-size: 16px;
+          line-height: 2em;
+          color: #666;
+          text-align: justify;
+          border-left: 0px solid $background-dark;
+        }
+
+        .description:before {
+          content: "\201C";
+          font-size: 50px;
+          font-weight: bold;
+          color: #999;
+          position: absolute;
+          left: 0px;
+        }
+
+        .description:after {
+          content: "\201D";
+          font-size: 50px;
+          font-weight: bold;
+          color: #999;
+          position: absolute;
+        }
+      }
+    }
+  }
+}
+
+.tabcontent {
+  animation: fadeEffect 1s;
+}
+
+@keyframes fadeEffect {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

@@ -1,12 +1,12 @@
 
 .about-wrapper {
-  @include make-angle($python-yellow, -5);
+  @include make-angle($python-yellow, 5);
   width: 100%;
   background-color: $python-yellow;
   background-image: url('../img/Python14-Cobras-Transparente.svg');
   background-size: 200px;
   background-position: 100% 100%;
-  background-position: calc(100% + 30px) calc(100% - 50px);
+  background-position: calc(0% + 40px) calc(100% - 30px);
   background-repeat: no-repeat;
   .about-container {
     @extend .container;
