@@ -57,7 +57,7 @@
   }
 
   &__list {
-    padding: 100px 0px;
+    padding: 70px 0px;
     width: 100%;
     @extend .d-flex;
     @extend .justify-content-center;
@@ -73,9 +73,9 @@
       list-style: none;
       font-size: 50px;
       font-family: 'Advent Pro', sans-serif;
-      height: 50px;
+      height: auto;
+      padding: 0px 20px;
     }
-
   }
 
   &__call-to-action {
@@ -119,7 +119,7 @@
 @media (min-width: $breakpoint-md) {
   .sponsors {
     &__call-to-action {
-       h2 {
+      h2 {
         font-size: 50px;
       }
     }
