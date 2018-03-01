@@ -155,6 +155,10 @@ export default class AppRouter {
       return;
     }
     e.preventDefault();
+    for (const anchor of this._getInternalAnchors()) {
+      anchor.classList.remove('active');
+    }
+    e.currentTarget.classList.add('active');
     if (this.lastPath === destinyRoute) {
       switch (this.samePathBehaviour) {
         case AppRouter.samePathBehaviours.SCROLL_TOP:
