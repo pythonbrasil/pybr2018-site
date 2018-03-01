@@ -15,7 +15,7 @@
   color: white;
   text-decoration: none;
   transition: color .3s ease-out;
-  &:hover {
+  &:hover, &.active {
     text-decoration: none;
     color: $python-yellow;
   }
