@@ -22,7 +22,6 @@ const anchors = new ScrollNavigation({
 });
 
 function onNewContentVisible(path) {
-
   if (path === '/') {
     anchors.start();
   }
@@ -44,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   new MobileNavManager();
   const path = window.location.pathname;
   const appRouter = new AppRouter(routes, AppRouter.samePathBehaviours.SCROLL_TOP);
+  const path = window.location.pathname;
   appRouter.beforeRouteChange(() => anchors.stop());
   appRouter.onNewRouteContentReady(init);
   if (path === '/') {
@@ -51,6 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   appRouter.onNewRouteContentVisible(onNewContentVisible);
   init(path);
+  if (path === '/') {
+    anchors.start();
+  }
   for (const dropdownContainer of document.querySelectorAll('.mdc-menu-anchor')) {
     new Dropdown(dropdownContainer);
   }
