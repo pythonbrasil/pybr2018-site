@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
   new MobileNavManager();
   const path = window.location.pathname;
   const appRouter = new AppRouter(routes, AppRouter.samePathBehaviours.SCROLL_TOP);
-  const path = window.location.pathname;
   appRouter.beforeRouteChange(() => anchors.stop());
   appRouter.onNewRouteContentReady(init);
   if (path === '/') {
