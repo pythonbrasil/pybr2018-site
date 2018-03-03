@@ -48,10 +48,12 @@ export default class TransitionManager {
 
   fadeContent(container, className) {
     return new Promise((resolve, reject) => {
-      container.classList.toggle(className);
-      container.addEventListener('transitionend', () => {
+      const onTransitionEnd = (e) => {
+        container.removeEventListener('transitionend', onTransitionEnd);
         resolve(container);
-      })
+      }
+      container.classList.toggle(className);
+      container.addEventListener('transitionend', onTransitionEnd)
     });
   }
 

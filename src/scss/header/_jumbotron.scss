@@ -20,6 +20,7 @@
     @extend .justify-content-between;
     flex-direction: column;
     height: 100%;
+    position: relative;
     .jumbotron__logo {
       display: block;
       width: 100%;
@@ -61,6 +62,10 @@
         width: 100%;
       }
     }
+    .jumbotron__forpapers {
+      width: 70%;
+      z-index: 999;
+    }
   }
 }
 
@@ -84,6 +89,9 @@
           padding-top: 8%;
           margin: initial;
           flex: initial;
+        }
+        .jumbotron__forpapers {
+          z-index: initial;
         }
       }
     }

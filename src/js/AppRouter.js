@@ -20,6 +20,7 @@ export default class AppRouter {
     this._onNewPageContentFetch = this._onNewPageContentFetch.bind(this);
     this._contentReadyCallbackRegistry = [];
     this._contentVisibleCallbackRegistry = [];
+    this._beforeRouteChangeCallbackRegistry = [];
     this._router = new Navigo(window.location.origin, false);
     this._routes = routes;
     this._transitionManager = new TransitionManager({
@@ -29,6 +30,12 @@ export default class AppRouter {
     this._setupInternalRoutes();
     this._setupAnchors();
     this._snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
+  }
+
+  beforeRouteChange(fn) {
+    if (typeof fn === 'function') {
+      this._beforeRouteChangeCallbackRegistry.push(fn);
+    }
   }
 
   onNewRouteContentReady(fn) {
@@ -51,8 +58,11 @@ export default class AppRouter {
     if (this.isFirstFetch || isSamePageHashRoute || isSamePage) {
       this.isFirstFetch = false;
       return;
-    }    
+    }
 
+    this._beforeRouteChangeCallbackRegistry.forEach((fn) => {
+      fn(path);
+    });
     const currentPageContent = document.querySelector('#page-content');
     this._transitionManager.showLoadingAnimation();
     fetch(path)
@@ -104,7 +114,7 @@ export default class AppRouter {
       this._contentReadyCallbackRegistry.forEach((fn) => {
         fn(path);
       });
-      this._fadePageContentIn(currentPageContent);
+      return this._fadePageContentIn(currentPageContent);
     })
     .then(() => {
       this._contentVisibleCallbackRegistry.forEach((fn) => {
@@ -121,11 +131,11 @@ export default class AppRouter {
         }
         requestAnimationFrame(() => {
           this._transitionManager.fadeContent(pageContent, 'fade-out')
-          .then(resolve());
+          .then(resolve);
         });
       })
     })
-  } 
+  }
 
   _setupInternalRoutes() {
     const routesHandlers = {};
@@ -140,11 +150,15 @@ export default class AppRouter {
   _onAnchorClick(e) {
     const destinyRoute = e.currentTarget.getAttribute('href');
     const isInvalidRoute = destinyRoute !== '/' && !this._routes.includes(destinyRoute) && !destinyRoute.includes('#');
-    
+
     if (isInvalidRoute) {
       return;
     }
     e.preventDefault();
+    for (const anchor of this._getInternalAnchors()) {
+      anchor.classList.remove('active');
+    }
+    e.currentTarget.classList.add('active');
     if (this.lastPath === destinyRoute) {
       switch (this.samePathBehaviour) {
         case AppRouter.samePathBehaviours.SCROLL_TOP:
