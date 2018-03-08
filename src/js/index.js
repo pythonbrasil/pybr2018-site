@@ -90,4 +90,18 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.location.pathname.startsWith('/codigo-de-conduta')) {
     new CodeOfConduct();
   }
+  window.switchToTab = function(evt, tabName) {
+    var tabs = document.getElementsByClassName("tabcontent");
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].style.display = "none";
+    }
+
+    var links = document.getElementsByClassName("tablink");
+    for (var i = 0; i < links.length; i++) {
+      links[i].className = links[i].className.replace(" active", "");
+    }
+
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
 });

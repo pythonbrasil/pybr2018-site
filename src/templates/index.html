@@ -19,23 +19,6 @@ ${ require('templates/partials/header.html') }
         </div>
       </section>
     </div>
-    <section class="call4papers-wrapper">
-      <a id="call4papers" class="anchor" aria-hidden="true"></a>
-      <div class="call4papers-container">
-        <div class="call4papers">
-          <header class="section-header-wrapper">
-            <div class="section-header">
-              <h1 class="section-title--left">
-                Chamada de trabalhos
-              </h1>
-            </div>
-          </header>
-          <div class="call4papers__body">
-            A chamada de trabalhos foi encerrada no dia 28 de fevereiro e grade de palestras e tutoriais será anunciada em breve!
-          </div>
-        </div>
-      </div>
-    </section>
     <section class="about-wrapper">
       <a id="about" class="anchor" aria-hidden="true"></a>
       <div class="about-container">
@@ -193,6 +176,38 @@ ${ require('templates/partials/header.html') }
               </div>
             </article>
           </section>
+        </div>
+      </div>
+    </section>
+    <section class="schedule-wrapper">
+      <a id="schedule" class="anchor" aria-hidden="true"></a>
+      <div class="schedule-container">
+        <div class="schedule">
+          <header class="section-header-wrapper">
+            <div class="section-header">
+              <h1 class="section-title--left">
+                Programação
+              </h1>
+            </div>
+          </header>
+          <div class="schedule-body">
+            <div class="btn-group-lg" role="group" aria-label="Selecione o dia">
+              <button type="button" class="btn btn-primary tablink" onclick="switchToTab(event, 'day01')">
+                Dia 06/04
+              </button>
+              <button type="button" class="btn btn-primary tablink" onclick="switchToTab(event, 'day02')">
+                Dia 07/04
+              </button>
+              <button type="button" class="btn btn-primary tablink" onclick="switchToTab(event, 'day03')">
+                Dia 08/04
+              </button>
+            </div>
+
+            ${ require('templates/partials/day01.html') }
+            ${ require('templates/partials/day02.html') }
+            ${ require('templates/partials/day03.html') }
+
+          </div>
         </div>
       </div>
     </section>

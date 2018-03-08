@@ -82,6 +82,7 @@
   }
 }
 
+@import 'bootstrap/scss/bootstrap.scss';
 @import 'bootstrap/scss/bootstrap-grid.scss';
 @import 'bootstrap/scss/bootstrap-reboot.scss';
 @import 'bootstrap/scss/utilities';
@@ -90,9 +91,9 @@
 //@import 'bootstrap/scss/modal';
 @import 'common/common.scss';
 @import 'header/header.scss';
-@import 'call4papers/call4papers.scss';
 @import 'about/about.scss';
 @import 'keynotes/keynotes.scss';
+@import 'schedule/schedule.scss';
 @import 'location/location.scss';
 @import 'event-map/event-map.scss';
 @import 'sponsors/sponsors.scss';
