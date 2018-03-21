@@ -18,7 +18,7 @@
 
 .pybr-button {
   display: block;
-  padding: 8px;
+  padding: 20px 30px;
   border-radius: 8px;
   font-size: 19px;
   font-weight: 600;
@@ -37,28 +37,48 @@
     font-size: 26px;
   }
 
-  &__forpapers {
+  &__sponsor {
     position:absolute;
     top:30px;
     right:0;
     color: $dark-blue;
+    box-shadow: 0px 5px 0 0 $dark-blue;
+    transition: box-shadow 0.3s, transform 0.3s; 
     strong {
       color: #fff;
       font-size: 16px;
     }
-  }
+
+    &:hover {
+      color: inherit;
+      box-shadow: 0 0 0 0 $dark-blue;
+      transform: translate(0px,5px);
+    }
+}
 
 
   @include color-modifiers('.pybr-button', $dark-blue, $python-yellow, $light-blue);
 }
 
+.tickets-button {
+  position: fixed;
+  right: 0;
+  bottom: 10%;
+  z-index: 9990;
+  width: 50px;
+  transition: width 0.3s;
+  display:none;
+  &:hover {
+    width: 184px;;
+  }
+}
 
 .pybr-button-large {
   @extend .pybr-button;
   @extend .d-flex;
   @extend .justify-content-center;
   @extend .align-items-center;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 700;
   height: 140px;
   @include color-modifiers('.pybr-button-large', $dark-blue, $python-yellow, $light-blue);
@@ -67,12 +87,13 @@
 
 @media (min-width: $breakpoint-md) {
   .pybr-button {
-    font-size: 30px;
+    font-size: 20px;
+    margin: 0 auto;
     strong {
-      font-size: 40px;
+      font-size: 20px;
     }
 
-    &__forpapers {
+    &__sponsor {
       strong {
         font-size: 20px;
       }
@@ -80,14 +101,16 @@
 
   }
   .pybr-button-large {
-    font-size: 40px;
+    font-size: 30px;
   }
 
 }
 
 @media (max-width: $breakpoint-xs) {
   .pybr-button {
-    &__forpapers {
+    font-size: 30px;
+    padding: 8px;
+    &__sponsor {
       position: relative;
       font-size:23px;
       top:-5px;
