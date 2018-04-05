@@ -63,7 +63,7 @@
 .tickets-button {
   position: fixed;
   right: 0;
-  top: 15%;
+  bottom: 0%;
   z-index: 9990;
   width: 50px;
   transition: width 0.3s;
@@ -114,6 +114,11 @@
       font-size:23px;
       top:-5px;
     }
+  }
+
+  .tickets-button {
+    top: 15%;
+    bottom: auto;
   }
 }
 
