@@ -96,6 +96,9 @@ $footer-padding-top: 50px;
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 40px;
+    [class*=pybr-button]{
+      color: $dark-blue;
+    }
     .social__nav {
       margin-top: 45px;
       &__menu {
@@ -126,10 +129,10 @@ $footer-padding-top: 50px;
 @media (min-width: $breakpoint-lg) {
   .footer {
     .pybr-button--light {
-      width: 100%;
+      width: auto;
       max-width: auto;
-      padding-top: 13px;
-      padding-bottom: 13px;
+      padding-top: 20px;
+      padding-bottom: 20px;
     }
     &__actions {
       margin-top: 0px;

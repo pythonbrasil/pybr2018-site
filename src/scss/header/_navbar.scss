@@ -94,6 +94,10 @@
     .subscribe-button {
       list-style: none;
       padding: 14px 30px;
+
+      [class*="pybr-button"] {
+        color: $dark-blue;
+      }
     }
     .nav__anchor {
       @extend %nav-anchor;
