@@ -18,7 +18,7 @@
 }
 
 .partners {
-  .partner-logo {
+  .partner-list {
     height: 300px;
     height: 30vh;
     width: 100%;
@@ -27,17 +27,29 @@
     @extend .d-flex;
     @extend .col-12;
     @extend .justify-content-center;
-    a {
-      height: 150px;
-      margin-right: 100px;
-    }
-
-    a:last-child {
-      margin-right: 0;
-    }
-
     img {
       height: 150px;
+    }
+  }
+  .partner {
+    height: 150px;
+    margin-right: 100px;
+  }
+  .partner:last-child {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: $breakpoint-xs) {
+  .partners {
+    .partner-list {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .partner {
+      margin-right: 0;
+      margin-bottom: 60px;
     }
   }
 }
