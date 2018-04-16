@@ -15,6 +15,16 @@
   }
 }
 
+.call4paper-button {
+  border: 1px solid $background-light;
+  border-radius: 5px;
+  padding: 5px 10px;
+
+  &:hover {
+    border-color: $python-yellow;
+    background: $python-yellow;
+  }
+}
 
 .pybr-button {
   display: block;
@@ -43,7 +53,7 @@
     right:0;
     color: $dark-blue;
     box-shadow: 0px 5px 0 0 $dark-blue;
-    transition: box-shadow 0.3s, transform 0.3s; 
+    transition: box-shadow 0.3s, transform 0.3s;
     strong {
       color: #fff;
       font-size: 16px;
@@ -133,7 +143,7 @@
       top:-5px;
     }
   }
-  
+
   .buy-ticket {
     font-size: 20px;
     strong {
@@ -146,4 +156,3 @@
     bottom: auto;
   }
 }
-
