@@ -1,0 +1,46 @@
+${require('templates/partials/header.html') }
+<div id="content" class="intern-page-content">
+  <header class="intern-page__header">
+    <h1 class="header__title">
+      Nossos patrocinadores
+    </h1>
+  </header>
+  <div class="container sponsors-page">
+    <div class="midiakit-container">
+      <a href="${require('misc/PythonBR14-MidiaKit.zip')}" class="pybr-button--dark midiakit-button">Baixe o <br> mídia kit do evento</a>
+    </div>
+    <section class="sponsor">
+      <div class="sponsor__header">
+        <h2>Patrocinadores Ouro</h2>
+      </div>
+      <article class="sponsor__body--wrapper sponsor-gold">
+        <div class="sponsor__logo--wrapper">
+          <a class="sponsor-logo" target="_blank" href="http://www.sebrae.com.br/sites/PortalSebrae">
+            <img src="${require('img/logo-sebrae.svg') }" width="100%" alt="Sebrae Logo">
+          </a>
+        </div>
+        <div class="sponsor__content--wrapper">
+          <div class="sponsor__content">
+            <h3>Sebrae</h3>
+            <p>A Missão do SEBRAE é promover a competitividade e o desenvolvimento sustentável das micro e pequenas empresas e fomentar o empreendedorismo.</p>
+            <a href="http://www.sebrae.com.br/sites/PortalSebrae">www.sebreae.com</a>
+          </div>
+        </div>
+      </article>
+    </section>
+    <section class="sponsor">
+      <div class="sponsor__header">
+        <h2>Parceiros</h2>
+      </div>
+      <article class="partner__body--wrapper">
+        <a class="partner-logo" target="_blank" href="https://cabotelecom.com.br/">
+          <img src="${require('img/logo-cabotelecom.png') }"  alt="Cabo Logo">
+        </a>
+      </article>
+    </section>
+    <a href="/quero-patrocinar" class="pybr-button--light-blue call-to-sponsor">
+      Quero Patrocinar
+    </a>
+  </div>
+</div>
+${require('templates/partials/footer.html') }
