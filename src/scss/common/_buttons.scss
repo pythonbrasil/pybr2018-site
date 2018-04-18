@@ -2,11 +2,27 @@
   &--dark {
     @extend #{$base-class};
     background-color: $dark;
+
+    &:hover {
+      background: $python-yellow;
+
+      .yellow-highlight {
+        color: $dark-blue;
+      }
+    }
   }
 
   &--light {
     @extend #{$base-class};
     background-color: $light;
+
+    &:hover {
+      background: $dark-blue;
+    }
+
+    &.button-bg--dark:hover {
+      background: white;
+    }
   }
 
   &--light-blue {
@@ -38,7 +54,7 @@
   text-decoration: none;
   text-transform: uppercase;
   line-height: normal;
-  transition: color .3s ease-out;
+  transition: .3s ease-out;
   &:hover, &:active, &:focus {
     text-decoration: none;
     color: white;
