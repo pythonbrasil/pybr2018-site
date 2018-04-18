@@ -51,10 +51,6 @@
   }
   &__gold {
     @include sponsor-category($python-yellow);
-
-    img {
-      height: 85px;
-    }
   }
   &__silver {
     @include sponsor-category($dark-blue);
