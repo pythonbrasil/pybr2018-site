@@ -241,6 +241,17 @@
       height: 100px;
     }
   }
+
+  .call-to-sponsor {
+    @extend .col-lg-4;
+    @extend .col-md-6;
+    @extend .col-sm-6;
+    @extend .col-10;
+    display: block;
+    margin: 150px auto 200px auto;
+    font-size: 30px;
+    padding: 40px;
+  }
 }
 
 @media (max-width: $breakpoint-md) {
