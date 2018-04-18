@@ -110,8 +110,14 @@ $footer-padding-top: 50px;
           list-style: none;
           height: 40px;
           width: auto;
+          opacity: 0.8;
+          transition: 0.2s ease-out;
         }
       }
+    }
+
+    .social__nav__menu__item:hover {
+      opacity: 1;
     }
   }
 }
@@ -144,5 +150,3 @@ $footer-padding-top: 50px;
     }
   }
 }
-
-

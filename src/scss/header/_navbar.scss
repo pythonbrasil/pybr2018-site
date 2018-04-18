@@ -25,6 +25,41 @@
   }
 }
 
+.sponsor-dropdown {
+  position: relative;
+  padding-right: 15px;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 0;
+    display: block;
+    width: 8px;
+  	height: 8px;
+  	background: transparent;
+  	border-top: 2px solid white;
+  	border-right: 2px solid white;
+    transform: rotate(135deg);
+  }
+
+  &:hover:after {
+    border-color: $python-yellow;
+  }
+}
+
+
+
+.arrow-down {
+  width: 8px;
+	height: 8px;
+	background: transparent;
+  display: inline-block;
+	border-top: 2px solid white;
+	border-right: 2px solid white;
+  transform: translate3d(0,-60%,0) rotate(135deg);
+}
+
 .header__nav {
   z-index: 9991;
   height: 64px;

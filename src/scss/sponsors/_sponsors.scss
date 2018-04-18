@@ -109,3 +109,160 @@
     }
   }
 }
+
+// Sponsor page
+.sponsors-page {
+  .midiakit-container {
+    display: block;
+    margin-bottom: 60px;
+    text-align: right;
+  }
+
+  .midiakit-button {
+    display: inline-block;
+  }
+
+  .sponsor__header {
+    margin-bottom: 60px;
+
+    h2 {
+      font-size: 46px;
+      font-weight: 500;
+      color: $dark-blue;
+      text-transform: uppercase;
+      text-align: center;
+    }
+  }
+
+  .sponsor__body--wrapper {
+    width: 100%;
+    @extend .d-flex;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+    align-items: center;
+
+    h3 {
+      font-size: 36px;
+      color: $light-blue;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+  }
+
+  .sponsor__logo--wrapper {
+    @extend .col-lg-4;
+    @extend .col-md-12;
+    @extend .col-sm-12;
+    @extend .col-12;
+  }
+
+  .sponsor__content--wrapper {
+    @extend .col-lg-8;
+    @extend .col-md-12;
+    @extend .col-sm-12;
+    @extend .col-12;
+  }
+
+  .sponsor-diamond {
+    .sponsor__logo--wrapper {
+      @extend .col-lg-5;
+    }
+
+    .sponsor__content--wrapper {
+      @extend .col-lg-7;
+    }
+    .sponsor-logo, img {
+      height: 245px;
+    }
+  }
+
+  .sponsor-platina {
+    .sponsor__logo--wrapper {
+      @extend .col-lg-4;
+    }
+
+    .sponsor__content--wrapper {
+      @extend .col-lg-8;
+    }
+    .sponsor-logo, img {
+      height: 195px;
+    }
+  }
+
+  .sponsor-gold {
+    .sponsor__logo--wrapper {
+      @extend .col-lg-4;
+    }
+
+    .sponsor__content--wrapper {
+      @extend .col-lg-8;
+    }
+    .sponsor-logo, img {
+      height: 155px;
+    }
+  }
+
+  .sponsor-silver {
+    .sponsor__logo--wrapper {
+      @extend .col-lg-3;
+    }
+
+    .sponsor__content--wrapper {
+      @extend .col-lg-9;
+    }
+    .sponsor-logo, img {
+      height: 125px;
+    }
+  }
+
+  .sponsor__content {
+    background: white;
+    padding: 20px;
+
+    p {
+      font-family: 'Nunito', sans-serif;
+    }
+
+    a {
+      color: $light-blue;
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+  }
+
+  .partner__body--wrapper {
+    width: 100%;
+    @extend .d-flex;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+    justify-content: center;
+
+    img, .partner-logo {
+      height: 100px;
+    }
+  }
+
+  .call-to-sponsor {
+    @extend .col-lg-4;
+    @extend .col-md-6;
+    @extend .col-sm-6;
+    @extend .col-10;
+    display: block;
+    margin: 150px auto 200px auto;
+    font-size: 30px;
+    padding: 40px;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .sponsors-page {
+    .midiakit-container {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .sponsor__logo--wrapper {
+      margin-bottom: 40px;
+    }
+  }
+}
