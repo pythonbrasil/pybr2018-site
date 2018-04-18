@@ -1,0 +1,30 @@
+#event-page {
+  background-image: url('../img/bgevento.jpg'),  url('../img/Python14-Cobras-Transparente.svg');
+  background-repeat: no-repeat;
+  background-position: 50% 60%, calc(12% - 30px) calc(87% - 50px);
+  background-size: cover, 200px;
+  background-color: $dark-blue;
+  background-blend-mode: overlay;
+  padding-bottom: 150px;
+ }
+
+.page-title {
+  font-family: 'Advent Pro', sans-serif;
+  color: $python-yellow;
+  margin:150px 0 0 150px;
+  h1 {
+    line-height: 60px;
+    font-size: 70px;
+  }
+}
+
+#about-natal {
+ @include make-angle ($background-light, -5);
+ padding:100px 0;
+}
+
+#about-event {
+ @include make-angle ($dark-blue, -5);
+ background-color: $dark-blue;
+ padding:100px 0;
+}
