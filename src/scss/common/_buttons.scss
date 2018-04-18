@@ -28,6 +28,10 @@
   &--light-blue {
     @extend #{$base-class};
     background-color:$light-blue;
+
+    &:hover {
+      background: $dark-blue;
+    }
   }
 }
 
