@@ -1,0 +1,245 @@
+#event-page {
+  background-image: url('../img/bgevento.jpg');
+  background-repeat: no-repeat;
+  background-position: 50% 60%, calc(12% - 30px) calc(87% - 50px);
+  background-size: cover, 200px;
+  // background-color: $dark-blue;
+  // background-blend-mode: soft-light;
+  // padding-bottom: 150px;
+
+  .bg-overlay {
+    background-color: rgba($dark-blue, 0.3);
+    padding-bottom: 150px;
+  }
+ }
+
+.page-title {
+  font-family: 'Advent Pro', sans-serif;
+  color: $python-yellow;
+  margin: 150px 0 0 150px;
+  position: relative;
+
+  h1 {
+    line-height: 60px;
+    font-size: 70px;
+  }
+
+  h1, h2 {
+    position: relative;
+    z-index: 9;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: -200px;
+    height: 230px;
+    width: 230px;
+    display: block;
+    background: url('../img/Python14-Cobras-Transparente.svg') no-repeat;
+    opacity: 0.6;
+  }
+}
+
+#about-natal {
+ @include make-angle ($background-light, -5);
+ padding: 40px 0 100px 0;
+
+ .intern-page-content {
+   z-index: 9;
+   position: relative;
+   @extend .col-lg-6;
+   @extend .col-10;
+   display: block;
+ }
+
+ strong {
+   font-size: 20px;
+ }
+}
+
+#about-event {
+  @include make-angle ($dark-blue, -5);
+  background-color: $dark-blue;
+  padding: 100px;
+  color: white;
+
+  strong {
+    font-weight: 700;
+  }
+
+  .event__body--wrapper {
+    width: 100%;
+    @extend .d-flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .event__title {
+     @extend .col-lg-3;
+     @extend .col-md-12;
+     @extend .col-sm-12;
+     @extend .col-12;
+
+     h1, h2 {
+     color: $light-blue;
+     font-weight: 600;
+     text-transform: uppercase;
+     line-height: 1;
+   }
+
+   h1 {
+     font-size: 70px;
+     display: inline-block;
+   }
+
+   h2 {
+     font-size: 25px;
+   }
+
+   h3 {
+     font-size: 23px;
+     text-transform: uppercase;
+     color: $python-yellow;
+   }
+ }
+
+ .event__content {
+   @extend .col-lg-9;
+   @extend .col-md-12;
+   @extend .col-sm-12;
+   @extend .col-12;
+   position: relative;
+
+  p {
+    font-weight: 300;
+  }
+ }
+
+ .quotation-mark {
+   position: absolute;
+   top: -50px;
+   font-family: 'Advent Pro', sans-serif;
+   font-size: 300px;
+   color: $python-yellow;
+   line-height: 1;
+
+   &.mark-right {
+     right: -90px;
+   }
+
+   &.mark-left {
+     left: -90px;
+   }
+ }
+
+ .about-event {
+   margin-bottom: 50px;
+ }
+
+ .local-area {
+   flex-direction: row-reverse;
+   align-items: flex-end;
+   margin-bottom: 50px;
+
+   .map-pin {
+     margin-bottom: 20px;
+     text-align: center;
+   }
+
+   img {
+     width: 80px;
+   }
+ }
+
+ .local-area .event__title {
+   text-align: right;
+ }
+
+ .hotel-area .event__title {
+   text-align: center;
+
+   p {
+     font-weight: 700;
+   }
+
+   a {
+     color: white;
+     text-decoration: none;
+   }
+
+   a:hover {
+     color: $python-yellow;
+   }
+ }
+}
+
+.sponsor-button-area {
+  padding-top: 100px;
+  margin-bottom: 80px;
+  text-align: center;
+
+  .sponsor-button {
+    display: inline-block;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  #about-event {
+    .event__title {
+      margin-bottom: 40px;
+    }
+
+    .local-area .event__title {
+      margin-top: 40px;
+      text-align: left;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  #about-event {
+    padding-left: 0;
+    padding-right: 0;
+
+    .event__title {
+      h1 {
+        font-size: 40px;
+        display: inline-block;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+    }
+
+    .about-event {
+      padding-right: 100px;
+    }
+
+    .local-area {
+      padding-left: 100px;
+
+      img {
+        width: 50px;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-xs) {
+  #about-event {
+    .quotation-mark {
+      display: none;
+    }
+
+    .about-event {
+      padding-right: 0;
+    }
+
+    .local-area {
+      padding-left: 0;
+    }
+  }
+}

@@ -96,6 +96,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'patrocinadores/index.html',
       template: './src/templates/patrocinadores.html'
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'evento/index.html',
+      template: './src/templates/evento.html'
     })
   ]
 }

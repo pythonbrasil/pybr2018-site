@@ -35,6 +35,35 @@
   }
 }
 
+.snake-button {
+  position: relative;
+
+  a {
+    color: $dark-blue;
+    position: relative;
+    z-index: 9;
+  }
+
+  a:hover {
+    color: white;
+  }
+
+  span {
+    display: block;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -85px;
+    height: 120px;
+    width: 120px;
+    display: block;
+    background: url('../img/Python14-Cobras-amarelo.svg') no-repeat;
+  }
+}
+
 .call4paper-button {
   border: 1px solid $background-light;
   border-radius: 5px;
