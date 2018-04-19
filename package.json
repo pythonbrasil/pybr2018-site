@@ -42,7 +42,7 @@
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.6",
     "sass-loader": "^6.0.6",
-    "scroll-navigation-menu": "^0.1.2",
+    "scroll-navigation-menu": "^0.1.7",
     "scrolling-element": "^1.0.2",
     "showdown": "^1.8.6",
     "storm-scroll-to": "^1.0.6",
