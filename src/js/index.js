@@ -16,7 +16,8 @@ const routes = [
   '/codigo-de-conduta',
   '/quero-patrocinar',
   '/programacao',
-  '/patrocinadores'
+  '/patrocinadores',
+  '/evento'
 ];
 const anchors = new ScrollNavigation({
   offset: -100
