@@ -3,11 +3,15 @@
   background-repeat: no-repeat;
   background-position: 50% 60%, calc(12% - 30px) calc(87% - 50px);
   background-size: cover, 200px;
-  background-color: $dark-blue;
-  background-blend-mode: soft-light;
-  padding-bottom: 150px;
- }
+  // background-color: $dark-blue;
+  // background-blend-mode: soft-light;
+  // padding-bottom: 150px;
 
+  .bg-overlay {
+    background-color: rgba($dark-blue, 0.3);
+    padding-bottom: 150px;
+  }
+ }
 
 .page-title {
   font-family: 'Advent Pro', sans-serif;
@@ -138,10 +142,6 @@
    flex-direction: row-reverse;
    align-items: flex-end;
    margin-bottom: 50px;
- }
-
- .local-area .event__title {
-   text-align: right;
 
    .map-pin {
      margin-bottom: 20px;
@@ -151,6 +151,10 @@
    img {
      width: 80px;
    }
+ }
+
+ .local-area .event__title {
+   text-align: right;
  }
 
  .hotel-area .event__title {
@@ -189,6 +193,7 @@
 
     .local-area .event__title {
       margin-top: 40px;
+      text-align: left;
     }
   }
 }
@@ -198,12 +203,27 @@
     padding-left: 0;
     padding-right: 0;
 
+    .event__title {
+      h1 {
+        font-size: 40px;
+        display: inline-block;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+    }
+
     .about-event {
       padding-right: 100px;
     }
 
     .local-area {
       padding-left: 100px;
+
+      img {
+        width: 50px;
+      }
     }
   }
 }
