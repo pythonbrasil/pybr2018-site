@@ -24,15 +24,14 @@ const anchors = new ScrollNavigation({
 });
 
 function onNewContentVisible(path) {
-  if (path === '/') {
-    anchors.start();
-  }
+  anchors.start();
   if (window.location.hash) {
     const anchor = document.querySelector(`.header__nav a[href="${path + window.location.hash}"]`);
     if (anchor) {
       anchor.click();
     }
   }
+
 }
 
 function init(path) {
@@ -47,14 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const appRouter = new AppRouter(routes, AppRouter.samePathBehaviours.SCROLL_TOP);
   appRouter.beforeRouteChange(() => anchors.stop());
   appRouter.onNewRouteContentReady(init);
-  if (path === '/') {
-    anchors.start();
-  }
   appRouter.onNewRouteContentVisible(onNewContentVisible);
   init(path);
-  if (path === '/') {
-    anchors.start();
-  }
+  anchors.start();
   for (const dropdownContainer of document.querySelectorAll('.mdc-menu-anchor')) {
     new Dropdown(dropdownContainer);
   }
