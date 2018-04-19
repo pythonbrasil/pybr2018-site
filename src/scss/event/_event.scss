@@ -58,7 +58,7 @@
 #about-event {
   @include make-angle ($dark-blue, -5);
   background-color: $dark-blue;
-  padding: 100px 0;
+  padding: 100px;
   color: white;
 
   strong {
@@ -87,6 +87,7 @@
 
    h1 {
      font-size: 70px;
+     display: inline-block;
    }
 
    h2 {
@@ -144,6 +145,7 @@
 
    .map-pin {
      margin-bottom: 20px;
+     text-align: center;
    }
 
    img {
@@ -176,5 +178,48 @@
 
   .sponsor-button {
     display: inline-block;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  #about-event {
+    .event__title {
+      margin-bottom: 40px;
+    }
+
+    .local-area .event__title {
+      margin-top: 40px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  #about-event {
+    padding-left: 0;
+    padding-right: 0;
+
+    .about-event {
+      padding-right: 100px;
+    }
+
+    .local-area {
+      padding-left: 100px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-xs) {
+  #about-event {
+    .quotation-mark {
+      display: none;
+    }
+
+    .about-event {
+      padding-right: 0;
+    }
+
+    .local-area {
+      padding-left: 0;
+    }
   }
 }
