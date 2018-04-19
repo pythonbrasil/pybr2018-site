@@ -61,12 +61,15 @@
   padding: 100px 0;
   color: white;
 
+  strong {
+    font-weight: 700;
+  }
+
   .event__body--wrapper {
     width: 100%;
     @extend .d-flex;
     flex-wrap: wrap;
     align-items: center;
-    margin-bottom: 50px;
   }
 
   .event__title {
@@ -91,18 +94,22 @@
    }
 
    h3 {
-     font-size: 20px;
+     font-size: 23px;
      text-transform: uppercase;
      color: $python-yellow;
    }
  }
 
  .event__content {
-   @extend .col-lg-8;
+   @extend .col-lg-9;
    @extend .col-md-12;
    @extend .col-sm-12;
    @extend .col-12;
    position: relative;
+
+  p {
+    font-weight: 300;
+  }
  }
 
  .quotation-mark {
@@ -114,11 +121,50 @@
    line-height: 1;
 
    &.mark-right {
-     right: -80px;
+     right: -90px;
    }
 
    &.mark-left {
-     left: -80px;
+     left: -90px;
+   }
+ }
+
+ .about-event {
+   margin-bottom: 50px;
+ }
+
+ .local-area {
+   flex-direction: row-reverse;
+   align-items: flex-end;
+   margin-bottom: 50px;
+ }
+
+ .local-area .event__title {
+   text-align: right;
+
+   .map-pin {
+     margin-bottom: 20px;
+   }
+
+   img {
+     width: 80px;
+   }
+ }
+
+ .hotel-area .event__title {
+   text-align: center;
+
+   p {
+     font-weight: 700;
+   }
+
+   a {
+     color: white;
+     text-decoration: none;
+   }
+
+   a:hover {
+     color: $python-yellow;
    }
  }
 }

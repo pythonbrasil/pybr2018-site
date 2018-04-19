@@ -22,7 +22,7 @@ ${require('templates/partials/header.html') }
 </section>
 <section id="about-event">
   <div class="intern-page-content">
-    <article class="event__body--wrapper">
+    <article class="event__body--wrapper about-event">
       <div class="event__title">
         <h1>Sobre</h1>
         <h2>O evento</h2>
@@ -37,24 +37,26 @@ ${require('templates/partials/header.html') }
         <p>Durante os 6 dias de imersão os participantes poderão aprender sobre novas tecnologias, compartilhar conhecimento e experiências, ter contato com grandes nomes da comunidade internacional e confraternizar. Tudo isso em um ambiente amistoso, de boa convivência, inclusivo e livre de intimidação, onde todas as pessoas são bem-vindas.</p>
       </div>
     </article>
-    <article class="event__body--wrapper">
-      <div class="event__content">
-        <span class="quotation-mark mark-left">“</span>
-        <p>Situado no coração do bairro de Lagoa Nova, Zona Sul da cidade, o Holiday Inn Natal Hotel possui um dos melhores e mais modernos centros de eventos do nordeste brasileiro. A sua localização, além de privilegiada - entre as duas principais avenidas da cidade, tem vista para o estádio Arena das Dunas, palco dos jogos da Copa do Mundo de 2014. </p>
-        <p>Durante os dias 19 e 21 de outubro, o Holiday Inn Natal vai sediar as palestras da Python Brasil 14, que contará com nomes nacionais e internacionais de referência para a comunidade.</p>
-      </div>
+    <article class="event__body--wrapper local-area">
       <div class="event__title">
+        <div class="map-pin">
+          <img src="${require('img/map_pin.svg') }" width="100%" alt="Ícone do Mapa">
+        </div>
         <h1>Local</h1>
         <h2>do evento</h2>
       </div>
+      <div class="event__content">
+        <span class="quotation-mark mark-left">“</span>
+        <p>Situado no coração do bairro de Lagoa Nova, Zona Sul da cidade, o Holiday Inn Natal Hotel possui um dos melhores e mais modernos centros de eventos do nordeste brasileiro. A sua localização, além de privilegiada - entre as duas principais avenidas da cidade, tem vista para o estádio Arena das Dunas, palco dos jogos da Copa do Mundo de 2014. </p>
+      </div>
     </article>
-    <article class="event__body--wrapper">
+    <article class="event__body--wrapper hotel-area">
       <div class="event__title">
         <h3>Hotel holiday Inn Natal</h3>
-        <p>Av. Sen. Salgado Filho, 1906 <br> Lagoa Nova, Natal - RN <br> www.holidayinn.com.br</p>
+        <p>Av. Sen. Salgado Filho, 1906 <br> Lagoa Nova, Natal - RN <br> <a href="http://www.holidayinn.com.br">www.holidayinn.com.br</a> </p>
       </div>
       <div class="event__content">
-        <p><strong>Python Brasil</strong> é o maior evento sobre a linguagem de programação Python do país. É suportado por diversos eventos menores locais e regionais que culminam em um encontro nacional e itinerante. Tem como principais objetivos: difundir a linguagem; promover a troca de experiências e conhecimentos; incentivar o crescimento da comunidade, tanto em participantes quanto em impacto social. Seu público é composto, principalmente, por desenvolvedores, engenheiros de software, empresários, gerentes de TI, estudantes e entusiastas.</p>
+        <p>Durante os dias 19 e 21 de outubro, o <strong>Holiday Inn Natal</strong> vai sediar as palestras da Python Brasil 14, que contará com nomes nacionais e internacionais de referência para a comunidade.</p>
       </div>
     </article>
   </div>
