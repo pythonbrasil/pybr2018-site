@@ -40,7 +40,7 @@ module.exports = {
         ]
       },
       {
-        test:  /\.(jpe?g|png|gif|svg|obj|mtl|pdf|zip)$/i,
+        test:  /\.(jpe?g|png|gif|svg|obj|mtl|pdf|zip|ico)$/i,
         use: [{
           loader: 'file-loader',
           options: {
@@ -76,7 +76,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('styles.css'),
+    new ExtractTextPlugin({filename: '[contenthash].css'}),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/templates/index.html'
