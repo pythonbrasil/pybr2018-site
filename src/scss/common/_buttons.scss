@@ -10,6 +10,22 @@
         color: $dark-blue;
       }
     }
+
+    &.button-bg--dark:hover {
+      background: white;
+      color: $dark-blue;
+    }
+  }
+
+  &--white {
+    @extend #{$base-class};
+    background-color: white;
+    color: $dark-blue;
+
+    &:hover {
+      background: $dark-blue;
+      color: $white;
+    }
   }
 
   &--light {
