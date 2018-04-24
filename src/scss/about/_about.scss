@@ -12,7 +12,7 @@
     &:before {
       content: '';
       position: absolute;
-      left: -30px;
+      left: 0;
       bottom: 70px;
       background: url('../img/Python14-Cobras-Transparente.svg') no-repeat;
       width: 200px;
@@ -58,5 +58,17 @@
   .about-button-area {
     text-align: right;
     margin-top: 80px;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .about {
+    .about-button-area {
+      text-align: center;
+    }
+  }
+
+  .about-wrapper .about-container:before {
+    display: none;
   }
 }
