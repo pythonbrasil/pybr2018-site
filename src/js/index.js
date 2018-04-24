@@ -24,14 +24,16 @@ const anchors = new ScrollNavigation({
 });
 
 function onNewContentVisible(path) {
-  anchors.start();
-  if (window.location.hash) {
-    const anchor = document.querySelector(`.header__nav a[href="${path + window.location.hash}"]`);
-    if (anchor) {
-      anchor.click();
-    }
-  }
 
+  if (window.location.hash) {
+    const anchorButton = document.createElement('a');
+    anchorButton.href = window.location.hash;
+    anchorButton.setAttribute('class', 'scroll');
+    document.body.appendChild(anchorButton);
+    anchors.start();
+    anchorButton.click();
+    document.body.removeChild(anchorButton);
+  }
 }
 
 function init(path) {

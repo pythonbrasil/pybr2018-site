@@ -45,7 +45,7 @@
 .section-header-wrapper {
   width: 100%;
   .section-header {
-    @extend .col-lg-5;
+    @extend .col-lg-4;
     &--right {
       @extend .section-header;
       margin-left: auto;

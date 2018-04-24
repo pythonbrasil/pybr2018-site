@@ -18,13 +18,13 @@
       @extend .row;
       .section-header-wrapper {
         margin-bottom: 100px;
-        .section-header--right {
-          @extend .col-lg-6;
-          @extend .col-md-8;
-        }
       }
     }
   }
+}
+
+.content-wrapper > section.sponsors-wrapper {
+  padding-bottom: 0;
 }
 
 .sponsor-category-title {
@@ -33,9 +33,8 @@
   display: block;
   background-color: white;
   line-height: normal;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  font-size: 50px;
+  padding: 10px;
+  font-size: 25px;
   font-weight: 700;
   text-transform: uppercase;
   text-align: center;
@@ -43,6 +42,15 @@
 
 
 .sponsors {
+  position: relative;
+
+  .sponsor-button-area {
+    position: absolute;
+    top: 0;
+    right: 85px;
+    z-index: 9;
+  }
+
   &__diamond {
     @include sponsor-category($python-blue);
   }
@@ -57,7 +65,7 @@
   }
 
   &__list {
-    padding: 100px 0px;
+    padding-top: 100px;
     width: 100%;
     @extend .d-flex;
     @extend .justify-content-center;
@@ -73,7 +81,8 @@
       list-style: none;
       font-size: 50px;
       font-family: 'Advent Pro', sans-serif;
-      height: 50px;
+      height: auto;
+      margin-bottom: 100px;
     }
 
   }
@@ -89,14 +98,14 @@
       font-size: 36px;
     }
   }
+}
 
-  .call-to-sponsor {
-    @extend .col-lg-4;
-    @extend .col-md-6;
-    @extend .col-sm-6;
-    @extend .col-10;
-    display: block;
-    margin: 0 auto;
+@media (max-width: $breakpoint-md) {
+  .sponsors {
+    .sponsor-button-area {
+      position: static;
+      margin: 40px auto 60px auto;
+    }
   }
 }
 
