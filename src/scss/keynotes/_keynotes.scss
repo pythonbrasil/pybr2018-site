@@ -9,6 +9,82 @@
   }
 }
 
+.keynote_article {
+  width: 100%;
+  @extend .row;
+
+  .keynote_picture, .keynote_content-wrapper {
+    @extend .col-lg-6;
+    @extend .col-md-12;
+    @extend .col-sm-12;
+    @extend .col-12;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .keynote_content-wrapper {
+    @extend .d-flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 60px 40px 40px;
+    background: $dark-blue;
+    color: white;
+    position: relative;
+
+    &:before {
+      content: '';
+      display: block;
+      background: url('../img/flag_ng.svg') no-repeat;
+      height: 30px;
+      width: 60px;
+      position: absolute;
+      top: 20px;
+      left: 40px;
+    }
+
+  }
+
+  .keynote-title {
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+
+  .keynote-subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+
+  .keynote-text {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.5;
+    height: 100%;
+  }
+
+  .keynote-button-area {
+    display: block;
+    align-self: center;
+  }
+
+  a.keynote-button {
+    color: $dark-blue;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .keynote_article {
+    margin-left: 0;
+    .keynote_picture {
+      padding: 0;
+    }
+  }
+}
+
+// Keynote List
 .keynotes__list {
   width: 100%;
 }
@@ -25,11 +101,13 @@
 
   &__body {
     @extend .col-lg-7;
-    background-color: blue;
+    background-color: $dark-blue;
   }
 
   &__title {
-
+    p {
+      color: white;
+    }
   }
 
   &__text {
@@ -38,6 +116,5 @@
 
   &__photo {
     @extend .col-lg-3;
-    background-color: yellow;
   }
 }
