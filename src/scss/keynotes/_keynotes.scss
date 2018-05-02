@@ -20,8 +20,10 @@
     @extend .col-12;
   }
 
-  img {
-    width: 100%;
+  .keynote_picture {
+    background: url('../img/keynote_pic_1.png') no-repeat;
+    background-position: center top;
+    background-size: cover;
   }
 
   .keynote_content-wrapper {
@@ -58,9 +60,9 @@
     margin-bottom: 20px;
   }
 
-  .keynote-text {
+  .keynote-text p {
     font-weight: 300;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.5;
     height: 100%;
   }
@@ -78,8 +80,17 @@
 @media (max-width: $breakpoint-md) {
   .keynote_article {
     margin-left: 0;
+
     .keynote_picture {
-      padding: 0;
+      height: 500px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .keynote_article {
+    .keynote_picture {
+      height: 400px;
     }
   }
 }
