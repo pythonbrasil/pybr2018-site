@@ -22,6 +22,8 @@ module.exports = {
       'app': path.resolve(__dirname, 'src/js'),
       'config': path.resolve(__dirname, 'site.config.js'),
       'service-worker': path.resolve(__dirname, 'src/sw.js'),
+      'manifest': path.resolve(__dirname, 'src/manifest.json'),
+      'icons': path.resolve(__dirname, 'src/icons'),
     }
   },
   devtool: 'source-map',
@@ -48,7 +50,7 @@ module.exports = {
           loader: 'file-loader',
           options: {
             name(file) {
-              if (file.match(/\.zip$|\.pdf$/)) {
+              if (file.match(/\.zip$|\.pdf$|icon([0-9].*).png$/)) {
                 return '[name].[ext]';
               }
               return '[hash].[ext]';
