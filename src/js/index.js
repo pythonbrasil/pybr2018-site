@@ -19,7 +19,7 @@ import 'icons/icon72.png';
 import 'icons/icon96.png';
 import 'icons/icon144.png';
 import 'icons/icon168.png';
-import 'icons/icon192.png';
+import icon192 from 'icons/icon192.png';
 import 'icons/icon512.png';
 
 const routes = [
@@ -54,8 +54,22 @@ function init(path) {
 
 document.addEventListener('DOMContentLoaded', () => {
   if ('serviceWorker' in navigator) {
+    const options = {
+      'body': 'Fique ligado nas novidades do evento, direto no seu celular',
+      'icon': icon192,
+      'vibrate': [200, 100, 200, 100, 200, 100, 400],
+    }
     navigator.serviceWorker.register(swURL)
-      .then(r => console.log('worker registrado'))
+      .then(r => {
+        if (Notification) {
+          Notification.requestPermission().then(permission => {
+            if (['denied', 'default'].includes(permission)) {
+              return;
+            }
+            r.showNotification('Python Brasil 14', options);
+          });
+        }
+      })
       .catch(r => console.log('worker não foi registrado', r));
   }
 
