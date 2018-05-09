@@ -3,6 +3,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
+
 
 module.exports = {
   entry: './src/js/index.js',
@@ -77,6 +79,9 @@ module.exports = {
     ]
   },
   plugins: [
+    new WorkboxPlugin.InjectManifest({
+      swSrc: './src/sw.js',
+    }),
     new ExtractTextPlugin({filename: '[contenthash].css'}),
     new HtmlWebpackPlugin({
       filename: 'index.html',

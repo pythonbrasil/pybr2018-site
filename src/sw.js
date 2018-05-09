@@ -1,5 +1,6 @@
 const CACHE_VERSION = 'v1';
-const initialCache = ['/', '/index.html'];
+const initialCache = ['/', '/index.html']
+  .concat(self.__precacheManifest.map(item => item.url));
 
 function onInstall(event) {
   console.log('deu bom');
