@@ -1,6 +1,10 @@
 const CACHE_VERSION = 'v1';
-const initialCache = ['/', '/index.html']
-  .concat(self.__precacheManifest.map(item => item.url));
+const initialCache = [
+  '/',
+  '/index.html',
+  'https://fonts.googleapis.com/css?family=Advent+Pro:500,600,700',
+  'https://fonts.googleapis.com/css?family=Nunito:300,400,600,700',
+].concat(self.__precacheManifest.map(item => item.url));
 
 function onInstall(event) {
   console.log('deu bom');
