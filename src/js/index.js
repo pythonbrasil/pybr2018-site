@@ -14,12 +14,13 @@ import Dropdown from 'app/Dropdown';
 import ScrollNavigation from 'scroll-navigation-menu';
 import swURL from 'file-loader?name=sw.js!babel-loader!service-worker';
 import 'file-loader?name=manifest.json!manifest';
-require('icons/icon48.png');
+import 'icons/icon48.png';
 import 'icons/icon72.png';
 import 'icons/icon96.png';
 import 'icons/icon144.png';
 import 'icons/icon168.png';
 import 'icons/icon192.png';
+import 'icons/icon512.png';
 
 const routes = [
   '/codigo-de-conduta',
