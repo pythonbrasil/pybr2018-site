@@ -56,6 +56,12 @@ module.exports = {
               return '[hash].[ext]';
             }
           }
+        },
+        {
+          loader: 'image-webpack-loader',
+          options: {
+            bypassOnDebug: true,
+          },
         }]
       },
       {
