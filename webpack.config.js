@@ -19,6 +19,7 @@ module.exports = {
       'misc': path.resolve(__dirname, 'src/misc'),
       'app': path.resolve(__dirname, 'src/js'),
       'config': path.resolve(__dirname, 'site.config.js'),
+      'service-worker': path.resolve(__dirname, 'src/sw.js'),
     }
   },
   devtool: 'source-map',

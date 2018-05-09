@@ -12,6 +12,8 @@ import AppRouter from 'app/AppRouter';
 import CodeOfConduct from 'app/CodeOfConduct';
 import Dropdown from 'app/Dropdown';
 import ScrollNavigation from 'scroll-navigation-menu';
+import swURL from 'file-loader?name=sw.js!babel-loader!service-worker';
+
 const routes = [
   '/codigo-de-conduta',
   '/quero-patrocinar',
@@ -43,6 +45,12 @@ function init(path) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register(swURL)
+      .then(r => console.log('worker registrado'))
+      .catch(r => console.log('worker não foi registrado', r));
+  }
+
   new MobileNavManager();
   const path = window.location.pathname;
   const appRouter = new AppRouter(routes, AppRouter.samePathBehaviours.SCROLL_TOP);
