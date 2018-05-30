@@ -12,6 +12,7 @@
 .keynote_article {
   width: 100%;
   @extend .row;
+  margin: 40px 0;
 
   .keynote_picture, .keynote_content-wrapper {
     @extend .col-lg-6;
@@ -19,8 +20,13 @@
     @extend .col-sm-12;
     @extend .col-12;
   }
+  .keynote_picture.keynote_picture-1 {
+    background: url('../img/keynote_pic_2.jpg') no-repeat;
+    background-position: center top;
+    background-size: cover;
+  }
 
-  .keynote_picture {
+  .keynote_picture.keynote_picture-2 {
     background: url('../img/keynote_pic_1.png') no-repeat;
     background-position: center top;
     background-size: cover;
@@ -35,10 +41,9 @@
     color: white;
     position: relative;
 
-    &:before {
+    .keynote_flag {
       content: '';
       display: block;
-      background: url('../img/flag_ng.svg') no-repeat;
       height: 30px;
       width: 60px;
       position: absolute;
@@ -46,6 +51,13 @@
       left: 40px;
     }
 
+    .flag-1 {
+      background: url('../img/flag_br.svg') no-repeat;
+    }
+
+    .flag-2 {
+      background: url('../img/flag_ng.svg') no-repeat;
+    }
   }
 
   .keynote-title {
@@ -127,5 +139,63 @@
 
   &__photo {
     @extend .col-lg-3;
+  }
+}
+
+
+// Keynote Tab
+.accordion-tabs {
+  padding: 0;
+  @extend .d-flex;
+
+
+  .tab-header-and-content {
+    list-style: none;
+    width: 20%;
+  }
+
+  .tab-link {
+    display: block;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      border-bottom: $python-yellow;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &.is-active {
+      border-bottom: 0;
+    }
+  }
+
+  .tab-subtitle {
+    background: rgba($dark-blue, 0.4);
+    color: white;
+    padding: 10px 20px 0 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    h2, h3 {
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    h3 {
+      font-size: 15px;
+    }
+  }
+
+  .tab-content {
+    width: 100%;
   }
 }

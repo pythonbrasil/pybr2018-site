@@ -13,6 +13,7 @@ import CodeOfConduct from 'app/CodeOfConduct';
 import Dropdown from 'app/Dropdown';
 import ScrollNavigation from 'scroll-navigation-menu';
 import swURL from 'file-loader?name=sw.js!babel-loader!service-worker';
+import KeynotesAccordion from 'app/KeynotesAccordion';
 import 'file-loader?name=manifest.json!manifest';
 import 'icons/icon48.png';
 import 'icons/icon72.png';
@@ -49,6 +50,10 @@ function onNewContentVisible(path) {
 function init(path) {
   if (path.startsWith('/codigo-de-conduta')) {
     new CodeOfConduct();
+  }
+
+  if (path === '/') {
+    new KeynotesAccordion();
   }
 }
 
