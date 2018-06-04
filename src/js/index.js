@@ -66,14 +66,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     navigator.serviceWorker.register(swURL)
       .then(r => {
-        if (Notification) {
+        /*if (Notification) {
           Notification.requestPermission().then(permission => {
             if (['denied', 'default'].includes(permission)) {
               return;
             }
             r.showNotification('Python Brasil 14', options);
           });
-        }
+        }*/
       })
       .catch(r => console.log('worker não foi registrado', r));
   }
