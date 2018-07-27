@@ -1,6 +1,6 @@
-importScripts("/precache-manifest.2f5ca36de7d8cf1cbd5c5a2bf18eea3e.js", "https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
+importScripts("/precache-manifest.eed569eb5a077f7312aa6927f5cd9ef0.js", "https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
 
-const CACHE_VERSION = 'v2';
+const CACHE_VERSION = 'v3';
 const initialCache = [
   '/',
   '/index.html',
@@ -36,3 +36,4 @@ function onFetch(event) {
 }
 
 self.addEventListener('fetch', onFetch);
+
