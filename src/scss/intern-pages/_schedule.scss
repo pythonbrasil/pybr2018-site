@@ -1,75 +1,145 @@
 .schedule-page {
   padding: 30px 0;
+  background-color: $dark-blue;
 
-  &__content {  
-    background-color: $dark-blue;
+  &__content {
     padding: 0 70px;
   }
 
-  &__table {
-    thead {
+  .keynote_star {
+    color: $light-blue;
+    font-size: 16px;
+    text-transform: uppercase;
+
+    i {
+      background: url('../img/keynote_star.svg') no-repeat;
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  .accordion-tabs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 45px;
+
+    a {
+      color: $python-yellow;
+      text-transform: uppercase;
+      text-align: center;
+      padding-bottom: 5px;
+    }
+
+    a:hover {
+      color: $background-light;
+    }
+  }
+
+  .schedule_category_type a {
+    font-size: 22px;
+
+    &.active {
+      border-bottom: 5px solid $python-yellow;
+    }
+  }
+
+  .schedule_category_days {
+    text-align: center;
+  }
+
+  .schedule_category_days a {
+    font-size: 18px;
+    display: inline-block;
+
+    &.active {
       border-bottom: 2px solid $python-yellow;
     }
-    tbody td {
-      color: #fff;
-      font-size: 25px;
+  }
+
+  .schedule_article {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .schedule_article:last-child .picture-container:before,
+  .schedule_article:last-child .picture-container:after {
+    display: none;
+  }
+
+  .schedule_picture {
+    height: 60px;
+    width: 60px;
+    overflow: hidden;
+    border-radius: 50%;
+
+    img {
+      position: relative;
+      z-index: 9;
     }
   }
 
-  &__info {
-    padding: 10px 0;
-    @extend .d-flex;
-    @extend .justify-content-end;
-    &__title {
-      
-      @extend .d-flex;
-      @extend .justify-content-start;
-      @extend .flex-wrap;
-      @extend .align-items-end;
+  .picture-container {
+    position: relative;
+    width: 60px;
 
-      color:#fff;
-      h3 {
-        margin-left:10px;
-        font-size: 16px;
-        font-weight:300; 
-      }
-      p {
-        font-weight: bolder;
-        font-size: 23px;
-        color: $python-yellow;
-      }
+    &:before {
+      content: '';
+      width: 1px;
+      height: 100%;
+      background: $light-blue;
+      display: block;
+      position: absolute;
+      left: 30px;
+      top: 10px;
+    }
 
-      .no-bolder {
-        font-weight:100;
-      }
+    &:after {
+      content: '';
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: $light-blue;
+      display: block;
+      position: absolute;
+      left: 22px;
+      top: 8px;
     }
   }
 
-  &__footer {
-    padding: 25px 0;
+  .schedule_info {
+    padding-left: 35px;
+    margin-bottom: 20px;
+  }
 
-    p {
-      color: $dark-blue;
-      font-size:16px;
-      font-weight: 400;
-    }
+  .schedule_time {
+    color: $light-blue;
+    font-size: 22px;
+    font-weight: 400;
+    padding-right: 35px;
+  }
+
+  .schedule_name {
+    color: $python-yellow;
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  .schedule_office {
+    font-family: nunito;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba($background-light, 0.8);
+  }
+
+  .schedule_speak {
+    font-size: 18px;
+    color: $background-light;
   }
 }
 
 @media (max-width: $breakpoint-sm) {
-  .schedule-page { 
-    &__table {
-      tbody td {
-        font-size: 15px;
-      }
-    }
-
-    &__info {
-      padding: 5px 0;
-      p {
-        font-size: 17px;
-      }
-    }
+  .schedule-page {
   }
 }
-

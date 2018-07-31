@@ -5,42 +5,82 @@ ${require('templates/partials/header.html') }
       Programação
     </h1>
   </header>
-  <div class="container schedule-page">
-    <div class="row d-flex justify-content-center">
-      <div class="col-xl-10 schedule-page__content">
-        <table class="table schedule-page__table">
-          <thead>
-            <tr>
-              <th>TUTORIAIS</th>
-              <th>PALESTRAS</th>
-              <th>SPRINT</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>17 e 18</td>
-              <td>19, 20 e 21</td>
-              <td>22</td>
-            </tr>
-          </tbody>
-        </table>
-      
-        <div class="schedule-page__info">
-          <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 schedule-page__info__title">
-            <img src="${require('img/icon-calendar.png')}" class="icon-right">
-            <h3>Marque no calendário:</h3>
-            <p>17 a 22 <span class="no-bolder">DE OUTUBRO</span>, 2018</p>
+  <section class="schedule-page">
+    <div class="schedule-page__content container">
+      <ul class="accordion-tabs schedule_category_type">
+        <li class="tab-header-and-content">
+          <a href="#" class="tab-link active">Palestras</a>
+        </li>
+        <li class="tab-header-and-content">
+          <a href="#" class="tab-link">Tutoriais</a>
+        </li>
+        <li class="tab-header-and-content">
+          <a href="#" class="tab-link">Sprints</a>
+        </li>
+      </ul>
+      <ul class="accordion-tabs schedule_category_days">
+        <li class="tab-header-and-content">
+          <a href="#" class="tab-link active">Dia 17</a>
+        </li>
+        <li class="tab-header-and-content">
+          <a href="#" class="tab-link">Dia 18</a>
+        </li>
+        <li class="tab-header-and-content">
+          <a href="#" class="tab-link">Dia 19</a>
+        </li>
+        <li class="tab-header-and-content">
+          <a href="#" class="tab-link">Dia 20</a>
+        </li>
+        <li class="tab-header-and-content">
+          <a href="#" class="tab-link">Dia 21</a>
+        </li>
+        <li class="tab-header-and-content">
+          <a href="#" class="tab-link">Dia 22</a>
+        </li>
+      </ul>
+      <article class="schedule_article">
+        <h5 class="schedule_time">7h</h5>
+        <div class="picture-container" area-hidden="true">
+        </div>
+        <div class="schedule_info">
+          <h2 class="schedule_name">Credenciamento</h2>
+        </div>
+      </article>
+      <article class="schedule_article">
+        <h5 class="schedule_time">7h</h5>
+        <div class="picture-container">
+          <div class="schedule_picture">
+            <img  src="${require('img/schedule_picture-1.jpg') }" width="100%" alt="Nome da foto">
           </div>
         </div>
-
-      </div>
-      
+        <div class="schedule_info">
+          <h2 class="schedule_name">Renato Camargo <span class="keynote_star">Keynote <i></i></span></h2>
+          <h4 class="schedule_office">Head de Marketing/Loyalty at Grupo Pão de Açúcar</h4>
+          <h3 class="schedule_speak">Usando Python para lorem ipsum dolor sit amet</h3>
+        </div>
+      </article>
+      <article class="schedule_article">
+        <h5 class="schedule_time">7h</h5>
+        <div class="picture-container" area-hidden="true">
+        </div>
+        <div class="schedule_info">
+          <h2 class="schedule_name">Almoço</h2>
+        </div>
+      </article>
+      <article class="schedule_article">
+        <h5 class="schedule_time">7h</h5>
+        <div class="picture-container">
+          <div class="schedule_picture">
+            <img  src="${require('img/schedule_picture-1.jpg') }" width="100%" alt="Nome da foto">
+          </div>
+        </div>
+        <div class="schedule_info">
+          <h2 class="schedule_name">Renato Camargo</h2>
+          <h4 class="schedule_office">Head de Marketing/Loyalty at Grupo Pão de Açúcar</h4>
+          <h3 class="schedule_speak">Usando Python para lorem ipsum dolor sit amet</h3>
+        </div>
+      </article>
     </div>
-    <div class="row schedule-page__footer">
-      <div class="col-xl-10">
-        <p class="text-center">*Em breve teremos mais informações sobre as atividades do evento.</p>
-      </div>
-    </div>
-  </div>
+  </section>
 </div>
 ${require('templates/partials/footer.html') }
