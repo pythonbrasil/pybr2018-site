@@ -162,7 +162,14 @@
   }
 }
 
-@media (max-width: $breakpoint-sm) {
+@media (max-width: $breakpoint-xs) {
   .schedule-page {
+    &__content {
+      padding: 0 20px;
+    }
+
+    .schedule_picture {
+      width: 30px;
+    }
   }
 }
