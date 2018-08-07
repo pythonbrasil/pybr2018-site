@@ -53,7 +53,7 @@ self.__precacheManifest = [
     "url": "/e796c4d8d7aa10f8ab3ecf20bf7f2e84.svg"
   },
   {
-    "url": "/4429bbb1fadd88660033c60e25b0d6d0.svg"
+    "url": "/66c5c1f941cd0dd1f9f3e9425047efd9.svg"
   },
   {
     "revision": "b3a81efaf75f947bd1da",
@@ -81,42 +81,36 @@ self.__precacheManifest = [
     "url": "/1040749f9476348718b8f6e0e20dc921.jpg"
   },
   {
+    "revision": "21ab5d3951f82ab30065391e61d446ee",
+    "url": "/Plano_patrocinio_PythonBR_2018_V5.pdf"
+  },
+  {
     "url": "/ad35fa18a9bb7058faeeedb6d6d2a274.svg"
   },
   {
     "url": "/bccf71d1f7059651960c22c8acfa48b5.svg"
   },
   {
-    "url": "/1c14c20d9014206828a1a15ba7f2418b.ico"
-  },
-  {
-    "url": "/745113de3d06753dafba58ebc50c5dc4.svg"
-  },
-  {
-    "revision": "21ab5d3951f82ab30065391e61d446ee",
-    "url": "/Plano_patrocinio_PythonBR_2018_V5.pdf"
-  },
-  {
-    "url": "/a84afb8d45b673a59ca58b10d0e9b8bc.svg"
-  },
-  {
-    "url": "/8a84d937145140ca758b360009fa410d.svg"
+    "url": "/a1cb45781a9958b2542736ff0f094dcd.svg"
   },
   {
     "url": "/a262af624dbca4dc2228269c1428bff8.svg"
+  },
+  {
+    "url": "/a84afb8d45b673a59ca58b10d0e9b8bc.svg"
   },
   {
     "revision": "6f28af5ea8fcf8c0c3e678552076ed5e",
     "url": "/PythonBR14-MidiaKit.zip"
   },
   {
-    "url": "/a1cb45781a9958b2542736ff0f094dcd.svg"
+    "url": "/8a84d937145140ca758b360009fa410d.svg"
+  },
+  {
+    "url": "/745113de3d06753dafba58ebc50c5dc4.svg"
   },
   {
     "url": "/676242ba1bd587206eb3800c0289d0e0.svg"
-  },
-  {
-    "url": "/66c5c1f941cd0dd1f9f3e9425047efd9.svg"
   },
   {
     "url": "/5cda9de029659fb6f704f6d6f6de986d.svg"
@@ -126,6 +120,12 @@ self.__precacheManifest = [
   },
   {
     "url": "/46e3f79e1df67592da7547bb7eb74e1d.svg"
+  },
+  {
+    "url": "/4429bbb1fadd88660033c60e25b0d6d0.svg"
+  },
+  {
+    "url": "/1c14c20d9014206828a1a15ba7f2418b.ico"
   },
   {
     "url": "/19fd2f706aa097db8fadf629de04ac12.svg"
