@@ -21,7 +21,7 @@ function onFetch(event) {
   const isFileResource = /(\.[a-z]*$)/;
   event.respondWith(
     caches.open(CACHE_VERSION).then(cache => {
-      if (event.request.url.match(isFileResource) || event.request.url.contains('fonts')) {
+      if (event.request.url.match(isFileResource) || event.request.url.includes('fonts')) {
         return retrieveFromCache({ event, cache })
           .catch(fetchAndCache)
       }
