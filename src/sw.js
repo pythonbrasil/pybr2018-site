@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v4';
+const CACHE_VERSION = 'v6';
 const initialCache = [
   '/',
   '/index.html',
@@ -7,7 +7,7 @@ const initialCache = [
 ].concat(self.__precacheManifest.map(item => item.url));
 
 function onInstall(event) {
-  console.log('deu bom');
+  console.log('Service Worker registered');
   event.waitUntil(
     caches.open(CACHE_VERSION).then(cache => {
       cache.addAll(initialCache);
@@ -18,19 +18,42 @@ function onInstall(event) {
 self.addEventListener('install', onInstall);
 
 function onFetch(event) {
+  const isFileResource = /(\.[a-z]*$)/;
   event.respondWith(
-    caches.open(CACHE_VERSION).then(cache => (
-      cache.match(event.request).then(request => {
-        if (request) {
-          console.log(`Resource ${request.url} retrieved from cache`);
-          return request;
-        }
-        console.log(`Resource ${event.request.url} not in cache. going to add it now`);
+    caches.open(CACHE_VERSION).then(cache => {
+      if (event.request.url.match(isFileResource)) {
+        return retrieveFromCache({ event, cache })
+          .catch(fetchAndCache)
+      }
+      return fetchAndCache({ event, cache })
+        .catch((() => retrieveFromCache({ event, cache })));
+    })
+  )
+}
+
+function fetchAndCache({ event, cache }) {
+  console.log(`Adding resource ${event.request.url} to the cache.`);
+  return fetch(event.request)
+    .then(response => {
+      if (response.ok) {
         cache.add(event.request);
-        return fetch(event.request);
-      })
-    )
-  ))
+        return response;
+      }
+      console.log(`Fetch for resource ${event.request.url} was not 200 OK`);
+      return Promise.reject()
+    });
+}
+
+function retrieveFromCache({ event, cache }) {
+  return cache.match(event.request).then(request => {
+    if (request) {
+      console.log(`Resource ${request.url} retrieved from cache`);
+      return request;
+    }
+
+    console.log(`Resource ${event.request.url} not in cache.`);
+    return Promise.reject({ event, cache });
+  })
 }
 
 self.addEventListener('fetch', onFetch);
