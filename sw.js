@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.c9cf65d86f5fc29e354347b24ed2ec2e.js", "https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
+importScripts("/precache-manifest.b2494c669a359943c2c971d5afeabe6d.js", "https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
 
 const CACHE_VERSION = 'v6';
 const initialCache = [
@@ -23,7 +23,7 @@ function onFetch(event) {
   const isFileResource = /(\.[a-z]*$)/;
   event.respondWith(
     caches.open(CACHE_VERSION).then(cache => {
-      if (event.request.url.match(isFileResource) || event.request.url.contains('fonts')) {
+      if (event.request.url.match(isFileResource) || event.request.url.includes('fonts')) {
         return retrieveFromCache({ event, cache })
           .catch(fetchAndCache)
       }
