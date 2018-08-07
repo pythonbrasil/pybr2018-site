@@ -15,7 +15,7 @@ self.__precacheManifest = [
     "url": "/icon72.png"
   },
   {
-    "revision": "0698d8fbaf599c237199f4528ad4b2ea",
+    "revision": "0b8935839170df133af3593eb570d438",
     "url": "/sw.js"
   },
   {
