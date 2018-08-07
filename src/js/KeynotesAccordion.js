@@ -2,8 +2,8 @@ const content = [
   {
     title: 'Judite Cypreste',
     subtitle: 'Repórter no Aos Fatos',
-    text: 'Judite Cypreste é carioca, formada em letras pela PUC-RJ e atualmente está cursando o  8º semestre de jornalismo na UERJ, onde faz iniciação científica em jornalismo de dados e, desde 2017, cursa pós-graduação. Fez parte da primeira turma de trainees em Jornalismo de Dados da Folha de São Paulo, produziu reportagens usando análise de sentimentos e participou do projeto onde investigava violação de sigilo pelo CNJ. Atualmente é repórter do Aos Fatos, onde realiza checagens de informação. If love: return True.',
-    externalLink: {name: 'Trema', url: 'http://trema.com.br/autor/judite-cypreste'}
+    text: 'Judite Cypreste é repórter do Aos Fatos. Formada em letras pela PUC-RJ, está no 8º semestre de jornalismo na Uerj, onde também cursa pós-graduação em jornalismo cultural. Ex-trainee de jornalismo de dados da Folha de S.Paulo, realizou reportagens usando Python e raspagens de dados. É também autora do Projeto Coração Radiante, onde fez análise de sentimentos dos torcedores brasileiros durante a Copa do Mundo.',
+    externalLink: {name: 'Medium', url: 'https://medium.com/projeto-cora%C3%A7%C3%A3o-radiante'}
   },
   {
     title: 'Aisha Bello',
