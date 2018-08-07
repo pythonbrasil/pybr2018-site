@@ -52,7 +52,7 @@ function init(path) {
     new CodeOfConduct();
   }
 
-  if (path === '/') {
+  if (path === '/' || path === 'index.html') {
     new KeynotesAccordion();
   }
 }
