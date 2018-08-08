@@ -38,7 +38,7 @@ function fetchAndCache({ event, cache }) {
   console.log(`Adding resource ${event.request.url} to the cache.`);
   let url = event.request.url;
   if (!url.match(isFileResource) && !url.endsWith('/')) {
-    url.concat('/');
+    url = url.concat('/');
   }
   const request = new Request(
     url,
