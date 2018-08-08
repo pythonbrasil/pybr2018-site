@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.73f5ddb0298f0764f7919c5c9e636067.js", "https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
+importScripts("/precache-manifest.7e409711701a15a79d1c138ef8d7d86f.js", "https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
 
 const CACHE_VERSION = 'v6';
 const initialCache = [
@@ -8,7 +8,7 @@ const initialCache = [
   'https://fonts.googleapis.com/css?family=Nunito:300,400,600,700',
 ]
 .concat(self.__precacheManifest.map(item => item.url))
-.map(url => new Request(url, {credentials: 'include', redirect: 'follow' }));
+.map(url => new Request(url, { redirect: 'follow' }));
 
 function onInstall(event) {
   console.log('Service Worker registered');
