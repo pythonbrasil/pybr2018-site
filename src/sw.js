@@ -8,6 +8,8 @@ const initialCache = [
 .concat(self.__precacheManifest.map(item => item.url))
 .map(url => new Request(url, { redirect: 'follow' }));
 
+const isFileResource = /(\.[a-z]*$)/;
+
 function onInstall(event) {
   console.log('Service Worker registered');
   event.waitUntil(
@@ -20,7 +22,6 @@ function onInstall(event) {
 self.addEventListener('install', onInstall);
 
 function onFetch(event) {
-  const isFileResource = /(\.[a-z]*$)/;
   event.respondWith(
     caches.open(CACHE_VERSION).then(cache => {
       if (event.request.url.match(isFileResource) || event.request.url.includes('fonts')) {
@@ -35,8 +36,12 @@ function onFetch(event) {
 
 function fetchAndCache({ event, cache }) {
   console.log(`Adding resource ${event.request.url} to the cache.`);
+  let url = event.request.url;
+  if (!url.match(isFileResource) && !url.endsWidth('/')) {
+    url.concat('/');
+  }
   const request = new Request(
-    event.request.url,
+    url,
     {credentials: event.request.credentials, redirect: 'follow' }
   );
   return fetch(request)
