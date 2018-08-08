@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.7139a7020fbde1c4913e549bc997d7f1.js", "https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
+importScripts("/precache-manifest.af0c891389e7b88b8eaff3db3ab344e5.js", "https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
 
 const CACHE_VERSION = 'v6';
 const initialCache = [
@@ -39,7 +39,7 @@ function onFetch(event) {
 function fetchAndCache({ event, cache }) {
   console.log(`Adding resource ${event.request.url} to the cache.`);
   let url = event.request.url;
-  if (!url.match(isFileResource) && !url.endsWith('/')) {
+  if (!url.match(isFileResource) && !url.endsWith('/') && !url.includes('fonts')) {
     url = url.concat('/');
   }
   const request = new Request(
