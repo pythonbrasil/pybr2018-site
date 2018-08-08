@@ -4,7 +4,9 @@ const initialCache = [
   '/index.html',
   'https://fonts.googleapis.com/css?family=Advent+Pro:500,600,700',
   'https://fonts.googleapis.com/css?family=Nunito:300,400,600,700',
-].concat(self.__precacheManifest.map(item => item.url));
+]
+.concat(self.__precacheManifest.map(item => item.url))
+.map(url => new Request(url, {credentials: 'include', redirect: 'follow' }));
 
 function onInstall(event) {
   console.log('Service Worker registered');
@@ -33,10 +35,14 @@ function onFetch(event) {
 
 function fetchAndCache({ event, cache }) {
   console.log(`Adding resource ${event.request.url} to the cache.`);
-  return fetch(event.request)
+  const request = new Request(
+    event.request.url,
+    {credentials: event.request.credentials, redirect: 'follow' }
+  );
+  return fetch(request)
     .then(response => {
       if (response.ok) {
-        cache.add(event.request);
+        cache.add(request);
         return response;
       }
       console.log(`Fetch for resource ${event.request.url} was not 200 OK`);
