@@ -6,7 +6,7 @@ const initialCache = [
   'https://fonts.googleapis.com/css?family=Nunito:300,400,600,700',
 ]
 .concat(self.__precacheManifest.map(item => item.url))
-.map(url => new Request(url, {credentials: 'include', redirect: 'follow' }));
+.map(url => new Request(url, { redirect: 'follow' }));
 
 function onInstall(event) {
   console.log('Service Worker registered');
