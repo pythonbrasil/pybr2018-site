@@ -53,6 +53,10 @@ function init(path) {
     new CodeOfConduct();
   }
 
+  if (path.startsWith('/programacao')) {
+    new Schedule();
+  }
+
   if (path === '/' || path === '/index.html') {
     new KeynotesAccordion();
   }
