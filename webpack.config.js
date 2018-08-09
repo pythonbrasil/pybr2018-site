@@ -20,7 +20,7 @@ module.exports = {
       'img': path.resolve(__dirname, 'src/img'),
       'misc': path.resolve(__dirname, 'src/misc'),
       'app': path.resolve(__dirname, 'src/js'),
-      'config': path.resolve(__dirname, 'site.config.js'),
+      'config': path.resolve(__dirname, 'src/config.js'),
       'service-worker': path.resolve(__dirname, 'src/sw.js'),
       'manifest': path.resolve(__dirname, 'src/manifest.json'),
       'icons': path.resolve(__dirname, 'src/icons'),

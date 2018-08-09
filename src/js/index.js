@@ -21,6 +21,7 @@ import 'icons/icon96.png';
 import 'icons/icon144.png';
 import 'icons/icon168.png';
 import icon192 from 'icons/icon192.png';
+import Schedule from 'app/Schedule';
 import 'icons/icon512.png';
 
 const routes = [
