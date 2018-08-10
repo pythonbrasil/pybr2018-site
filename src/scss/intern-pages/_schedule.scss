@@ -34,7 +34,6 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-bottom: 45px;
 
     a {
       color: $python-yellow;
@@ -55,10 +54,34 @@
     padding-bottom: 5px;
   }
 
+  .filters {
+    background-color: inherit;
+    color: white;
+    background-color: $dark-blue;
+    z-index: 999;
+    display: flex;
+    flex-wrap: wrap;
+    .accordion-tabs {
+      width: 100%;
+    }
+    .category-filter {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      h2 {
+        padding-right: 5px;
+        flex-shrink: 0;
+        font-size: 1em;
+        font-weight: 300;
+      }
+    }
+    &.sticky {
+      padding-top: 100px;
+    }
+  }
 
   .schedule_category_type a {
     font-size: 22px;
-
     &.active {
       border-bottom: 5px solid $python-yellow;
     }
@@ -72,6 +95,7 @@
     font-size: 18px;
     display: inline-block;
 
+    border-bottom: 2px solid transparent;
     &.active {
       border-bottom: 2px solid $python-yellow;
     }

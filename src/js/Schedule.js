@@ -2,6 +2,7 @@ import { CALENDAR_CONFIG } from 'config';
 import React from 'react';
 import get from 'lodash/get';
 import ScrollNavigation from 'scroll-navigation-menu';
+import { StickyContainer, Sticky } from 'react-sticky';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 
@@ -48,6 +49,45 @@ const DayMenu = ({ days, selectedDay, onClick }) => (
   </ul>
 );
 
+const FilterCheckbox = ({ checked, onChange, label, ...props }) => (
+  <label className="schedule_category" { ...props }>
+    <input
+      checked={checked}
+      type="checkbox"
+      onChange={onChange}
+    />
+    {label}
+  </label>
+)
+
+const EventTypeFilter = ({ types, onChange, filter }) => (
+  <div className="category-filter">
+    <h2>Filtrar eventos por tipo</h2>
+    {types.map(type => (
+      <FilterCheckbox
+        checked={filter.includes(type)}
+        onChange={() => onChange(type)}
+        label={type}
+        key={type}
+      />
+    ))}
+  </div>
+)
+
+const CategoryFilter = ({ categories, onChange, filter }) => (
+  <div className="category-filter">
+    <h2>Filtrar palestras por categoria</h2>
+    {categories.map(category => (
+      <FilterCheckbox
+        checked={filter.includes(category)}
+        key={category}
+        onChange={() => onChange(category)}
+        label={category}
+      />
+    ))}
+  </div>
+)
+
 class Schedule extends React.Component {
   getInitialState(data) {
     const days = {};
@@ -69,7 +109,6 @@ class Schedule extends React.Component {
       }
       if (event.description) {
         const [ name, title, eventType, category ] = event.description.split('|');
-
         pybrEvent.details = {
           name,
           title,
@@ -91,7 +130,9 @@ class Schedule extends React.Component {
       selectedDay,
       days,
       eventTypes,
-      talksCategories
+      talksCategories,
+      categoryFilter: [ ...talksCategories ],
+      typeFilter: [ ...eventTypes ]
     }
   }
 
@@ -112,34 +153,78 @@ class Schedule extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.getInitialState(props.data);
+    this.onCategoryFilterChange = this.onFilterChange.bind(this, 'categoryFilter');
+    this.onTypeFilterChange = this.onFilterChange.bind(this, 'typeFilter');
     this.onClick = this.onClick.bind(this);
+    this.filterEvents = this.filterEvents.bind(this);
+  }
+
+  onFilterChange(filterType, filter) {
+    const state = this.state;
+    if (state[filterType].includes(filter)) {
+      this.setState((state) => ({
+        ...state,
+        [filterType]: state[filterType].filter(f => f !== filter)
+      }))
+    } else {
+      this.setState((state) => ({
+        ...state,
+        [filterType]: [ ...state[filterType], filter ]
+      }))
+    }
   }
 
   componentDidMount() {
+    const anchorsOffset = document.querySelector('.filters').getBoundingClientRect().height;
     const anchors = new ScrollNavigation({
-      offset: -100
+      offset: -anchorsOffset
     });
 
     anchors.start();
   }
 
+  filterEvents(event) {
+    return !event.details
+      || (this.state.typeFilter.includes(event.details.eventType)
+          && (!event.details.category || this.state.categoryFilter.includes(event.details.category)));
+  }
+
   render() {
-    const { days, selectedDay } = this.state;
+    const { days, selectedDay, talksCategories, categoryFilter, eventTypes, typeFilter } = this.state;
     return (
-      <React.Fragment>
-        <DayMenu days={Object.keys(days)} selectedDay={selectedDay} onClick={this.onClick}/>
-        {Object.keys(days).map(day => (
+      <StickyContainer>
+        <Sticky>
+          {({ style, isSticky }) => (
+            <div
+              className={classNames('filters', { 'sticky': isSticky })}
+              style={style}
+            >
+              <DayMenu days={Object.keys(days)} selectedDay={selectedDay} onClick={this.onClick}/>
+              <CategoryFilter
+                categories={talksCategories}
+                filter={categoryFilter}
+                onChange={this.onCategoryFilterChange}
+              />
+              <EventTypeFilter
+                types={eventTypes}
+                filter={typeFilter}
+                onChange={this.onTypeFilterChange}
+              />
+            </div>
+          )}
+        </Sticky>
+       {Object.keys(days).map(day => (
           <React.Fragment key={day}>
             <div id={`day${day}`} className="day-separator tab-link">
               Dia {day}
             </div>
             <hr/>
-            {days[day].map(event => (
+            {days[day].filter(this.filterEvents).map(event => (
               <Event event={event} key={event.id} />
             ))}
           </React.Fragment>
         ))}
-      </React.Fragment>
+      </StickyContainer>
     )
   }
 }
