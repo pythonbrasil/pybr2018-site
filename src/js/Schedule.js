@@ -1,6 +1,7 @@
 import { CALENDAR_CONFIG } from 'config';
 import React from 'react';
 import get from 'lodash/get';
+import ScrollNavigation from 'scroll-navigation-menu';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 
@@ -37,9 +38,8 @@ const DayMenu = ({ days, selectedDay, onClick }) => (
     {days.map(day => (
       <li key={day} className="tab-header-and-content">
         <a
-          href="javascript:void(0)"
-          onClick={() => onClick(day)}
-          className={classNames('tab-link', {'active': day === selectedDay})}
+          href={`#day${day}`}
+          className={classNames('tab-link scroll')}
         >
           Dia {day}
         </a>
@@ -115,13 +115,29 @@ class Schedule extends React.Component {
     this.onClick = this.onClick.bind(this);
   }
 
+  componentDidMount() {
+    const anchors = new ScrollNavigation({
+      offset: -100
+    });
+
+    anchors.start();
+  }
+
   render() {
     const { days, selectedDay } = this.state;
     return (
       <React.Fragment>
         <DayMenu days={Object.keys(days)} selectedDay={selectedDay} onClick={this.onClick}/>
-        {days[selectedDay].map(event => (
-          <Event event={event} key={event.id} />
+        {Object.keys(days).map(day => (
+          <React.Fragment key={day}>
+            <div id={`day${day}`} className="day-separator tab-link">
+              Dia {day}
+            </div>
+            <hr/>
+            {days[day].map(event => (
+              <Event event={event} key={event.id} />
+            ))}
+          </React.Fragment>
         ))}
       </React.Fragment>
     )
