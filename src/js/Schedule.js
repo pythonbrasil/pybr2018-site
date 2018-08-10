@@ -1,26 +1,26 @@
 import { CALENDAR_CONFIG } from 'config';
 import React from 'react';
+import get from 'lodash/get';
 import ReactDOM from 'react-dom';
-
-
+import classNames from 'classnames';
 
 const Event = ({ event }) => (
   <article key={event.etag} className="schedule_article">
-    <h5 className="schedule_time">{new Date(event.start.dateTime).getHours()}h</h5>
+    <h5 className="schedule_time">{event.date.getHours()}h</h5>
     <div className="picture-container">
       <div className="schedule_picture">
       </div>
     </div>
     <div className="schedule_info">
-      {event.description
+      {event.details
         ? (
           <React.Fragment>
-            <h2 className="schedule_name">{event.description.split('|')[0]}</h2>
+            <h2 className="schedule_name">{event.details.name}</h2>
             <h4 className="schedule_office">
-              {event.description.split('|')[1]}
+              {event.details.title}
             </h4>
             <h3 className="schedule_speak">
-              <span className="schedule_category">WEB</span>
+              <span className="schedule_category">{event.details.category}</span>
               {event.summary}
             </h3>
           </React.Fragment>
@@ -32,14 +32,14 @@ const Event = ({ event }) => (
   </article>
 );
 
-const DayMenu = ({ days, onClick }) => (
+const DayMenu = ({ days, selectedDay, onClick }) => (
   <ul className="accordion-tabs schedule_category_days">
     {days.map(day => (
       <li key={day} className="tab-header-and-content">
         <a
           href="javascript:void(0)"
           onClick={() => onClick(day)}
-          className="tab-link active"
+          className={classNames('tab-link', {'active': day === selectedDay})}
         >
           Dia {day}
         </a>
@@ -51,19 +51,47 @@ const DayMenu = ({ days, onClick }) => (
 class Schedule extends React.Component {
   getInitialState(data) {
     const days = {};
+    const eventTypes = [];
+    const talksCategories = [];
+
     data.items.forEach(event => {
-      const dayOfEvent = new Date(event.start.dateTime).getDate();
-      if (!days[dayOfEvent]) {
-        days[dayOfEvent] = [];
+      const startDateTime = get(event, 'start.dateTime');
+      if (!startDateTime) {
+        return;
+      }
+      const dayOfEvent = new Date(startDateTime).getDate();
+      if (!days[dayOfEvent]) days[dayOfEvent] = [];
+
+      const pybrEvent = {
+        id: event.id,
+        date: new Date(startDateTime),
+        summary: event.summary
+      }
+      if (event.description) {
+        const [ name, title, eventType, category ] = event.description.split('|');
+
+        pybrEvent.details = {
+          name,
+          title,
+          eventType,
+          category
+        };
+
+        if (!eventTypes.includes(eventType)) eventTypes.push(eventType);
+        if (category && !talksCategories.includes(category)) talksCategories.push(category);
       }
 
-      days[dayOfEvent].push(event);
+      days[dayOfEvent].push(pybrEvent);
     });
-
+    for (let day in days) {
+      days[day].sort(this.sortByDate);
+    }
     const selectedDay = Object.keys(days)[0];
     return {
       selectedDay,
       days,
+      eventTypes,
+      talksCategories
     }
   }
 
@@ -74,14 +102,11 @@ class Schedule extends React.Component {
   }
 
   sortByDate(eventA, eventB) {
-    const dateA = new Date(eventA.start.dateTime);
-    const dateB = new Date(eventB.start.dateTime);
-
-    if (dateA == dateB) {
+    if (eventA.date == eventB.date) {
       return 0;
     }
 
-    return dateA > dateB ? 1 : -1;
+    return eventA.date > eventB.date ? 1 : -1;
   }
 
   constructor(props) {
@@ -91,10 +116,11 @@ class Schedule extends React.Component {
   }
 
   render() {
+    const { days, selectedDay } = this.state;
     return (
       <React.Fragment>
-        <DayMenu days={Object.keys(this.state.days)} onClick={this.onClick}/>
-        {this.state.days[this.state.selectedDay].sort(this.sortByDate).map(event => (
+        <DayMenu days={Object.keys(days)} selectedDay={selectedDay} onClick={this.onClick}/>
+        {days[selectedDay].map(event => (
           <Event event={event} key={event.id} />
         ))}
       </React.Fragment>

@@ -24,9 +24,11 @@ self.addEventListener('install', onInstall);
 function onFetch(event) {
   event.respondWith(
     caches.open(CACHE_VERSION).then(cache => {
-      if (event.request.url.match(isFileResource) || event.request.url.includes('fonts')) {
-        return retrieveFromCache({ event, cache })
-          .catch(fetchAndCache)
+      if (!event.request.url.endsWith('bundle.js')) {
+        if (event.request.url.match(isFileResource) || event.request.url.includes('fonts')) {
+          return retrieveFromCache({ event, cache })
+            .catch(fetchAndCache)
+        }
       }
       return fetchAndCache({ event, cache })
         .catch((() => retrieveFromCache({ event, cache })));
