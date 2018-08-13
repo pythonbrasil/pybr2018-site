@@ -6,9 +6,16 @@ import { StickyContainer, Sticky } from 'react-sticky';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 
+function getFormattedTime(time) {
+  const hours = time.getHours();
+  const minutes = time.getMinutes();
+
+  return `${hours < 10 ? '0' + hours : hours}h${minutes < 10 ? '0' + minutes : minutes}`;
+}
+
 const Event = ({ event }) => (
   <article key={event.etag} className="schedule_article">
-    <h5 className="schedule_time">{event.date.getHours()}h</h5>
+    <h5 className="schedule_time">{getFormattedTime(event.date)}</h5>
     <div className="picture-container">
       <div className="schedule_picture">
       </div>
@@ -33,6 +40,16 @@ const Event = ({ event }) => (
     </div>
   </article>
 );
+
+const DaySeparator = ({ day }) => (
+  <React.Fragment>
+    <div id={`day${day}`} className="day-separator tab-link">
+      Dia {day}
+    </div>
+    <hr/>
+  </React.Fragment>
+);
+
 
 const DayMenu = ({ days, selectedDay, onClick }) => (
   <ul className="accordion-tabs schedule_category_days">
@@ -215,13 +232,12 @@ class Schedule extends React.Component {
         </Sticky>
        {Object.keys(days).map(day => (
           <React.Fragment key={day}>
-            <div id={`day${day}`} className="day-separator tab-link">
-              Dia {day}
+            <DaySeparator day={day}/>
+            <div>
+              {days[day].filter(this.filterEvents).map(event => (
+                <Event event={event} key={event.id} />
+              ))}
             </div>
-            <hr/>
-            {days[day].filter(this.filterEvents).map(event => (
-              <Event event={event} key={event.id} />
-            ))}
           </React.Fragment>
         ))}
       </StickyContainer>
