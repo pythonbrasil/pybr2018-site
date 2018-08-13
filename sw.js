@@ -1,6 +1,6 @@
-importScripts("/precache-manifest.af0c891389e7b88b8eaff3db3ab344e5.js", "https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
+importScripts("/precache-manifest.8619f0907683a578b939836b24cee7e5.js", "https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
 
-const CACHE_VERSION = 'v6';
+const CACHE_VERSION = 'v7';
 const initialCache = [
   '/',
   '/index.html',
@@ -26,9 +26,11 @@ self.addEventListener('install', onInstall);
 function onFetch(event) {
   event.respondWith(
     caches.open(CACHE_VERSION).then(cache => {
-      if (event.request.url.match(isFileResource) || event.request.url.includes('fonts')) {
-        return retrieveFromCache({ event, cache })
-          .catch(fetchAndCache)
+      if (!event.request.url.endsWith('bundle.js')) {
+        if (event.request.url.match(isFileResource) || event.request.url.includes('fonts')) {
+          return retrieveFromCache({ event, cache })
+            .catch(fetchAndCache)
+        }
       }
       return fetchAndCache({ event, cache })
         .catch((() => retrieveFromCache({ event, cache })));
@@ -39,7 +41,7 @@ function onFetch(event) {
 function fetchAndCache({ event, cache }) {
   console.log(`Adding resource ${event.request.url} to the cache.`);
   let url = event.request.url;
-  if (!url.match(isFileResource) && !url.endsWith('/') && !url.includes('fonts')) {
+  if (!url.match(isFileResource) && !url.endsWith('/') && !url.includes('google') && !event.request.url.includes('fonts')) {
     url = url.concat('/');
   }
   const request = new Request(
