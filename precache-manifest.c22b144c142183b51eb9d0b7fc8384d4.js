@@ -56,7 +56,7 @@ self.__precacheManifest = [
     "url": "/cace3226fc585b35e358235e2e463b77.svg"
   },
   {
-    "revision": "488d38b763a8d8281423",
+    "revision": "9fa8fde9000dde3342fa",
     "url": "/bundle.js"
   },
   {
@@ -69,7 +69,7 @@ self.__precacheManifest = [
     "url": "/c1e6bce66e35f88b2fdd73d713b8598e.svg"
   },
   {
-    "revision": "488d38b763a8d8281423",
+    "revision": "9fa8fde9000dde3342fa",
     "url": "/cb0851ba12184369d0c5485f7cc83f50.css"
   },
   {
@@ -91,23 +91,11 @@ self.__precacheManifest = [
     "url": "/bccf71d1f7059651960c22c8acfa48b5.svg"
   },
   {
-    "url": "/46e3f79e1df67592da7547bb7eb74e1d.svg"
-  },
-  {
-    "url": "/676242ba1bd587206eb3800c0289d0e0.svg"
-  },
-  {
-    "url": "/8a84d937145140ca758b360009fa410d.svg"
+    "url": "/745113de3d06753dafba58ebc50c5dc4.svg"
   },
   {
     "revision": "21ab5d3951f82ab30065391e61d446ee",
     "url": "/Plano_patrocinio_PythonBR_2018_V5.pdf"
-  },
-  {
-    "url": "/745113de3d06753dafba58ebc50c5dc4.svg"
-  },
-  {
-    "url": "/8cd9fcdcf4c852651ee31fc81a734378.png"
   },
   {
     "url": "/a1cb45781a9958b2542736ff0f094dcd.svg"
@@ -120,10 +108,22 @@ self.__precacheManifest = [
     "url": "/PythonBR14-MidiaKit.zip"
   },
   {
+    "url": "/8cd9fcdcf4c852651ee31fc81a734378.png"
+  },
+  {
+    "url": "/8a84d937145140ca758b360009fa410d.svg"
+  },
+  {
+    "url": "/676242ba1bd587206eb3800c0289d0e0.svg"
+  },
+  {
     "url": "/66c5c1f941cd0dd1f9f3e9425047efd9.svg"
   },
   {
     "url": "/57aa2a48d7ee76ec1157fdc019230d3a.svg"
+  },
+  {
+    "url": "/46e3f79e1df67592da7547bb7eb74e1d.svg"
   },
   {
     "url": "/4429bbb1fadd88660033c60e25b0d6d0.svg"
