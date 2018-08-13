@@ -13,30 +13,34 @@ function getFormattedTime(time) {
   return `${hours < 10 ? '0' + hours : hours}h${minutes < 10 ? '0' + minutes : minutes}`;
 }
 
-const Event = ({ event }) => (
-  <article key={event.etag} className="schedule_article">
-    <h5 className="schedule_time">{getFormattedTime(event.date)}</h5>
+const Events = ({ scheduleInDate }) => (
+  <article className="schedule_article">
+    <h5 className="schedule_time">{getFormattedTime(scheduleInDate.date)}</h5>
     <div className="picture-container">
       <div className="schedule_picture">
       </div>
     </div>
-    <div className="schedule_info">
-      {event.details
-        ? (
-          <React.Fragment>
-            <h2 className="schedule_name">{event.details.name}</h2>
-            <h4 className="schedule_office">
-              {event.details.title}
-            </h4>
-            <h3 className="schedule_speak">
-              <span className="schedule_category">{event.details.category}</span>
-              {event.summary}
-            </h3>
-          </React.Fragment>
-        ) : (
-          <h2 className="schedule_name">{event.summary}</h2>
-        )
-      }
+    <div className="row w-100">
+    {scheduleInDate.events.map(event => (
+      <div key={event.id} className={classNames('schedule_info', {'col-xl-3 col-lg-6 col-sm-12': event.details})}>
+        {event.details
+          ? (
+            <React.Fragment>
+              <h2 className="schedule_name">{event.details.name}</h2>
+              <h4 className="schedule_office">
+                {event.details.title}
+              </h4>
+              <h3 className="schedule_speak">
+                <span className="schedule_category">{event.details.category}</span>
+                {event.summary}
+              </h3>
+            </React.Fragment>
+          ) : (
+            <h2 className="schedule_name w-100">{event.summary}</h2>
+          )
+        }
+      </div>
+    ))}
     </div>
   </article>
 );
@@ -136,12 +140,20 @@ class Schedule extends React.Component {
         if (!eventTypes.includes(eventType)) eventTypes.push(eventType);
         if (category && !talksCategories.includes(category)) talksCategories.push(category);
       }
-
-      days[dayOfEvent].push(pybrEvent);
+      const eventsOnSameTime = days[dayOfEvent].find(h => h.date.getTime() == pybrEvent.date.getTime());
+      if (!eventsOnSameTime) {
+        days[dayOfEvent].push({
+          date: pybrEvent.date,
+          events: [pybrEvent]
+        })
+      } else {
+        eventsOnSameTime.events.push(pybrEvent);
+      }
     });
-    for (let day in days) {
+    for (const day in days) {
       days[day].sort(this.sortByDate);
     }
+    console.log(days);
     const selectedDay = Object.keys(days)[0];
     return {
       selectedDay,
@@ -201,6 +213,7 @@ class Schedule extends React.Component {
   }
 
   filterEvents(event) {
+    return true;
     return !event.details
       || (this.state.typeFilter.includes(event.details.eventType)
           && (!event.details.category || this.state.categoryFilter.includes(event.details.category)));
@@ -234,8 +247,8 @@ class Schedule extends React.Component {
           <React.Fragment key={day}>
             <DaySeparator day={day}/>
             <div>
-              {days[day].filter(this.filterEvents).map(event => (
-                <Event event={event} key={event.id} />
+              {days[day].filter(this.filterEvents).map(events => (
+                <Events scheduleInDate={events} key={getFormattedTime(events.date)} />
               ))}
             </div>
           </React.Fragment>
