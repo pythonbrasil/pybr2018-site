@@ -76,11 +76,11 @@ const DaySeparator = ({ day }) => (
 
 const DayMenu = ({ days, selectedDay, onClick }) => (
   <ul className="accordion-tabs schedule_category_days">
-    {days.map(day => (
+    {Object.keys(days).map(day => (
       <li key={day} className="tab-header-and-content">
         <a
           href={`#day${day}`}
-          className={classNames('tab-link scroll')}
+          className={classNames('tab-link', {'disabled': !days[day].length, 'scroll': days[day].length})}
         >
           {day}
         </a>
@@ -130,7 +130,7 @@ const CategoryFilter = ({ categories, onChange, filter }) => (
 
 class Schedule extends React.Component {
   getInitialState(data) {
-    const days = {};
+    const days = {'17': [], '18': [], '22': []};
     const eventTypes = [];
     const talksCategories = [];
 
@@ -140,6 +140,9 @@ class Schedule extends React.Component {
         return;
       }
       const dayOfEvent = new Date(startDateTime).getDate();
+      if ([17, 18, 22].includes(dayOfEvent)) {
+        return;
+      }
       if (!days[dayOfEvent]) days[dayOfEvent] = [];
 
       const pybrEvent = {
@@ -248,7 +251,7 @@ class Schedule extends React.Component {
               className={classNames('filters', { 'sticky': isSticky })}
               style={style}
             >
-              <DayMenu days={Object.keys(days)} selectedDay={selectedDay} onClick={this.onClick}/>
+              <DayMenu days={days} selectedDay={selectedDay} onClick={this.onClick}/>
               {/*<CategoryFilter
                 categories={talksCategories}
                 filter={categoryFilter}
@@ -265,7 +268,7 @@ class Schedule extends React.Component {
        {Object.keys(days).map(day => (
           <React.Fragment key={day}>
             <div id={`day${day}`} >
-              <DaySeparator day={day}/>
+             {days[day].length && <DaySeparator day={day}/>}
               {days[day].filter(this.filterEvents).map(events => (
                 <Events scheduleInDate={events} key={getFormattedTime(events.date)} />
               ))}

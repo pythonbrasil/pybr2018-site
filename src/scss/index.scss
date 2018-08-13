@@ -157,3 +157,8 @@ p {
   top: 0;
   left: 0;
 }
+
+a.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
