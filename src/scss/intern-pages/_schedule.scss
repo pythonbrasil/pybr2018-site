@@ -1,10 +1,24 @@
 .schedule-page {
-  padding: 30px 0;
+  padding: 60px 0;
   background-color: $dark-blue;
   margin-top: 40px;
 
+  .loading {
+    color: white;
+    text-align: center;
+  }
+
   &__content {
     padding: 0 70px;
+  }
+
+  .day-separator {
+    margin: 60px 0;
+    font-size: 30px;
+
+    span {
+      font-weight: 200;
+    }
   }
 
   .keynote_star {
@@ -61,6 +75,7 @@
     z-index: 999;
     display: flex;
     flex-wrap: wrap;
+
     .accordion-tabs {
       width: 100%;
     }
@@ -92,11 +107,13 @@
   }
 
   .schedule_category_days a {
-    font-size: 18px;
+    font-size: 22px;
+    color: white;
     display: inline-block;
-
     border-bottom: 2px solid transparent;
+
     &.active {
+      color: $python-yellow;
       border-bottom: 2px solid $python-yellow;
     }
   }
@@ -158,39 +175,46 @@
 
   .schedule_time {
     color: $light-blue;
-    font-size: 22px;
+    font-size: 14px;
     font-weight: 400;
     padding-right: 35px;
+    width: 40px;
   }
 
   .schedule_name {
-    color: $python-yellow;
-    font-size: 22px;
+    color: white;
+    font-size: 18px;
     font-weight: 500;
     line-height: 1.2;
   }
 
+  .schedule-highlight .schedule_name {
+    color: $python-yellow;
+  }
+
   .schedule_category {
     background: $light-blue;
-    font-size: 12px;
+    font-family: nunito;
+    font-size: 10px;
     color: $dark-blue;
-    padding: 2px 5px;
-    border-radius: 5px;
-    margin-right: 5px;
+    padding: 2px 5px 1px 5px;
+    border-radius: 2px;
+
   }
 
   .schedule_office {
     font-family: nunito;
     font-size: 14px;
-    font-weight: 400;
-    color: rgba($background-light, 0.8);
+    font-weight: 200;
+    color: rgba($background-light, 0.6);
   }
 
-  .schedule_speak {
-    font-size: 18px;
+  .schedule_speaker {
+    font-size: 14px;
     font-weight: 400;
     font-family: nunito;
     color: $background-light;
+    margin-bottom: 0;
   }
 }
 

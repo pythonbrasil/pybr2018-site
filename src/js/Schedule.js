@@ -6,6 +6,22 @@ import { StickyContainer, Sticky } from 'react-sticky';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 
+function getDayLabel(day){
+  switch(day){
+    case `17`:
+    case `18`:
+      return `Sprints`;
+      break;
+    case `19`:
+    case `20`:
+    case `21`:
+      return `Palestras`
+      break;
+    default:
+      return `Tutoriais`
+  }
+}
+
 function getFormattedTime(time) {
   const hours = time.getHours();
   const minutes = time.getMinutes();
@@ -22,18 +38,22 @@ const Events = ({ scheduleInDate }) => (
     </div>
     <div className="row w-100">
     {scheduleInDate.events.map(event => (
-      <div key={event.id} className={classNames('schedule_info', {'col-xl-3 col-lg-6 col-sm-12': event.details})}>
+      <div key={event.id} className={classNames(
+        'schedule_info',
+        {
+          'col-xl-3 col-lg-6 col-sm-12 schedule-highlight': event.details
+        }
+      )}>
         {event.details
           ? (
             <React.Fragment>
-              <h2 className="schedule_name">{event.details.name}</h2>
+              <h2 className="schedule_name">{event.summary} <span className="schedule_category"> {event.details.category}</span></h2>
+              <h3 className="schedule_speaker">
+                {event.details.name}
+              </h3>
               <h4 className="schedule_office">
                 {event.details.title}
               </h4>
-              <h3 className="schedule_speak">
-                <span className="schedule_category">{event.details.category}</span>
-                {event.summary}
-              </h3>
             </React.Fragment>
           ) : (
             <h2 className="schedule_name w-100">{event.summary}</h2>
@@ -47,10 +67,9 @@ const Events = ({ scheduleInDate }) => (
 
 const DaySeparator = ({ day }) => (
   <React.Fragment>
-    <div id={`day${day}`} className="day-separator tab-link">
-      Dia {day}
+    <div className="day-separator tab-link">
+      Dia {day} – <span>{getDayLabel(day)}</span>
     </div>
-    <hr/>
   </React.Fragment>
 );
 
@@ -63,7 +82,7 @@ const DayMenu = ({ days, selectedDay, onClick }) => (
           href={`#day${day}`}
           className={classNames('tab-link scroll')}
         >
-          Dia {day}
+          {day}
         </a>
       </li>
     ))}
@@ -206,7 +225,7 @@ class Schedule extends React.Component {
   componentDidMount() {
     const anchorsOffset = document.querySelector('.filters').getBoundingClientRect().height;
     const anchors = new ScrollNavigation({
-      offset: -anchorsOffset
+      offset: -anchorsOffset - 120
     });
 
     anchors.start();
@@ -230,7 +249,7 @@ class Schedule extends React.Component {
               style={style}
             >
               <DayMenu days={Object.keys(days)} selectedDay={selectedDay} onClick={this.onClick}/>
-              <CategoryFilter
+              {/*<CategoryFilter
                 categories={talksCategories}
                 filter={categoryFilter}
                 onChange={this.onCategoryFilterChange}
@@ -239,14 +258,14 @@ class Schedule extends React.Component {
                 types={eventTypes}
                 filter={typeFilter}
                 onChange={this.onTypeFilterChange}
-              />
+              />*/}
             </div>
           )}
         </Sticky>
        {Object.keys(days).map(day => (
           <React.Fragment key={day}>
-            <DaySeparator day={day}/>
-            <div>
+            <div id={`day${day}`} >
+              <DaySeparator day={day}/>
               {days[day].filter(this.filterEvents).map(events => (
                 <Events scheduleInDate={events} key={getFormattedTime(events.date)} />
               ))}
