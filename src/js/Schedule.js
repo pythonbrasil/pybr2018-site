@@ -226,12 +226,13 @@ class Schedule extends React.Component {
   }
 
   componentDidMount() {
-    const anchorsOffset = document.querySelector('.filters').getBoundingClientRect().height;
-    const anchors = new ScrollNavigation({
-      offset: -anchorsOffset - 120
+    requestAnimationFrame(() => {
+      const anchorsOffset = document.querySelector('.filters').getBoundingClientRect().height;
+      const anchors = new ScrollNavigation({
+        offset: -anchorsOffset - 120
+      });
+      anchors.start();
     });
-
-    anchors.start();
   }
 
   filterEvents(event) {
@@ -240,6 +241,19 @@ class Schedule extends React.Component {
       || (this.state.typeFilter.includes(event.details.eventType)
           && (!event.details.category || this.state.categoryFilter.includes(event.details.category)));
   }
+
+  renderDay(day, label) {
+    if (day.length) {
+      return (
+        <div id={`day${label}`} >
+          <DaySeparator day={label}/>
+          {day.filter(this.filterEvents).map(events => (
+            <Events scheduleInDate={events} key={getFormattedTime(events.date)} />
+          ))}
+        </div>
+      )
+    }
+ }
 
   render() {
     const { days, selectedDay, talksCategories, categoryFilter, eventTypes, typeFilter } = this.state;
@@ -267,12 +281,7 @@ class Schedule extends React.Component {
         </Sticky>
        {Object.keys(days).map(day => (
           <React.Fragment key={day}>
-            <div id={`day${day}`} >
-             {days[day].length && <DaySeparator day={day}/>}
-              {days[day].filter(this.filterEvents).map(events => (
-                <Events scheduleInDate={events} key={getFormattedTime(events.date)} />
-              ))}
-            </div>
+            {this.renderDay(days[day], day)}
           </React.Fragment>
         ))}
       </StickyContainer>
