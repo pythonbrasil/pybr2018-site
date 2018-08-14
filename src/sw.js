@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v7';
+const CACHE_VERSION = 'v9';
 const initialCache = [
   '/',
   '/index.html',
@@ -44,7 +44,7 @@ function fetchAndCache({ event, cache }) {
   }
   const request = new Request(
     url,
-    {credentials: event.request.credentials, redirect: 'follow' }
+    {credentials: !url.includes('fonts') ? event.request.credentials : 'omit', redirect: 'follow' }
   );
   return fetch(request)
     .then(response => {
