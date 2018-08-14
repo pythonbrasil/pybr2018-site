@@ -74,7 +74,38 @@
     background-color: $dark-blue;
     z-index: 999;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    .filter-box {
+      width: 360px;
+      display: flex;
+      align-items: flex-start;
+      .filters-search {
+        input {
+          width: 100%;
+          color: white;
+          background-color: transparent;
+          border: none;
+          border-bottom: 1px solid white;
+          padding-right: 30px;
+        }
+        width: 100%;
+        position: relative;
+        .material-icons {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+      button {
+        display: flex;
+        color: white;
+        line-height: normal;
+        background-color: transparent;
+        padding-left: 5px;
+        border: none;
+        padding-right: 5px;
+      }
+    }
 
     .accordion-tabs {
       width: 100%;
@@ -223,7 +254,13 @@
     &__content {
       padding: 0 20px;
     }
-
+    .filters {
+      flex-wrap: wrap;
+      justify-content: center;
+      .filter-box {
+        width: 100%;
+      }
+    }
     .schedule_picture {
       width: 30px;
     }
