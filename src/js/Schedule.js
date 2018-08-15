@@ -89,13 +89,13 @@ const Events = ({ scheduleInDate }) => (
       <div key={event.id} className={classNames(
         'schedule_info',
         {
-          'col-xl-3 col-lg-6 col-sm-12 schedule-highlight': event.details.eventType !== 'meta'
+          'col-xl-3 col-lg-6 col-sm-12 schedule-highlight': event.details.eventType !== ' Eventos Fixos'
         }
       )}>
-        {event.details.eventType !== 'meta'
+        {event.details.eventType !== ' Eventos Fixos'
           ? (
             <React.Fragment>
-              <h2 className="schedule_name">{event.summary} <span className="schedule_category"> {event.details.category}</span></h2>
+              <h2 className="schedule_name">{event.summary} <span className={`schedule_category ${event.details.category.toLowerCase().trim().replace(/\s/g, '-')}`}>{event.details.category}</span></h2>
               <h3 className="schedule_speaker">
                 {event.details.name}
               </h3>
@@ -177,7 +177,7 @@ const CategoryFilter = ({ categories, onChange, filter }) => (
 class Schedule extends React.Component {
   getInitialState(data) {
     const days = {'17': [], '18': [], '22': []};
-    const eventTypes = ['meta'];
+    const eventTypes = [' Eventos Fixos'];
     const talksCategories = [];
 
     data.items.forEach(event => {
@@ -196,7 +196,7 @@ class Schedule extends React.Component {
         date: new Date(startDateTime),
         summary: event.summary,
         details: {
-          eventType: 'meta'
+          eventType: ' Eventos Fixos'
         }
       }
 

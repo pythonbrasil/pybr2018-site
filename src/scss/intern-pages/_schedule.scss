@@ -58,6 +58,23 @@
   color: $dark-blue;
   padding: 2px 5px 1px 5px;
   border-radius: 2px;
+  white-space: nowrap;
+
+  &.pessoas {
+    background: #8b9ffc;
+  }
+
+  &.data-science {
+    background: #ce9bc4;
+  }
+
+  &.web {
+    background: #f5bc8b;
+  }
+
+  &.devops {
+    background: #3a8bbb;
+  }
 }
 
 .schedule-page {
