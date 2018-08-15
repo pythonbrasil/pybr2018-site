@@ -1,3 +1,50 @@
+
+.category-filter {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  h2 {
+    padding-right: 5px;
+    flex-shrink: 0;
+    font-size: 1em;
+    font-weight: 300;
+  }
+}
+
+.empty-message {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+  color: white;
+  font-size: 1.2em;
+}
+
+.Popover {
+  width: 40vw;
+  z-index: 9999;
+  @media(max-width: 768px) {
+    width: 90vw;
+  }
+  padding-right: 10px;
+  .Popover-body {
+    border-radius: 5px;
+    background-color: white;
+    padding: 10px;
+  }
+  .Popover-tip {
+    fill: white;
+  }
+}
+
+.schedule_category {
+  background: $light-blue;
+  font-family: nunito;
+  font-size: 10px;
+  color: $dark-blue;
+  padding: 2px 5px 1px 5px;
+  border-radius: 2px;
+}
+
 .schedule-page {
   padding: 60px 0;
   background-color: $dark-blue;
@@ -110,17 +157,6 @@
     .accordion-tabs {
       width: 100%;
     }
-    .category-filter {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      h2 {
-        padding-right: 5px;
-        flex-shrink: 0;
-        font-size: 1em;
-        font-weight: 300;
-      }
-    }
     &.sticky {
       padding-top: 100px;
     }
@@ -221,16 +257,6 @@
 
   .schedule-highlight .schedule_name {
     color: $python-yellow;
-  }
-
-  .schedule_category {
-    background: $light-blue;
-    font-family: nunito;
-    font-size: 10px;
-    color: $dark-blue;
-    padding: 2px 5px 1px 5px;
-    border-radius: 2px;
-
   }
 
   .schedule_office {
