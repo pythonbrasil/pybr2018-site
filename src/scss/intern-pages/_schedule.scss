@@ -1,13 +1,26 @@
-
 .category-filter {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+
+  .schedule_category {
+    background: none;
+    padding: 0;
+    font-size: 12px;
+    margin-right: 10px;
+  }
+}
+
+.advanced-filters {
   h2 {
-    padding-right: 5px;
-    flex-shrink: 0;
-    font-size: 1em;
-    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-family: nunito;
+    font-size: 12px;
+    display: block;
   }
 }
 
@@ -20,17 +33,19 @@
 }
 
 .Popover {
-  width: 40vw;
   z-index: 9999;
+  top: 400px;
+
   @media(max-width: 768px) {
     width: 90vw;
   }
-  padding-right: 10px;
+
   .Popover-body {
-    border-radius: 5px;
+    border-radius: 2px;
     background-color: white;
-    padding: 10px;
+    padding: 20px;
   }
+
   .Popover-tip {
     fill: white;
   }
@@ -43,6 +58,23 @@
   color: $dark-blue;
   padding: 2px 5px 1px 5px;
   border-radius: 2px;
+  white-space: nowrap;
+
+  &.pessoas {
+    background: #8b9ffc;
+  }
+
+  &.data-science {
+    background: #ce9bc4;
+  }
+
+  &.web {
+    background: #f5bc8b;
+  }
+
+  &.devops {
+    background: #3a8bbb;
+  }
 }
 
 .schedule-page {
@@ -66,6 +98,15 @@
     span {
       font-weight: 200;
     }
+  }
+
+  .schedule_subtitle {
+    font-family: nunito;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    background: rgba(white, 0.1);
+    padding: 20px;
   }
 
   .keynote_star {
@@ -122,27 +163,45 @@
     z-index: 999;
     display: flex;
     flex-wrap: nowrap;
+
     .filter-box {
       width: 360px;
       display: flex;
       align-items: flex-start;
+
       .filters-search {
+        width: 100%;
+        position: relative;
+
         input {
           width: 100%;
           color: white;
           background-color: transparent;
           border: none;
           border-bottom: 1px solid white;
-          padding-right: 30px;
+          padding: 0 30px 10px 0;
+          outline: none;
+
+          &::-webkit-input-placeholder {
+            color: white;
+          }
+
+          &:focus {
+            border-color: $light-blue;
+
+            &::-webkit-input-placeholder {
+              color: rgba(white, 0.5);
+            }
+          }
         }
-        width: 100%;
-        position: relative;
+
         .material-icons {
           position: absolute;
           right: 0;
           top: 0;
         }
       }
+
       button {
         display: flex;
         color: white;
@@ -151,6 +210,7 @@
         padding-left: 5px;
         border: none;
         padding-right: 5px;
+        outline: none;
       }
     }
 

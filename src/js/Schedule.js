@@ -56,7 +56,7 @@ class FilterBox extends React.Component {
       <div className="filter-box" ref={this.setPopoverAppendTarget}>
         <div className="filters-search">
           <i className="material-icons">search</i>
-          <input value={value} onChange={onChange} placeholder="Pesquise uma palestra, autor..."/>
+          <input value={value} onChange={onChange} placeholder="Pesquisar palestra, autor..."/>
         </div>
         {this.state.popoverAppendTarget &&
           <Popover
@@ -89,13 +89,13 @@ const Events = ({ scheduleInDate }) => (
       <div key={event.id} className={classNames(
         'schedule_info',
         {
-          'col-xl-3 col-lg-6 col-sm-12 schedule-highlight': event.details.eventType !== 'meta'
+          'col-xl-3 col-lg-6 col-sm-12 schedule-highlight': event.details.eventType !== ' Eventos Fixos'
         }
       )}>
-        {event.details.eventType !== 'meta'
+        {event.details.eventType !== ' Eventos Fixos'
           ? (
             <React.Fragment>
-              <h2 className="schedule_name">{event.summary} <span className="schedule_category"> {event.details.category}</span></h2>
+              <h2 className="schedule_name">{event.summary} <span className={`schedule_category ${event.details.category.toLowerCase().trim().replace(/\s/g, '-')}`}>{event.details.category}</span></h2>
               <h3 className="schedule_speaker">
                 {event.details.name}
               </h3>
@@ -150,7 +150,6 @@ const FilterCheckbox = ({ checked, onChange, label, ...props }) => (
 
 const EventTypeFilter = ({ types, onChange, filter }) => (
   <div className="category-filter">
-    <h2>Filtrar eventos por tipo</h2>
     {types.map(type => (
       <FilterCheckbox
         checked={filter.includes(type)}
@@ -164,7 +163,6 @@ const EventTypeFilter = ({ types, onChange, filter }) => (
 
 const CategoryFilter = ({ categories, onChange, filter }) => (
   <div className="category-filter">
-    <h2>Filtrar palestras por categoria</h2>
     {categories.map(category => (
       <FilterCheckbox
         checked={filter.includes(category)}
@@ -179,7 +177,7 @@ const CategoryFilter = ({ categories, onChange, filter }) => (
 class Schedule extends React.Component {
   getInitialState(data) {
     const days = {'17': [], '18': [], '22': []};
-    const eventTypes = ['meta'];
+    const eventTypes = [' Eventos Fixos'];
     const talksCategories = [];
 
     data.items.forEach(event => {
@@ -198,7 +196,7 @@ class Schedule extends React.Component {
         date: new Date(startDateTime),
         summary: event.summary,
         details: {
-          eventType: 'meta'
+          eventType: ' Eventos Fixos'
         }
       }
 
@@ -358,11 +356,14 @@ class Schedule extends React.Component {
                 isPopoverOpened={this.state.isShowingAdvancedFilters}
                 advancedFilters={
                   <div className="advanced-filters">
+                    <h2>Filtrar por</h2>
+                    <h3>Categoria</h3>
                     <CategoryFilter
                       categories={talksCategories}
                       filter={categoryFilter}
                       onChange={this.onCategoryFilterChange}
                     />
+                    <h3>Tipo</h3>
                     <EventTypeFilter
                       types={eventTypes}
                       filter={typeFilter}
