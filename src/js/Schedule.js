@@ -56,7 +56,7 @@ class FilterBox extends React.Component {
       <div className="filter-box" ref={this.setPopoverAppendTarget}>
         <div className="filters-search">
           <i className="material-icons">search</i>
-          <input value={value} onChange={onChange} placeholder="Pesquise uma palestra, autor..."/>
+          <input value={value} onChange={onChange} placeholder="Pesquisar palestra, autor..."/>
         </div>
         {this.state.popoverAppendTarget &&
           <Popover
@@ -150,7 +150,6 @@ const FilterCheckbox = ({ checked, onChange, label, ...props }) => (
 
 const EventTypeFilter = ({ types, onChange, filter }) => (
   <div className="category-filter">
-    <h2>Filtrar eventos por tipo</h2>
     {types.map(type => (
       <FilterCheckbox
         checked={filter.includes(type)}
@@ -164,7 +163,6 @@ const EventTypeFilter = ({ types, onChange, filter }) => (
 
 const CategoryFilter = ({ categories, onChange, filter }) => (
   <div className="category-filter">
-    <h2>Filtrar palestras por categoria</h2>
     {categories.map(category => (
       <FilterCheckbox
         checked={filter.includes(category)}
@@ -358,11 +356,14 @@ class Schedule extends React.Component {
                 isPopoverOpened={this.state.isShowingAdvancedFilters}
                 advancedFilters={
                   <div className="advanced-filters">
+                    <h2>Filtrar por</h2>
+                    <h3>Categoria</h3>
                     <CategoryFilter
                       categories={talksCategories}
                       filter={categoryFilter}
                       onChange={this.onCategoryFilterChange}
                     />
+                    <h3>Tipo</h3>
                     <EventTypeFilter
                       types={eventTypes}
                       filter={typeFilter}
