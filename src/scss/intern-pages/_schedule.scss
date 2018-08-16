@@ -34,10 +34,12 @@
 
 .Popover {
   z-index: 9999;
-  top: 400px;
-
+  width: 30vw;
+  min-width: 400px;
+  padding-right: 10px;
   @media(max-width: 768px) {
     width: 90vw;
+    min-width: auto;
   }
 
   .Popover-body {
@@ -58,6 +60,7 @@
   color: $dark-blue;
   padding: 2px 5px 1px 5px;
   border-radius: 2px;
+  margin-left: 5px;
   white-space: nowrap;
 
   &.pessoas {
