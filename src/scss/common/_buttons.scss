@@ -217,7 +217,13 @@
   }
 
   .tickets-button {
-    top: 15%;
-    bottom: auto;
+    img {
+      height: 75px;
+    }
+    top: 50%;
+    width: 28px;
+    &:hover {
+      width: 120px;
+    }
   }
 }
