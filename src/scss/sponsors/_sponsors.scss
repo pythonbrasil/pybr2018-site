@@ -1,3 +1,9 @@
+$sponsor-height: 130px;
+
+.sponsor-container {
+  padding: 0;
+}
+
 @mixin sponsor-category($color: $dark-blue) {
   width: 100%;
   @extend .d-flex;
@@ -12,14 +18,18 @@
   @extend .about-wrapper;
   @include make-angle ($background-dark, -3);
   background-color: $background-dark;
+
   .sponsors-container {
     @extend .container;
-    .sponsors {
-      @extend .row;
-      .section-header-wrapper {
-        margin-bottom: 100px;
-      }
-    }
+    padding-bottom: 30px;
+  }
+
+  .sponsors {
+    @extend .row;
+  }
+
+  .section-header-wrapper {
+    margin-bottom: 100px;
   }
 }
 
@@ -65,7 +75,6 @@
   }
 
   &__list {
-    padding-top: 100px;
     width: 100%;
     @extend .d-flex;
     @extend .justify-content-center;
@@ -82,9 +91,7 @@
       font-size: 50px;
       font-family: 'Advent Pro', sans-serif;
       height: auto;
-      margin-bottom: 100px;
     }
-
   }
 
   &__call-to-action {
@@ -121,6 +128,10 @@
 
 // Sponsor page
 .sponsors-page {
+  .sponsor:last-child {
+    margin-top: 60px;
+  }
+
   .midiakit-container {
     display: block;
     margin-bottom: 60px;
@@ -132,7 +143,7 @@
   }
 
   .sponsor__header {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 
     h2 {
       font-size: 46px;
@@ -147,7 +158,7 @@
     width: 100%;
     @extend .d-flex;
     flex-wrap: wrap;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     align-items: center;
 
     h3 {
@@ -163,6 +174,7 @@
     @extend .col-md-12;
     @extend .col-sm-12;
     @extend .col-12;
+    text-align: center;
   }
 
   .sponsor__content--wrapper {
@@ -180,8 +192,10 @@
     .sponsor__content--wrapper {
       @extend .col-lg-7;
     }
-    .sponsor-logo, img {
-      height: 245px;
+
+    img {
+      height: $sponsor-height * 3.375;
+      width: auto;
     }
   }
 
@@ -193,8 +207,10 @@
     .sponsor__content--wrapper {
       @extend .col-lg-8;
     }
-    .sponsor-logo, img {
-      height: 195px;
+
+    img {
+      height: $sponsor-height * 2.25;
+      width: auto;
     }
   }
 
@@ -206,8 +222,10 @@
     .sponsor__content--wrapper {
       @extend .col-lg-8;
     }
-    .sponsor-logo, img {
-      height: 155px;
+
+    img {
+      height: $sponsor-height * 1.5;
+      width: auto;
     }
   }
 
@@ -219,8 +237,10 @@
     .sponsor__content--wrapper {
       @extend .col-lg-9;
     }
-    .sponsor-logo, img {
-      height: 125px;
+
+    img {
+      height: $sponsor-height;
+      width: auto;
     }
   }
 
@@ -243,7 +263,6 @@
     width: 100%;
     @extend .d-flex;
     flex-wrap: wrap;
-    margin-bottom: 100px;
     justify-content: center;
 
     img, .partner-logo {
@@ -257,17 +276,22 @@
     @extend .col-sm-6;
     @extend .col-10;
     display: block;
-    margin: 150px auto 200px auto;
+    margin: 100px auto 100px auto;
     font-size: 30px;
     padding: 40px;
   }
 }
 
 @media (max-width: $breakpoint-md) {
+  $sponsor-height: 120px;
   .sponsors-page {
     .midiakit-container {
       text-align: center;
       margin-top: 60px;
+    }
+
+    .sponsor__header h2 {
+      font-size: 40px;
     }
 
     .sponsor__logo--wrapper {
