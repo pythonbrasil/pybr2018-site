@@ -38,23 +38,44 @@ export const CategoryFilter = ({ categories, onChange, filter }) => (
   </div>
 )
 
-export const FilterBox = ({ value, onChange, onClick, isPopoverOpened, advancedFilters }) => (
-  <div className="filter-box">
-    <div className="filters-search">
-      <i className="material-icons">search</i>
-      <input value={value} onChange={onChange} placeholder="Pesquisar palestra, autor..."/>
-    </div>
-    <Popover
-      preferPlace="below"
-      refreshIntervalMs={100}
-      enterExitTransitionDurationMs={0}
-      onOuterAction={onClick}
-      isOpen={isPopoverOpened}
-      body={advancedFilters}
-    >
-      <button onClick={onClick} className="filters-button">
-        <i className="material-icons">filter_list</i>
-      </button>
-    </Popover>
-  </div>
-);
+export class FilterBox extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    this.input.blur();
+  }
+
+  render() {
+    const { value, onChange, onClick, isPopoverOpened, advancedFilters } = this.props;
+    return (
+       <div className="filter-box">
+         <form onSubmit={this.onSubmit} className="filters-search">
+           <i className="material-icons">search</i>
+           <input
+             ref={input => this.input = input}
+             value={value}
+             onChange={onChange}
+             placeholder="Pesquisar palestra, autor..."
+            />
+         </form>
+         <Popover
+           preferPlace="below"
+           refreshIntervalMs={100}
+           enterExitTransitionDurationMs={0}
+           onOuterAction={onClick}
+           isOpen={isPopoverOpened}
+           body={advancedFilters}
+         >
+           <button onClick={onClick} className="filters-button">
+             <i className="material-icons">filter_list</i>
+           </button>
+         </Popover>
+       </div>
+     );
+   }
+}
+
