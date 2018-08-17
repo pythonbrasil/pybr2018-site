@@ -1,5 +1,5 @@
 ${require('templates/partials/header.html') }
-<div id="content" class="intern-page-content">
+<div id="content" class="intern-page-content sponsor-container">
   <header class="intern-page__header">
     <h1 class="header__title">
       Nossos patrocinadores
@@ -54,10 +54,28 @@ ${require('templates/partials/header.html') }
         </div>
         <div class="sponsor__content--wrapper">
           <div class="sponsor__content">
-
-            <h3>Sebrae</h3>
+            <h3>SEBRAE</h3>
             <p>A Missão do SEBRAE é promover a competitividade e o desenvolvimento sustentável das micro e pequenas empresas e fomentar o empreendedorismo.</p>
             <a href="http://www.sebrae.com.br/sites/PortalSebrae" target="_blank">www.sebrae.com.br</a>
+          </div>
+        </div>
+      </article>
+    </section>
+    <section class="sponsor">
+      <div class="sponsor__header">
+        <h2>Patrocinadores Prata</h2>
+      </div>
+      <article class="sponsor__body--wrapper sponsor-silver">
+        <div class="sponsor__logo--wrapper">
+          <a class="sponsor-logo" target="_blank" href="https://www.labcodes.com.br/">
+            <img src="${require('img/logo-labcodes.svg') }" width="100%" alt="Labcodes Logo">
+          </a>
+        </div>
+        <div class="sponsor__content--wrapper">
+          <div class="sponsor__content">
+            <h3>Labcodes</h3>
+            <p>Nós ajudamos você a crescer seu negócio e transformar sua ideia em um produto. Desenvolvemos softwares com qualidade e escalabilidade de maneira ágil. Explorando as mais diversas tecnologias para ajudar seus negócios. Mantemos seu sistema funcionando de maneira leve e rápida.</p>
+            <a href="https://www.labcodes.com.br/" target="_blank">www.labcodes.com.br</a>
           </div>
         </div>
       </article>
@@ -68,7 +86,10 @@ ${require('templates/partials/header.html') }
       </div>
       <article class="partner__body--wrapper">
         <a class="partner-logo" target="_blank" href="https://cabotelecom.com.br/">
-          <img src="${require('img/logo-cabotelecom.png') }"  alt="Cabo Logo">
+          <img src="${require('img/logo-cabotelecom.svg') }"  alt="Cabo Logo">
+        </a>
+        <a class="partner-logo" target="_blank" href="https://www.python.org/psf/">
+          <img src="${require('img/logo-psf.svg') }"  alt="PSF Logo">
         </a>
       </article>
     </section>

@@ -99,45 +99,6 @@ ${require('templates/partials/header.html') }
               </div>
             </article>
           </div>
-          <!-- <section class="keynotes__list">
-            <article class="keynote__summary">
-              <div class="keynote__summary__body">
-                <header class="keynote__summary__title">
-
-                </header>
-                <p class="keynote__summary__text">
-
-                </p>
-              </div>
-              <div class="keynote__summary__photo">
-              </div>
-            </article>
-            <article class="keynote__summary">
-              <div class="keynote__summary__body">
-                <header class="keynote__summary__title">
-
-                </header>
-                <p class="keynote__summary__text">
-
-                </p>
-              </div>
-              <div class="keynote__summary__photo">
-              </div>
-            </article>
-            <article class="keynote__summary">
-              <div class="keynote__summary__body">
-                <header class="keynote__summary__title">
-
-                </header>
-                <p class="keynote__summary__text">
-
-                </p>
-              </div>
-              <div class="keynote__summary__photo">
-
-              </div>
-            </article>
-          </section -->
         </div>
       </div>
     </section>
@@ -151,15 +112,7 @@ ${require('templates/partials/header.html') }
               </h1>
             </div>
           </header>
-          <!-- <div class="sponsors__diamond">
-            <h2 class="sponsor-category-title">
-              DIAMANTE
-            </h2>
-            <ul class="sponsors__list">
-              <li class="sponsor" id="platinum">Em Breve</li>
-            </ul>
-          </div> -->
-          <div class="sponsors__platinum">
+          <div class="sponsors__platinum sponsor_box">
             <h2 class="sponsor-category-title">
               PLATINA
             </h2>
@@ -176,7 +129,7 @@ ${require('templates/partials/header.html') }
               </li>
             </ul>
           </div>
-          <div class="sponsors__gold">
+          <div class="sponsors__gold sponsor_box">
             <h2 class="sponsor-category-title">
               OURO
             </h2>
@@ -188,14 +141,18 @@ ${require('templates/partials/header.html') }
               </li>
             </ul>
           </div>
-          <!-- <div class="sponsors__silver">
+          <div class="sponsors__silver sponsor_box">
             <h2 class="sponsor-category-title">
               PRATA
             </h2>
             <ul class="sponsors__list">
-              <li class="sponsor" id="beASponsor">Em Breve</li>
+              <li class="sponsor">
+                <a class="partner" target="_blank" href="https://www.labcodes.com.br/">
+                  <img src="${require('img/logo-labcodes.svg') }" width="100%" alt="Sebrae Logo">
+                </a>
+              </li>
             </ul>
-          </div> -->
+          </div>
           <div class="sponsor-button-area">
             <div id="beASponsor" class="sponsor-button snake-button">
               <a href="/quero-patrocinar" class="pybr-button--light-blue">
@@ -218,7 +175,10 @@ ${require('templates/partials/header.html') }
           </header>
           <div class="partner-list">
             <a class="partner" target="_blank" href="https://cabotelecom.com.br/">
-              <img src="${require('img/logo-cabotelecom.png') }"  alt="Cabo Logo">
+              <img src="${require('img/logo-cabotelecom.svg') }"  alt="Cabo Logo">
+            </a>
+            <a class="partner" target="_blank" href="https://www.python.org/psf/">
+              <img src="${require('img/logo-psf.svg') }"  alt="PSF Logo">
             </a>
           </div>
         </div>

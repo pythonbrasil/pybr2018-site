@@ -1,24 +1,28 @@
+$sponsor-height: 130px;
 .partners-wrapper {
   @extend .about-wrapper;
   @include make-angle ($background-dark, 3);
   background-color: $background-dark;
+
   .partners-container {
     @extend .container;
-    .partners {
-      @extend .row;
-      .section-header-wrapper {
-        margin-bottom: 100px;
-        .section-header--right {
-          @extend .col-lg-6;
-          @extend .col-md-8;
-        }
-      }
-    }
+  }
+
+  .partners {
+    @extend .row;
+  }
+
+  .section-header-wrapper {
+    margin-bottom: 100px;
+  }
+
+  .section-header--right {
+    @extend .col-lg-6;
+    @extend .col-md-8;
   }
 }
 
 .partners {
-
   .partner-list {
     @extend .col-lg-12;
     display: flex;
@@ -31,8 +35,8 @@
     display: block;
 
     img {
-      height: 120px;
       margin-top: 20px;
+      height: 120px;
     }
   }
   .partner {
@@ -45,6 +49,27 @@
 
   .partner:last-child {
     margin-right: 0;
+  }
+}
+
+.sponsors__platinum {
+  img {
+    height: $sponsor-height * 2.25;
+    width: auto;
+  }
+}
+
+.sponsors__gold {
+  img {
+    height: $sponsor-height * 1.5;
+    width: auto;
+  }
+}
+
+.sponsors__silver {
+  img {
+    height: $sponsor-height;
+    width: auto;
   }
 }
 
