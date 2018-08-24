@@ -19,9 +19,11 @@ const Events = ({ scheduleInDate }) => (
             <React.Fragment>
               <h2 className="schedule_name">
                 {event.summary}
-                <span className={`schedule_category ${event.details.category.toLowerCase().replace(/\s/g, '-')}`}>
-                  {event.details.category}
-                </span>
+                {event.details.category &&
+                  <span className={`schedule_category ${event.details.category.toLowerCase().replace(/\s/g, '-')}`}>
+                    {event.details.category}
+                  </span>
+                }
               </h2>
               <h3 className="schedule_speaker">
                 {event.details.name}
