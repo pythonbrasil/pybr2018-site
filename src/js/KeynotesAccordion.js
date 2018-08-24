@@ -1,5 +1,11 @@
 const content = [
   {
+    title: 'Painel sobre dados abertos e tecnologias cívicas',
+    subtitle: 'Mediação: Mário Sérgio',
+    text: '<p>Não é novidade que o tema transparência está em pauta há algum tempo. A tecnologia e a sociedade evoluíram e demandam ainda mais do poder publico que informações e dados estejam disponíveis, e não só disponíveis, mas acessíveis de uma forma que possam se tornar úteis.</p><p>Isso acontece hoje? Temos visibilidade real de como somos governados? O que acontece com o dinheiro de nossos impostos? Quais são as dificuldades encontradas nesse processo?</p><p>A Python Brasil vai unir profissionais que estão trabalhando nessa área, buscando dados e transformando-os em informação diariamente e promovendo iniciativas de controle social na comunidade. Teremos a oportunidade de conhecer a realidade das pessoas que trabalham diariamente em uma missão que não e fácil.</p><p>O que você gostaria de saber?</p>',
+    externalLink: {name: 'Facebook Post', url: 'https://www.facebook.com/pythonbrasil/photos/a.582882565067606/2059147497441098/?type=3&theater'}
+  },
+  {
     title: 'Judite Cypreste',
     subtitle: 'Repórter no Aos Fatos',
     text: 'Judite Cypreste é repórter do Aos Fatos. Formada em letras pela PUC-RJ, está no 8º semestre de jornalismo na Uerj, onde também cursa pós-graduação em jornalismo cultural. Ex-trainee de jornalismo de dados da Folha de S.Paulo, realizou reportagens usando Python e raspagens de dados. É também autora do Projeto Coração Radiante, onde fez análise de sentimentos dos torcedores brasileiros durante a Copa do Mundo.',
