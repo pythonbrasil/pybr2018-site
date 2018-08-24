@@ -20,13 +20,20 @@
     @extend .col-sm-12;
     @extend .col-12;
   }
+
   .keynote_picture.keynote_picture-1 {
-    background: url('../img/keynote_pic_2.jpg') no-repeat;
+    background: url('../img/keynote_pic_3.png') no-repeat;
     background-position: center top;
     background-size: cover;
   }
 
   .keynote_picture.keynote_picture-2 {
+    background: url('../img/keynote_pic_2.jpg') no-repeat;
+    background-position: center top;
+    background-size: cover;
+  }
+
+  .keynote_picture.keynote_picture-3 {
     background: url('../img/keynote_pic_1.png') no-repeat;
     background-position: center top;
     background-size: cover;
@@ -56,12 +63,17 @@
     }
 
     .flag-2 {
+      background: url('../img/flag_br.svg') no-repeat;
+    }
+
+    .flag-3 {
       background: url('../img/flag_ng.svg') no-repeat;
     }
   }
 
   .keynote-title {
     font-size: 30px;
+    line-height: 1.2;
     text-transform: uppercase;
     margin-bottom: 0;
   }
@@ -134,11 +146,12 @@
     }
 
     h2 {
-      font-size: 20px;
+      font-size: 16px;
     }
 
     h3 {
-      font-size: 15px;
+      font-family: nunito;
+      font-size: 12px;
     }
   }
 
