@@ -69,8 +69,8 @@ const Events = ({ scheduleInDate }) => (
     </div>
     <div className="row w-100">
     {scheduleInDate.events.map(event => (
-      <div key={event.id} className={classNames('schedule_info', {
-        'col-xl-3 col-lg-6 col-sm-12 schedule-highlight': event.details.eventType !== 'Eventos Fixos'
+      <div key={event.id} className={classNames('schedule_info col-xl-3 col-lg-6 col-sm-12', {
+        'schedule-highlight': event.details.eventType !== 'Eventos Fixos'
       })}>
         {EventTypes(event)[event.details.eventType]}
       </div>
