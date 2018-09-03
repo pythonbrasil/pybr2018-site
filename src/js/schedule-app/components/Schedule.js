@@ -33,14 +33,14 @@ class Schedule extends React.Component {
 
   render() {
     const { store } = this.props;
-
+    const stickyOffset = document.querySelector('.header__nav').getBoundingClientRect().height;
     return (
       <StickyContainer>
-        <Sticky>
-          {({ style, isSticky }) => (
+        <Sticky topOffset={-stickyOffset}>
+          {({ style }) => (
             <div
-              className={classNames('filters', { 'sticky': isSticky })}
-              style={style}
+              className="filters"
+              style={{ ...style, top: stickyOffset  }}
             >
               <DayMenu days={store.days} />
               <FilterBox
