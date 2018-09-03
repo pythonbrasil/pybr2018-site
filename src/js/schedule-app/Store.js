@@ -13,7 +13,7 @@ class Store extends React.Component {
       searchFilter: '',
       isShowingAdvancedFilters: false
     }
-
+    
     this.actions = {
       onCategoryFilterChange: this.onFilterChange.bind(this, 'categoryFilter'),
       onTypeFilterChange: this.onFilterChange.bind(this, 'typeFilter'),
@@ -44,22 +44,38 @@ class Store extends React.Component {
         id: event.id,
         date: new Date(startDateTime),
         summary: event.summary,
+        location: event.location,
         details: {
           eventType: 'Eventos Fixos'
         }
       }
 
       if (event.description) {
-        const [ name, title, eventType, category, duration ] = event.description.split('|').map(i => i.trim());
+        const [
+          name,
+          title,
+          eventType,
+          ...params
+        ] = event.description.split('|').map(i => i.trim());
+
         pybrEvent.details = {
           name,
           title,
           eventType,
-          category,
-          duration
         };
+
+        switch(eventType) {
+          case 'Palestra':
+            const [ category ] = params;
+            pybrEvent.details.category = category;
+            !talksCategories.includes(category) && talksCategories.push(category);
+            break;
+          case 'Tutorial':
+            const [ duration, requirements, description ] = params;
+            pybrEvent.details = { ...pybrEvent.details, duration, requirements, description }
+            break;
+        }
         if (!eventTypes.includes(eventType)) eventTypes.push(eventType);
-        if (category && !talksCategories.includes(category)) talksCategories.push(category);
       }
       const eventsOnSameTime = days[dayOfEvent].find(h => h.date.getTime() == pybrEvent.date.getTime());
       if (!eventsOnSameTime) {
