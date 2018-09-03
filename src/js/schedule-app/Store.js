@@ -25,7 +25,7 @@ class Store extends React.Component {
   }
 
   reduceCalendarData(data) {
-    const days = {'17': [], '18': [], '22': []};
+    const days = {'22': []};
     const eventTypes = ['Eventos Fixos'];
     const talksCategories = [];
 
@@ -35,7 +35,7 @@ class Store extends React.Component {
         return;
       }
       const dayOfEvent = new Date(startDateTime).getDate();
-      if ([17, 18, 22].includes(dayOfEvent)) {
+      if ([22].includes(dayOfEvent)) {
         return;
       }
       if (!days[dayOfEvent]) days[dayOfEvent] = [];
@@ -50,12 +50,13 @@ class Store extends React.Component {
       }
 
       if (event.description) {
-        const [ name, title, eventType, category ] = event.description.split('|').map(i => i.trim());
+        const [ name, title, eventType, category, duration ] = event.description.split('|').map(i => i.trim());
         pybrEvent.details = {
           name,
           title,
           eventType,
           category,
+          duration
         };
         if (!eventTypes.includes(eventType)) eventTypes.push(eventType);
         if (category && !talksCategories.includes(category)) talksCategories.push(category);

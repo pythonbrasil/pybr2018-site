@@ -2,13 +2,13 @@ export function getDayLabel(day){
   switch(day){
     case '17':
     case '18':
-      return 'Sprints';
+      return 'Tutoriais';
     case '19':
     case '20':
     case '21':
       return 'Palestras'
     default:
-      return 'Tutoriais'
+      return 'Sprints'
   }
 }
 
