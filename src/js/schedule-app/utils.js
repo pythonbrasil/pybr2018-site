@@ -1,3 +1,5 @@
+import moment from 'moment-timezone';
+
 export function getDayLabel(day){
   switch(day){
     case '17':
@@ -13,8 +15,5 @@ export function getDayLabel(day){
 }
 
 export function getFormattedTime(time) {
-  const hours = time.getHours();
-  const minutes = time.getMinutes();
-
-  return `${hours < 10 ? '0' + hours : hours}h${minutes < 10 ? '0' + minutes : minutes}`;
+  return moment(time).tz('America/Fortaleza').format('HH[h]mm');
 }
