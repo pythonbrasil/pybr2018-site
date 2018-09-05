@@ -22,18 +22,24 @@
   }
 
   .keynote_picture.keynote_picture-1 {
-    background: url('../img/keynote_pic_3.png') no-repeat;
+    background: url('../img/keynote_pic_4.png') no-repeat;
     background-position: center top;
     background-size: cover;
   }
 
   .keynote_picture.keynote_picture-2 {
-    background: url('../img/keynote_pic_2.jpg') no-repeat;
+    background: url('../img/keynote_pic_3.png') no-repeat;
     background-position: center top;
     background-size: cover;
   }
 
   .keynote_picture.keynote_picture-3 {
+    background: url('../img/keynote_pic_2.jpg') no-repeat;
+    background-position: center top;
+    background-size: cover;
+  }
+
+  .keynote_picture.keynote_picture-4 {
     background: url('../img/keynote_pic_1.png') no-repeat;
     background-position: center top;
     background-size: cover;
@@ -67,6 +73,10 @@
     }
 
     .flag-3 {
+      background: url('../img/flag_br.svg') no-repeat;
+    }
+
+    .flag-4 {
       background: url('../img/flag_ng.svg') no-repeat;
     }
   }
