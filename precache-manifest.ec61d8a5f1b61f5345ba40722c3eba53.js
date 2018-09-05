@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/Plano_patrocinio_PythonBR_2018_V5.pdf"
   },
   {
-    "url": "/main.ec3e09c2527a2f25eacc.js"
+    "url": "/main.a3fb6cb052632600e853.js"
   },
   {
     "revision": "d1d1cc4d32b48d83ccfb927167613525",
@@ -69,11 +69,11 @@ self.__precacheManifest = [
     "url": "/cace3226fc585b35e358235e2e463b77.svg"
   },
   {
-    "revision": "1c9fc94978e2f9605636",
+    "revision": "99322a5eb02ba7e563c6",
     "url": "/d5eb256ea7997e27a38684574f32c3c6.css"
   },
   {
-    "url": "/66c5c1f941cd0dd1f9f3e9425047efd9.svg"
+    "url": "/ad35fa18a9bb7058faeeedb6d6d2a274.svg"
   },
   {
     "url": "/4429bbb1fadd88660033c60e25b0d6d0.svg"
@@ -82,13 +82,13 @@ self.__precacheManifest = [
     "url": "/46668940aafca45e08d6f0dbde7e9556.svg"
   },
   {
-    "url": "/8a84d937145140ca758b360009fa410d.svg"
+    "url": "/bccf71d1f7059651960c22c8acfa48b5.svg"
   },
   {
     "url": "/57f237244d6b7ad5a58c9d477b82014e.png"
   },
   {
-    "url": "/745113de3d06753dafba58ebc50c5dc4.svg"
+    "url": "/8a84d937145140ca758b360009fa410d.svg"
   },
   {
     "url": "/be9a8528c86f8622188cf6d9186209e5.png"
@@ -97,7 +97,7 @@ self.__precacheManifest = [
     "url": "/5cda9de029659fb6f704f6d6f6de986d.svg"
   },
   {
-    "url": "/ad35fa18a9bb7058faeeedb6d6d2a274.svg"
+    "url": "/745113de3d06753dafba58ebc50c5dc4.svg"
   },
   {
     "url": "/57aa2a48d7ee76ec1157fdc019230d3a.svg"
@@ -118,17 +118,17 @@ self.__precacheManifest = [
     "url": "/c22837bb7402c8a41ccd916da1fd8da4.svg"
   },
   {
-    "url": "/bccf71d1f7059651960c22c8acfa48b5.svg"
+    "url": "/a262af624dbca4dc2228269c1428bff8.svg"
   },
   {
-    "url": "/a262af624dbca4dc2228269c1428bff8.svg"
+    "url": "/46e3f79e1df67592da7547bb7eb74e1d.svg"
   },
   {
     "revision": "6f28af5ea8fcf8c0c3e678552076ed5e",
     "url": "/PythonBR14-MidiaKit.zip"
   },
   {
-    "url": "/46e3f79e1df67592da7547bb7eb74e1d.svg"
+    "url": "/66c5c1f941cd0dd1f9f3e9425047efd9.svg"
   },
   {
     "url": "/659d2f554a53d7375c98c1ce2ff95db1.png"
