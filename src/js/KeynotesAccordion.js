@@ -1,5 +1,11 @@
 const content = [
   {
+    title: 'Daniela Petruzalek',
+    subtitle: 'Consultora de Desenvolvimento sênior na Thoughtworks',
+    text: '<p>Daniela Petruzalek é formada em Análise e Desenvolvimento de Sistemas. Ao longo de 14 anos de carreira já trabalhou com diversos tipos de sistemas, de firmware em sistemas embarcados a aplicações web, mas hoje atua principalmente com Big Data e Machine Learning. Também é reconhecida pelo Google como Google Developer Expert (GDE) em Google Cloud Platform e é uma das líderes do Women Who Go, iniciativa voltada a inclusão de mulheres na comunidade Go. Nas horas vagas gosta de praticar corrida de rua, video games e apertar os seus dois gatos pretos =^.^=</p>',
+    externalLink: {name: 'LinkedIn', url: 'https://www.linkedin.com/in/petruzalek/'}
+  },
+  {
     title: 'Painel sobre dados abertos e tecnologias cívicas',
     subtitle: 'Mediação: Mário Sérgio',
     text: '<p>Não é novidade que o tema transparência está em pauta há algum tempo. A tecnologia e a sociedade evoluíram e demandam ainda mais do poder publico que informações e dados estejam disponíveis, e não só disponíveis, mas acessíveis de uma forma que possam se tornar úteis.</p><p>Isso acontece hoje? Temos visibilidade real de como somos governados? O que acontece com o dinheiro de nossos impostos? Quais são as dificuldades encontradas nesse processo?</p><p>A Python Brasil vai unir profissionais que estão trabalhando nessa área, buscando dados e transformando-os em informação diariamente e promovendo iniciativas de controle social na comunidade. Teremos a oportunidade de conhecer a realidade das pessoas que trabalham diariamente em uma missão que não e fácil.</p><p>O que você gostaria de saber?</p>',
