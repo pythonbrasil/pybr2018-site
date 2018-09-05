@@ -1,5 +1,6 @@
 import React from 'react';
 import map from 'lodash/map';
+import reduce from 'lodash/reduce';
 import classNames from 'classnames';
 import { Sticky, StickyContainer } from 'react-sticky';
 import DayMenu from './DayMenu';
@@ -29,6 +30,20 @@ class Schedule extends React.Component {
       offset: -anchorsOffset - 120
     });
     this.anchors.start();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.store.days) {
+      let items = 0;
+      for (let key in this.props.store.days) {
+        items += this.props.store.days[key].length;
+      }
+
+      if (items !== this.amountOfDays) {
+        this.amountOfDays = items;
+        this.anchors.scrollTo('.schedule-page', { minDuration: 0, maxDuration: 0 });
+      }
+    }
   }
 
   render() {
