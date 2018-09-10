@@ -56,10 +56,6 @@ function init(path) {
   if (path.startsWith('/programacao')) {
     new Schedule();
   }
-
-  if (path === '/' || path === '/index.html') {
-    new KeynotesAccordion();
-  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
