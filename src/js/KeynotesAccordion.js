@@ -25,46 +25,46 @@ const content = [
   }
 ];
 
-class KeynotesAccordion {
-  constructor() {
-    this.container = document.querySelector('#keynotes');
-    this.articleDOMObjects = {
-      flag: this.container.querySelector('.keynote_flag'),
-      picture: this.container.querySelector('.keynote_picture'),
-      title: this.container.querySelector('.keynote-title'),
-      subtitle: this.container.querySelector('.keynote-subtitle'),
-      text: this.container.querySelector('.keynote-text'),
-      externalLink: this.container.querySelector('.keynote-button-area a')
-    };
-    this.initializeMenu();
-    this.changeCurrentKeynote(0);
-  }
-
-  initializeMenu() {
-    const menuContainer = Array.from(this.container.querySelectorAll('.accordion-tabs li'));
-    menuContainer.forEach((menuItem, index) => {
-      menuItem.querySelector('.tab-link').addEventListener('click', this.changeCurrentKeynote.bind(this, index));
-    })
-  }
-
-  changeCurrentKeynote(index, e) {
-
-    if (e)
-      e.preventDefault();
-    const { flag, picture, externalLink, text, ...article } = this.articleDOMObjects;
-    flag.setAttribute('class', `keynote_flag flag-${index+1}`);
-    picture.setAttribute('class', `keynote_picture keynote_picture-${index+1}`);
-    externalLink.setAttribute('href', content[index].externalLink.url);
-    externalLink.innerText = content[index].externalLink.name;
-    const textHtml = (new DOMParser).parseFromString(content[index].text, 'text/html');
-    text.innerHTML = '';
-    for (const node of Array.from(textHtml.body.childNodes)) {
-      text.appendChild(node);
-    }
-    for (const articleProperty in article) {
-      article[articleProperty].innerText = content[index][articleProperty];
-    }
-  }
-}
-
-export default KeynotesAccordion;
+// class KeynotesAccordion {
+//   constructor() {
+//     this.container = document.querySelector('#keynotes');
+//     this.articleDOMObjects = {
+//       flag: this.container.querySelector('.keynote_flag'),
+//       picture: this.container.querySelector('.keynote_picture'),
+//       title: this.container.querySelector('.keynote-title'),
+//       subtitle: this.container.querySelector('.keynote-subtitle'),
+//       text: this.container.querySelector('.keynote-text'),
+//       externalLink: this.container.querySelector('.keynote-button-area a')
+//     };
+//     this.initializeMenu();
+//     this.changeCurrentKeynote(0);
+//   }
+//
+//   initializeMenu() {
+//     const menuContainer = Array.from(this.container.querySelectorAll('.accordion-tabs li'));
+//     menuContainer.forEach((menuItem, index) => {
+//       menuItem.querySelector('.tab-link').addEventListener('click', this.changeCurrentKeynote.bind(this, index));
+//     })
+//   }
+//
+//   changeCurrentKeynote(index, e) {
+//
+//     if (e)
+//       e.preventDefault();
+//     const { flag, picture, externalLink, text, ...article } = this.articleDOMObjects;
+//     flag.setAttribute('class', `keynote_flag flag-${index+1}`);
+//     picture.setAttribute('class', `keynote_picture keynote_picture-${index+1}`);
+//     externalLink.setAttribute('href', content[index].externalLink.url);
+//     externalLink.innerText = content[index].externalLink.name;
+//     const textHtml = (new DOMParser).parseFromString(content[index].text, 'text/html');
+//     text.innerHTML = '';
+//     for (const node of Array.from(textHtml.body.childNodes)) {
+//       text.appendChild(node);
+//     }
+//     for (const articleProperty in article) {
+//       article[articleProperty].innerText = content[index][articleProperty];
+//     }
+//   }
+// }
+//
+// export default KeynotesAccordion;

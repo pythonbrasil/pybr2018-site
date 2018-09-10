@@ -6,83 +6,47 @@
   @extend .container;
   .keynotes {
     @extend .row;
+    @extend .d-flex;
+    @extend .justify-content-center;
   }
 }
 
 .keynote_article {
-  width: 100%;
+  @extend .col-11;
   @extend .row;
   margin: 40px 0;
 
-  .keynote_picture, .keynote_content-wrapper {
-    @extend .col-lg-6;
+  &:nth-child(odd) {
+    flex-direction: row-reverse;
+
+    .keynote_content-wrapper {
+      text-align: right;
+    }
+  }
+
+  .keynote_picture {
+    @extend .col-lg-4;
     @extend .col-md-12;
     @extend .col-sm-12;
     @extend .col-12;
   }
 
-  .keynote_picture.keynote_picture-1 {
-    background: url('../img/keynote_pic_4.png') no-repeat;
-    background-position: center top;
-    background-size: cover;
-  }
-
-  .keynote_picture.keynote_picture-2 {
-    background: url('../img/keynote_pic_3.png') no-repeat;
-    background-position: center top;
-    background-size: cover;
-  }
-
-  .keynote_picture.keynote_picture-3 {
-    background: url('../img/keynote_pic_2.jpg') no-repeat;
-    background-position: center top;
-    background-size: cover;
-  }
-
-  .keynote_picture.keynote_picture-4 {
-    background: url('../img/keynote_pic_1.png') no-repeat;
-    background-position: center top;
-    background-size: cover;
+  .keynote_content-wrapper {
+    @extend .col-lg-8;
+    @extend .col-md-12;
+    @extend .col-sm-12;
+    @extend .col-12;
   }
 
   .keynote_content-wrapper {
     @extend .d-flex;
-    justify-content: space-between;
     flex-direction: column;
-    padding: 60px 40px 40px;
-    background: $dark-blue;
-    color: white;
+    padding-left: 20px;
     position: relative;
-
-    .keynote_flag {
-      content: '';
-      display: block;
-      height: 30px;
-      width: 60px;
-      position: absolute;
-      top: 20px;
-      left: 40px;
-    }
-
-    .flag-1 {
-      background: url('../img/flag_br.svg') no-repeat;
-    }
-
-    .flag-2 {
-      background: url('../img/flag_br.svg') no-repeat;
-    }
-
-    .flag-3 {
-      background: url('../img/flag_br.svg') no-repeat;
-    }
-
-    .flag-4 {
-      background: url('../img/flag_ng.svg') no-repeat;
-    }
   }
 
   .keynote-title {
-    font-size: 30px;
+    font-size: 25px;
     line-height: 1.2;
     text-transform: uppercase;
     margin-bottom: 0;
@@ -91,7 +55,14 @@
   .keynote-subtitle {
     font-size: 20px;
     font-weight: 400;
-    margin-bottom: 20px;
+  }
+
+  .keynote-link {
+    font-size: 16px;
+    color: $light-blue;
+    padding-left: 10px;
+    margin-left: 5px;
+    border-left: 1px solid $light-blue;
   }
 
   .keynote-text p {
@@ -172,24 +143,25 @@
 
 @media (max-width: $breakpoint-md) {
   .keynote_article {
-    margin-left: 0;
+    margin: 0 auto;
+    margin-bottom: 30px;
+
+    &:nth-child(odd) {
+      flex-direction: row;
+
+      .keynote_content-wrapper {
+        text-align: left;
+      }
+    }
 
     .keynote_picture {
-      height: 500px;
+      margin-bottom: 30px;
     }
   }
 
   .accordion-tabs {
     .tab-header-and-content {
       width: 50%;
-    }
-  }
-}
-
-@media (max-width: $breakpoint-sm) {
-  .keynote_article {
-    .keynote_picture {
-      height: 400px;
     }
   }
 }

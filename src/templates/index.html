@@ -63,59 +63,46 @@ ${require('templates/partials/header.html') }
               </h1>
             </div>
           </header>
-          <div>
-            <ul class="accordion-tabs">
-              <li class="tab-header-and-content">
-                <a href="#" class="tab-link">
-                  <img src="${require('img/keynote_pic_4.png') }" width="100%" alt="Keynote">
-                  <div class="tab-subtitle">
-                    <h2>Daniela Petruzalek</h2>
-                    <h3>Consultora de Desenvolvimento sênior na Thoughtworks</h3>
-                  </div>
-                </a>
-              </li>
-              <li class="tab-header-and-content">
-                <a href="#" class="tab-link">
-                  <img src="${require('img/keynote_pic_3.png') }" width="100%" alt="Keynote">
-                  <div class="tab-subtitle">
-                    <h2>Painel sobre dados abertos e tecnologias cívicas</h2>
-                  </div>
-                </a>
-              </li>
-              <li class="tab-header-and-content">
-                <a href="#" class="tab-link">
-                  <img src="${require('img/keynote_pic_2.jpg') }" width="100%" alt="Keynote">
-                  <div class="tab-subtitle">
-                    <h2>Judite Cypreste</h2>
-                    <h3>Repórter no Aos Fatos</h3>
-                  </div>
-                </a>
-              </li>
-              <li class="tab-header-and-content">
-                <a href="#" class="tab-link">
-                  <img src="${require('img/keynote_pic_1.png') }" width="100%" alt="Keynote">
-                  <div class="tab-subtitle">
-                    <h2>Aisha Bello</h2>
-                    <h3>Virtual Systems Engineer at Cisco</h3>
-                  </div>
-                </a>
-              </li>
-            </ul>
-            <article class="keynote_article">
-              <div class="keynote_picture keynote_picture-1" alt="Foto de Aisha Bello">
+          <article class="keynote_article">
+            <div class="keynote_picture keynote_picture-1"><img src="${require('img/keynote_pic_4.png') }" width="100%" alt="Keynote"></div>
+            <div class="keynote_content-wrapper">
+              <h2 class="keynote-title">Daniela Petruzalek</h2>
+              <h3 class="keynote-subtitle">Consultora de Desenvolvimento sênior na Thoughtworks <a href="https://www.linkedin.com/in/petruzalek/" class="keynote-link" target="_blank">LinkedIn</a></h3>
+              <div class="keynote-text">
+                <p>Daniela Petruzalek é formada em Análise e Desenvolvimento de Sistemas. Ao longo de 14 anos de carreira já trabalhou com diversos tipos de sistemas, de firmware em sistemas embarcados a aplicações web, mas hoje atua principalmente com Big Data e Machine Learning. Também é reconhecida pelo Google como Google Developer Expert (GDE) em Google Cloud Platform e é uma das líderes do Women Who Go, iniciativa voltada a inclusão de mulheres na comunidade Go. Nas horas vagas gosta de praticar corrida de rua, video games e apertar os seus dois gatos pretos =^.^=</p>
               </div>
-              <div class="keynote_content-wrapper">
-                <span class="keynote_flag flag-1"></span>
-                <h2 class="keynote-title"></h2>
-                <h3 class="keynote-subtitle"></h3>
-                <div class="keynote-text">
-                </div>
-                <div class="keynote-button-area">
-                  <a href="https://www.linkedin.com/in/aishaobello/" class="keynote-button pybr-button--light button-bg--dark" target="_blank">LinkedIn</a>
-                </div>
+            </div>
+          </article>
+          <article class="keynote_article">
+            <div class="keynote_picture keynote_picture-1"><img src="${require('img/keynote_pic_3.png') }" width="100%" alt="Keynote"></div>
+            <div class="keynote_content-wrapper">
+              <h2 class="keynote-title">Painel sobre dados abertos e tecnologias cívicas</h2>
+              <h3 class="keynote-subtitle">Mediação: Mário Sérgio <a href="https://www.facebook.com/pythonbrasil/photos/a.582882565067606/2059147497441098/?type=3&theater" class="keynote-link" target="_blank">Facebook Post</a></h3>
+              <div class="keynote-text">
+                <p>Não é novidade que o tema transparência está em pauta há algum tempo. A tecnologia e a sociedade evoluíram e demandam ainda mais do poder publico que informações e dados estejam disponíveis, e não só disponíveis, mas acessíveis de uma forma que possam se tornar úteis.</p><p>Isso acontece hoje? Temos visibilidade real de como somos governados? O que acontece com o dinheiro de nossos impostos? Quais são as dificuldades encontradas nesse processo? A Python Brasil vai unir profissionais que estão trabalhando nessa área, buscando dados e transformando-os em informação diariamente e promovendo iniciativas de controle social na comunidade. Teremos a oportunidade de conhecer a realidade das pessoas que trabalham diariamente em uma missão que não e fácil.</p>
               </div>
-            </article>
-          </div>
+            </div>
+          </article>
+          <article class="keynote_article">
+            <div class="keynote_picture keynote_picture-1"><img src="${require('img/keynote_pic_2.jpg') }" width="100%" alt="Keynote"></div>
+            <div class="keynote_content-wrapper">
+              <h2 class="keynote-title">Judite Cypreste</h2>
+              <h3 class="keynote-subtitle">Repórter no Aos Fatos <a href="https://medium.com/projeto-cora%C3%A7%C3%A3o-radiante" class="keynote-link" target="_blank">Medium</a></h3>
+              <div class="keynote-text">
+                <p>Judite Cypreste é repórter do Aos Fatos. Formada em letras pela PUC-RJ, está no 8º semestre de jornalismo na Uerj, onde também cursa pós-graduação em jornalismo cultural. Ex-trainee de jornalismo de dados da Folha de S.Paulo, realizou reportagens usando Python e raspagens de dados. É também autora do Projeto Coração Radiante, onde fez análise de sentimentos dos torcedores brasileiros durante a Copa do Mundo.</p>
+              </div>
+            </div>
+          </article>
+          <article class="keynote_article">
+            <div class="keynote_picture"><img src="${require('img/keynote_pic_1.png') }" width="100%" alt="Keynote"></div>
+            <div class="keynote_content-wrapper">
+              <h2 class="keynote-title">Aisha Bello</h2>
+              <h3 class="keynote-subtitle">Virtual Systems Engineer at Cisco <a href="https://www.linkedin.com/in/aishaobello/" class="keynote-link" target="_blank">LinkedIn</a></h3>
+              <div class="keynote-text">
+                <p>Em 2015 Aisha ganhou o prêmio <i>Malcolm Tredinnick Memorial Django</i> por sua contribuição para a comunidade por meio do seu trabalho no DjangoGirls. Em 2017 ela foi honrada pela Python Software Foundation como PSF Fellow.</p><p>Além de ser vice presidente da Python Users Nigeria Group, Aisha organizou o primeiro evento de Django Girls na Nigéria e ajudou a organizar muitos workshops em Namíbia e na Nigéria. Atualmente atua como membro de uma equipe de suporte para DjangoGirls. Foi uma das fundadoras e co-organizadoras do PyLadies Nigeria, onde ensina meninas e mulheres a codar em Python. Também co-organiza e atua como presidente de conferência da PyCon Nigeria.</p><p>Aisha é uma entusiasta da comunidade Python com uma forte paixão por mudança social, educação tecnológica e empoderamento das mulheres na África. Atualmente Aisha trabalha como Engenheira de Sistemas Virtuais na Cisco Systems Nigeria, como Especialista em DataCenter para clientes corporativos.</p>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
