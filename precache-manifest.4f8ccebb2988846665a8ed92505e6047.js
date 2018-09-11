@@ -1,9 +1,9 @@
 self.__precacheManifest = [
   {
-    "url": "/ad35fa18a9bb7058faeeedb6d6d2a274.svg"
+    "url": "/d8bc8ada804c39bd271c7ad46170b546.svg"
   },
   {
-    "url": "/main.bbbb8fe2df82b7c7435f.js"
+    "url": "/main.8de638d0283263b5c2c2.js"
   },
   {
     "revision": "d1d1cc4d32b48d83ccfb927167613525",
@@ -51,6 +51,16 @@ self.__precacheManifest = [
     "url": "/icon192.png"
   },
   {
+    "url": "/745113de3d06753dafba58ebc50c5dc4.svg"
+  },
+  {
+    "revision": "2bd16c4915397767ea77a73e88d05137",
+    "url": "/icon168.png"
+  },
+  {
+    "url": "/ad35fa18a9bb7058faeeedb6d6d2a274.svg"
+  },
+  {
     "url": "/a209d0cd4e6902352a419f276d5dde03.svg"
   },
   {
@@ -58,13 +68,6 @@ self.__precacheManifest = [
   },
   {
     "url": "/69454a80c352c399644073b2d991d6ae.svg"
-  },
-  {
-    "revision": "2bd16c4915397767ea77a73e88d05137",
-    "url": "/icon168.png"
-  },
-  {
-    "url": "/d8bc8ada804c39bd271c7ad46170b546.svg"
   },
   {
     "revision": "5d9ab7c33b3ef525e472cdd94cf6a3be",
@@ -75,21 +78,17 @@ self.__precacheManifest = [
     "url": "/icon48.png"
   },
   {
-    "revision": "859f41f450233fc20621",
-    "url": "/b26c41e2b5c032f0b87e1645fe54aaf2.css"
-  },
-  {
-    "url": "/745113de3d06753dafba58ebc50c5dc4.svg"
+    "url": "/d63efcfdc56c853dd75c34c995806ed8.svg"
   },
   {
     "revision": "6f28af5ea8fcf8c0c3e678552076ed5e",
     "url": "/PythonBR14-MidiaKit.zip"
   },
   {
-    "url": "/d63efcfdc56c853dd75c34c995806ed8.svg"
+    "url": "/cace3226fc585b35e358235e2e463b77.svg"
   },
   {
-    "url": "/cace3226fc585b35e358235e2e463b77.svg"
+    "url": "/e39b39fd14903457ea5f15a79c8cdf19.svg"
   },
   {
     "url": "/93c99659839080655f572ebeec7f74b4.jpg"
@@ -98,7 +97,7 @@ self.__precacheManifest = [
     "url": "/be9a8528c86f8622188cf6d9186209e5.png"
   },
   {
-    "url": "/e39b39fd14903457ea5f15a79c8cdf19.svg"
+    "url": "/a1cb45781a9958b2542736ff0f094dcd.svg"
   },
   {
     "url": "/fe2203988e4d283e51dc0a80b8041b19.svg"
@@ -107,10 +106,8 @@ self.__precacheManifest = [
     "url": "/c1e6bce66e35f88b2fdd73d713b8598e.svg"
   },
   {
-    "url": "/a1cb45781a9958b2542736ff0f094dcd.svg"
-  },
-  {
-    "url": "/242d582d169012952f39df817f46b817.png"
+    "revision": "134be10fe00e8a38c2be",
+    "url": "/2bb78e3dfce97cfaa6fc867da1a972b2.css"
   },
   {
     "url": "/659d2f554a53d7375c98c1ce2ff95db1.png"
@@ -129,6 +126,9 @@ self.__precacheManifest = [
   },
   {
     "url": "/4429bbb1fadd88660033c60e25b0d6d0.svg"
+  },
+  {
+    "url": "/242d582d169012952f39df817f46b817.png"
   },
   {
     "url": "/1c14c20d9014206828a1a15ba7f2418b.ico"
