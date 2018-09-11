@@ -25,8 +25,8 @@ class Store extends React.Component {
   }
 
   reduceCalendarData(data) {
-    const days = {'22': []};
-    const eventTypes = ['Eventos Fixos'];
+    const days = {};
+    const eventTypes = ['Eventos Fixos', 'Sprints'];
     const talksCategories = [];
 
     data.items.forEach(event => {
@@ -35,9 +35,6 @@ class Store extends React.Component {
         return;
       }
       const dayOfEvent = new Date(startDateTime).getDate();
-      if ([22].includes(dayOfEvent)) {
-        return;
-      }
       if (!days[dayOfEvent]) days[dayOfEvent] = [];
 
       const pybrEvent = {
@@ -46,7 +43,7 @@ class Store extends React.Component {
         summary: event.summary,
         location: event.location,
         details: {
-          eventType: 'Eventos Fixos'
+          eventType: event.summary === 'Sprints' ? event.summary : 'Eventos Fixos'
         }
       }
 
@@ -73,6 +70,9 @@ class Store extends React.Component {
           case 'Tutorial':
             const [ duration, requirements, description ] = params;
             pybrEvent.details = { ...pybrEvent.details, duration, requirements, description }
+            break;
+          case undefined:
+            pybrEvent.details = { eventType: 'Sprints', description: name };
             break;
         }
         if (!eventTypes.includes(eventType)) eventTypes.push(eventType);

@@ -57,7 +57,17 @@ const EventTypes = (event) => ({
         {event.details.title}
       </h4>
     </React.Fragment>
-  )
+  ),
+  ['Sprints']: (
+    <React.Fragment>
+      <h2 className="schedule_name">
+        {event.summary}
+      </h2>
+      <h3 className="schedule_speaker">
+        {event.details.description}
+      </h3>
+    </React.Fragment>
+  ),
 });
 
 const Events = ({ scheduleInDate }) => (
