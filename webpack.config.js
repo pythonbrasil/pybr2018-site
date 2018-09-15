@@ -50,10 +50,13 @@ module.exports = {
           loader: 'file-loader',
           options: {
             name(file) {
-              if (file.match(/\.zip$|\.pdf$|icon([0-9].*).png$/)) {
-                return '[name].[ext]';
+              if (file.match(/\.zip$|\.pdf$/)) {
+                return './documents/[name].[ext]';
               }
-              return '[hash].[ext]';
+              if (file.match(/icon([0-9].*).png$/)) {
+                return './assets/[name].[ext]';
+              }
+              return './assets/[hash].[ext]';
             }
           }
         },
