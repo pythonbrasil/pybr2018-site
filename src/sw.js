@@ -8,9 +8,7 @@ const initialCache = [
 .concat(self.__precacheManifest.map(item => item.url))
 .map(url => new Request(url, { redirect: 'follow' }));
 
-const isAsset = url => url.match(/(\/assets\/.*$|fonts\.(googleapis|gstatic))/);
-const isGoogleResource = url => url.match(/fonts|google/);
-const isTemplate = url => !isAsset(url) && !isGoogleResource(url) && !url.endsWith('/');
+const isFileResource = /(\.[a-z]*$)/;
 
 function onInstall(event) {
   console.log('Service Worker registered');
@@ -26,10 +24,12 @@ self.addEventListener('install', onInstall);
 function onFetch(event) {
   event.respondWith(
     caches.open(CACHE_VERSION).then(cache => {
-      if (isAsset(event.request.url)) {
+      if (!event.request.url.endsWith('bundle.js')) {
+        if (event.request.url.match(isFileResource) || event.request.url.includes('fonts')) {
           return retrieveFromCache({ event, cache })
             .catch(fetchAndCache)
         }
+      }
       return fetchAndCache({ event, cache })
         .catch((() => retrieveFromCache({ event, cache })));
     })
@@ -39,7 +39,7 @@ function onFetch(event) {
 function fetchAndCache({ event, cache }) {
   console.log(`Adding resource ${event.request.url} to the cache.`);
   let url = event.request.url;
-  if (isTemplate(url)) {
+  if (!url.match(isFileResource) && !url.endsWith('/') && !url.includes('google') && !event.request.url.includes('fonts')) {
     url = url.concat('/');
   }
   const request = new Request(
