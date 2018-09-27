@@ -1,7 +1,7 @@
 $sponsor-height: 130px;
 .partners-wrapper {
   @extend .about-wrapper;
-  @include make-angle ($background-dark, 3);
+  @include make-angle ($background-dark, 0);
   background-color: $background-dark;
 
   .partners-container {
