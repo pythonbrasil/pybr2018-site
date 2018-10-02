@@ -9,8 +9,9 @@ const initialCache = [
 .map(url => new Request(url, { redirect: 'follow' }));
 
 const isAsset = url => url.match(/(\/assets\/.*$|fonts\.(googleapis|gstatic))|\.css$|\.js$/);
+const isDocument = url => url.match(/\/documents\//);
 const isGoogleResource = url => url.match(/fonts|google/);
-const isTemplate = url => !isAsset(url) && !isGoogleResource(url) && !url.endsWith('/');
+const isTemplate = url => !isDocument(url) && !isAsset(url) && !isGoogleResource(url) && !url.endsWith('/');
 
 function onInstall(event) {
   console.log('Service Worker registered');
