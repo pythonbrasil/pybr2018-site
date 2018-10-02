@@ -7,31 +7,31 @@
   "background_color": "#102E46",
   "description": "The web app for Python Brazil 14.",
   "icons": [{
-    "src": "icon48.png",
+    "src": "assets/icon48.png",
     "sizes": "48x48",
     "type": "image/png"
   }, {
-    "src": "icon72.png",
+    "src": "assets/icon72.png",
     "sizes": "72x72",
     "type": "image/png"
   }, {
-    "src": "icon96.png",
+    "src": "assets/icon96.png",
     "sizes": "96x96",
     "type": "image/png"
   }, {
-    "src": "icon144.png",
+    "src": "assets/icon144.png",
     "sizes": "144x144",
     "type": "image/png"
   }, {
-    "src": "icon168.png",
+    "src": "assets/icon168.png",
     "sizes": "168x168",
     "type": "image/png"
   }, {
-    "src": "icon192.png",
+    "src": "assets/icon192.png",
     "sizes": "192x192",
     "type": "image/png"
   }, {
-    "src": "icon512.png",
+    "src": "assets/icon512.png",
     "sizes": "512x512",
     "type": "image/png"
   }]
