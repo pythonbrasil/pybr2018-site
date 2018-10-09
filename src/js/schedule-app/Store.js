@@ -75,7 +75,7 @@ class Store extends React.Component {
             pybrEvent.details = { eventType: 'Sprints', description: name };
             break;
         }
-        if (!eventTypes.includes(eventType)) eventTypes.push(eventType);
+        if (eventType && !eventTypes.includes(eventType)) eventTypes.push(eventType);
       }
       const eventsOnSameTime = days[dayOfEvent].find(h => h.date.getTime() == pybrEvent.date.getTime());
       if (!eventsOnSameTime) {
