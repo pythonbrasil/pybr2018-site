@@ -1,7 +1,7 @@
 {
   "name": "Python Brasil 14",
   "short_name": "PyBR 14",
-  "start_url": "index.html",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#102E46",
   "background_color": "#102E46",
