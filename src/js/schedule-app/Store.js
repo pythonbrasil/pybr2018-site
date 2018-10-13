@@ -143,11 +143,14 @@ class Store extends React.Component {
   }
 
   filterEvents(acc, { date, events }) {
+    const rooms = ['Sala Tapioca', 'Sala Rapadura', 'Sala Macaxeira', 'Sala Jerimum'];
     const filteredEvents = events.filter(event => (
       this.state.typeFilter.includes(event.details.eventType)
         && (!event.details.category || this.state.categoryFilter.includes(event.details.category))
         && (!this.state.searchFilter || this.checkSearchMatch(event))
-    ));
+    )).sort((a, b) => {
+      const room = indexOf()
+    })
     if (filteredEvents.length)
       return [ ...acc, { date, events: filteredEvents } ];
     return acc;

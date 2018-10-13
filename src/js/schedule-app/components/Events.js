@@ -22,6 +22,9 @@ const EventTypes = (event) => ({
       <h4 className="schedule_office">
         {event.details.title}
       </h4>
+      <h4 className="schedule_office">
+        {event.location}
+      </h4>
     </React.Fragment>
   ),
   ['Tutorial']: (
@@ -37,6 +40,9 @@ const EventTypes = (event) => ({
       </h3>
       <h4 className="schedule_office">
         {event.details.title}
+      </h4>
+      <h4 className="schedule_office">
+        {event.location}
       </h4>
     </React.Fragment>
   ),
@@ -56,6 +62,9 @@ const EventTypes = (event) => ({
       <h4 className="schedule_office">
         {event.details.title}
       </h4>
+      <h4 className="schedule_office">
+        {event.location}
+      </h4>
     </React.Fragment>
   ),
   ['Sprints']: (
@@ -66,6 +75,9 @@ const EventTypes = (event) => ({
       <h3 className="schedule_speaker">
         {event.details.description}
       </h3>
+      <h4 className="schedule_office">
+        {event.location}
+      </h4>
     </React.Fragment>
   ),
 });
