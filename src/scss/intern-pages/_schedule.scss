@@ -326,6 +326,16 @@
     color: rgba($background-light, 0.6);
   }
 
+  .schedule_location {
+    @extend .schedule_office;
+    @extend .d-flex;
+    @extend .align-items-center;
+    .material-icons {
+      font-size: inherit;
+      margin-right: 5px;
+    }
+  }
+
   .schedule_speaker {
     font-size: 14px;
     font-weight: 400;
