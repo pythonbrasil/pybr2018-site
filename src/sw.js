@@ -9,8 +9,11 @@ const initialCache = [
 .map(url => new Request(url, { redirect: 'follow' }));
 
 const isAsset = url => url.match(/(\/assets\/.*$|fonts\.(googleapis|gstatic))|\.css$|\.js$/);
+const isDocument = url => url.match(/\/documents\//);
 const isGoogleResource = url => url.match(/fonts|google/);
-const isTemplate = url => !isAsset(url) && !isGoogleResource(url) && !url.endsWith('/');
+const isTemplate = url =>
+  !isDocument(url) && !isAsset(url) && !isGoogleResource(url)
+  && !url.endsWith('/') && !url.endsWith('.json');
 
 function onInstall(event) {
   console.log('Service Worker registered');
@@ -58,7 +61,17 @@ function fetchAndCache({ event, cache }) {
 }
 
 function retrieveFromCache({ event, cache }) {
-  return cache.match(event.request).then(request => {
+  let request = event.request;
+  if (isTemplate(event.request.url)) {
+    const url = event.request.url + '/';
+
+    request = new Request(
+      url,
+      {credentials: !url.includes('fonts') ? event.request.credentials : 'omit', redirect: 'follow' }
+    );
+  }
+
+  return cache.match(request).then(request => {
     if (request) {
       console.log(`Resource ${request.url} retrieved from cache`);
       return request;
