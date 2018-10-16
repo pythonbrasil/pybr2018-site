@@ -330,9 +330,15 @@
     @extend .schedule_office;
     @extend .d-flex;
     @extend .align-items-center;
+    color: $python-yellow;
+    font-size: 11px;
+    text-transform: uppercase;
+
     .material-icons {
       font-size: inherit;
       margin-right: 5px;
+      font-size: 20px;
+      color: $light-blue;
     }
   }
 
