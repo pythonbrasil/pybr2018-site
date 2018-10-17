@@ -3,14 +3,14 @@ self.__precacheManifest = [
     "url": "/./assets/c467365a95dee9a9ca7dea82fc7677d2.png"
   },
   {
-    "url": "/main.296d3998f6ae3f1ee8b0.js"
+    "url": "/main.75c7d07d6407432aa832.js"
   },
   {
     "revision": "1672bd04948f10fbaa18f108d943f58a",
     "url": "/sw.js"
   },
   {
-    "url": "/./assets/ad35fa18a9bb7058faeeedb6d6d2a274.svg"
+    "url": "/./assets/d6214b39a07aa122734836abf5edd3ae.svg"
   },
   {
     "revision": "c237550baabb10b69a4664295fe988d4",
@@ -37,7 +37,7 @@ self.__precacheManifest = [
     "url": "/./documents/Plano_patrocinio_PythonBR_2018_V5.pdf"
   },
   {
-    "url": "/./assets/57f237244d6b7ad5a58c9d477b82014e.png"
+    "url": "/./assets/0a33d806f7656ecafe059a58b6c7e36c.png"
   },
   {
     "url": "/./assets/bccf71d1f7059651960c22c8acfa48b5.svg"
@@ -89,22 +89,25 @@ self.__precacheManifest = [
     "url": "/./assets/be9a8528c86f8622188cf6d9186209e5.png"
   },
   {
-    "url": "/./assets/d6214b39a07aa122734836abf5edd3ae.svg"
+    "url": "/./assets/c50d26edc73081c065df92f85414f5ee.jpg"
   },
   {
     "url": "/./assets/c382f1649fd2ece18d79f9cbb1d6badd.png"
   },
   {
-    "url": "/./assets/1040749f9476348718b8f6e0e20dc921.jpg"
+    "url": "/./assets/16501d09af955cfe8963e614bbdfd443.svg"
   },
   {
-    "url": "/./assets/19fd2f706aa097db8fadf629de04ac12.svg"
+    "url": "/./assets/242d582d169012952f39df817f46b817.png"
+  },
+  {
+    "url": "/./assets/57f237244d6b7ad5a58c9d477b82014e.png"
   },
   {
     "url": "/./assets/93c99659839080655f572ebeec7f74b4.jpg"
   },
   {
-    "url": "/./assets/242d582d169012952f39df817f46b817.png"
+    "url": "/./assets/ad35fa18a9bb7058faeeedb6d6d2a274.svg"
   },
   {
     "url": "/./assets/5cda9de029659fb6f704f6d6f6de986d.svg"
@@ -122,10 +125,10 @@ self.__precacheManifest = [
     "url": "/./assets/8b41e927c6b59dafee921aba3e326f76.svg"
   },
   {
-    "url": "/./assets/46e3f79e1df67592da7547bb7eb74e1d.svg"
+    "url": "/./assets/a262af624dbca4dc2228269c1428bff8.svg"
   },
   {
-    "url": "/./assets/a262af624dbca4dc2228269c1428bff8.svg"
+    "url": "/./assets/46e3f79e1df67592da7547bb7eb74e1d.svg"
   },
   {
     "url": "/./assets/69454a80c352c399644073b2d991d6ae.svg"
@@ -137,7 +140,7 @@ self.__precacheManifest = [
     "url": "/./assets/8a84d937145140ca758b360009fa410d.svg"
   },
   {
-    "url": "/./assets/1c14c20d9014206828a1a15ba7f2418b.ico"
+    "url": "/./assets/4429bbb1fadd88660033c60e25b0d6d0.svg"
   },
   {
     "url": "/./assets/659d2f554a53d7375c98c1ce2ff95db1.png"
@@ -146,12 +149,12 @@ self.__precacheManifest = [
     "url": "/./assets/676242ba1bd587206eb3800c0289d0e0.svg"
   },
   {
-    "url": "/./assets/4429bbb1fadd88660033c60e25b0d6d0.svg"
+    "url": "/./assets/1c14c20d9014206828a1a15ba7f2418b.ico"
   },
   {
-    "url": "/./assets/16501d09af955cfe8963e614bbdfd443.svg"
+    "url": "/./assets/19fd2f706aa097db8fadf629de04ac12.svg"
   },
   {
-    "url": "/./assets/0a33d806f7656ecafe059a58b6c7e36c.png"
+    "url": "/./assets/1040749f9476348718b8f6e0e20dc921.jpg"
   }
 ];
