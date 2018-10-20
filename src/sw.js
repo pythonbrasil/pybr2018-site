@@ -13,7 +13,7 @@ const isDocument = url => url.match(/\/documents\//);
 const isGoogleResource = url => url.match(/fonts|google/);
 const isTemplate = url =>
   !isDocument(url) && !isAsset(url) && !isGoogleResource(url)
-  && !url.endsWith('/') && !url.endsWith('.json');
+  && !url.endsWith('/') && !url.endsWith('.json') && !url.toLowerCase().endsWith('.md');
 
 function onInstall(event) {
   console.log('Service Worker registered');
