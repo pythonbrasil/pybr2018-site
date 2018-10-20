@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.c44cb798a8694baa30c21492cf1ed89b.js", "https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
+importScripts("/precache-manifest.8022f17c07faf9bce6cbdd7d5ab32b46.js", "https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
 
 const CACHE_VERSION = 'v10';
 const initialCache = [
@@ -15,7 +15,7 @@ const isDocument = url => url.match(/\/documents\//);
 const isGoogleResource = url => url.match(/fonts|google/);
 const isTemplate = url =>
   !isDocument(url) && !isAsset(url) && !isGoogleResource(url)
-  && !url.endsWith('/') && !url.endsWith('.json');
+  && !url.endsWith('/') && !url.endsWith('.json') && !url.toLowerCase().endsWith('.md');
 
 function onInstall(event) {
   console.log('Service Worker registered');
